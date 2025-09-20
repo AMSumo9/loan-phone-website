@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: "5 Tips to Improve Your Credit Score"
 date: 2025-01-20
 author: "The Loan Phone Team"
