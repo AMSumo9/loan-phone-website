@@ -1,7 +1,4 @@
-Here is the complete `index.md` file:
-
-```markdown
----
+***
 layout: default
 title: "Compare Loans FAST with No Impact | The Loan Phone"
 meta_description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Best personalised rates from 100+ lenders."
@@ -14,7 +11,7 @@ og_image: "/assets/images/loan-hero.jpg"
 twitter_title: "Compare Loans FAST | The Loan Phone"
 twitter_description: "Find the best loans personalised for you with zero impact on credit score."
 twitter_image: "/assets/images/loan-twitter.jpg"
----
+***
 
 <section class="bg-[var(--bg-accent)] py-20 md:py-32 transition-colors duration-300">
   <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
@@ -99,7 +96,7 @@ twitter_image: "/assets/images/loan-twitter.jpg"
 </section>
 
 <button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center"><i class="fas fa-arrow-up"></i></button>
-<div id="support-modal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 z-[1000] justify-center items-center">
+<div id="support-modal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 z- justify-center items-center">
   <div class="bg-[var(--bg-primary)] p-8 rounded-lg shadow-lg w-11/12 max-w-md text-center relative text-[var(--text-primary)]">
     <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 dark:hover:text-white"><i class="fas fa-times text-2xl"></i></button>
     <h3 class="text-2xl font-bold mb-4">Contact Support</h3>
@@ -109,4 +106,3 @@ twitter_image: "/assets/images/loan-twitter.jpg"
     </div>
   </div>
 </div>
-```
