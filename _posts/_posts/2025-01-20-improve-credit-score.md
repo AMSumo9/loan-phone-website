@@ -5,7 +5,7 @@ date: 2025-01-20
 author: "The Loan Phone Team"
 category: "Credit Tips"
 excerpt: "A healthy credit score is key to unlocking better loan rates. Here are five simple steps you can take today to boost your credit score and save money on future loans."
-featured_image: "credit-score-tips.jpg"
+featured_image: "credit-score-tips.png"
 meta_description: "Learn 5 proven strategies to improve your credit score quickly. Expert tips from The Loan Phone to help you qualify for better loan rates."
 meta_keywords: "credit score tips, improve credit rating, better loan rates, credit repair Australia"
 tags: ["credit score", "financial tips", "loan preparation"]
