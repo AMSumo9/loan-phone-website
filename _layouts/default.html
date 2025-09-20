@@ -4,25 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>{{ page.title | default: "The Loan Phone" }}</title>
+  <title>{{ page.title | default: site.seo.default_title }}</title>
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="{{ page.meta_description | default: 'Need a Car Loan? Find the best rates personalized for you.' }}" />
-  <meta name="keywords" content="{{ page.meta_keywords | default: 'Car Loans, Auto Loans, Best Rates' }}" />
-  <meta name="author" content="{{ page.meta_author | default: 'The Loan Phone Team' }}" />
+  <meta name="description" content="{{ page.meta_description | default: site.seo.default_description }}" />
+  <meta name="keywords" content="{{ page.meta_keywords | default: site.seo.default_keywords }}" />
+  <meta name="author" content="{{ page.meta_author | default: site.author | default: 'The Loan Phone Team' }}" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="{{ page.og_title | default: page.title | default: 'The Loan Phone' }}" />
-  <meta property="og:description" content="{{ page.og_description | default: page.meta_description | default: '' }}" />
+  <meta property="og:title" content="{{ page.og_title | default: page.title | default: site.seo.default_title }}" />
+  <meta property="og:description" content="{{ page.og_description | default: page.meta_description | default: site.seo.default_description }}" />
   <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
   <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:image" content="{{ page.og_image | default: '/assets/images/og-image.jpg' | absolute_url }}" />
+  <meta property="og:image" content="{{ page.og_image | default: site.seo.fallback_image | absolute_url }}" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ page.twitter_title | default: page.title }}" />
-  <meta name="twitter:description" content="{{ page.twitter_description | default: page.meta_description }}" />
-  <meta name="twitter:image" content="{{ page.twitter_image | default: page.og_image | default: '/assets/images/twitter-image.jpg' | absolute_url }}" />
+  <meta name="twitter:title" content="{{ page.twitter_title | default: page.title | default: site.seo.default_title }}" />
+  <meta name="twitter:description" content="{{ page.twitter_description | default: page.meta_description | default: site.seo.default_description }}" />
+  <meta name="twitter:image" content="{{ page.twitter_image | default: page.og_image | default: site.seo.fallback_image | absolute_url }}" />
 
   <!-- Fonts and External Resources -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -107,7 +107,8 @@
   </style>
 </head>
 
-<body class="bg-white text-gray-800">
+<body>
+  {% include content-validation.html %}
   {% include header.html %}
   
   <main>
@@ -115,6 +116,8 @@
   </main>
   
   {% include footer.html %}
+  
+  {% include site-health.html %}
   
   <script>
     document.addEventListener('DOMContentLoaded', () => {
