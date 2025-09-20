@@ -84,3 +84,16 @@ title: "Home"
     </div>
   </div>
 </section>
+
+<!-- Back to Top & Support Modal -->
+<button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center"><i class="fas fa-arrow-up"></i></button>
+<div id="support-modal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 z-[1000] justify-center items-center">
+  <div class="bg-[var(--bg-primary)] p-8 rounded-lg shadow-lg w-11/12 max-w-md text-center relative text-[var(--text-primary)]">
+    <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 dark:hover:text-white"><i class="fas fa-times text-2xl"></i></button>
+    <h3 class="text-2xl font-bold mb-4">Contact Support</h3>
+    <div class="flex flex-col space-y-4 mt-6">
+      <a href="mailto:loans@loanphone.com.au" class="w-full inline-flex justify-center items-center space-x-2 bg-brand-red text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-brand-red-dark"><i class="fas fa-envelope"></i><span>Email Us</span></a>
+      <a href="tel:+61440135626" class="w-full inline-flex justify-center items-center space-x-2 bg-gray-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-gray-700"><i class="fas fa-phone"></i><span>Call Us</span></a>
+    </div>
+  </div>
+</div>
