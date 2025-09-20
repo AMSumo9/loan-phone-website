@@ -1,0 +1,45 @@
+<!-- Loan Widget - Conditional Display -->
+{% if site.features.loan_widget_live %}
+  <!-- LIVE WIDGET - Only displays when feature flag is true -->
+  <div id="repaymentWidget"></div>
+  <script>
+  (function () {
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
+    });
+    if (params.partnerId) {
+      localStorage.setItem("externalPartnerId", params.partnerId);
+    } else {
+      localStorage.setItem("externalPartnerId", "{{ site.features.partner_id }}");
+    }
+    localStorage.setItem("sourceUrl", "{{ site.features.source_url }}");
+    localStorage.setItem("source", "{{ site.company.name }}");
+    localStorage.setItem("targetSystem", "SKYNET");
+    localStorage.setItem("countryCode", "AU");
+  })();
+  </script>
+  <script src="{{ site.features.widget_js }}"></script>
+  <link href="{{ site.features.widget_css }}" rel="stylesheet" />
+
+{% else %}
+  <!-- VISUAL PLACEHOLDER - Displays when widget is not live -->
+  <div class="bg-[var(--bg-primary)] p-4 sm:p-8 rounded-2xl shadow-2xl animate-on-scroll delay-3">
+    <h3 class="text-xl font-bold text-center mb-4 text-[var(--text-primary)]">What type of loan do you need?</h3>
+    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+      {% for loan in site.data.loan-types.main_categories %}
+        <!-- Non-clickable visual placeholder -->
+        <div class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg hover:shadow-md transition-shadow cursor-default">
+          <i class="{{ loan.icon }} text-3xl brand-red mb-2"></i>
+          <p class="font-semibold text-sm text-[var(--text-secondary)]">{{ loan.name }}</p>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <!-- Preview notice (only visible in placeholder mode) -->
+    <div class="mt-4 text-center">
+      <p class="text-xs text-[var(--text-secondary)] opacity-75">
+        <i class="fas fa-eye"></i> Preview Mode - Interactive widget will replace this when live
+      </p>
+    </div>
+  </div>
+{% endif %}
