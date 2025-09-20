@@ -52,21 +52,52 @@ defaults:
       type: "pages"
     values:
       layout: "default"
+      author: "The Loan Phone Team"
+      og_type: "website"
+      og_image: "/assets/images/og-default.jpg"
+      twitter_image: "/assets/images/twitter-default.jpg"
+      meta_author: "The Loan Phone Team"
   - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
+      author: "The Loan Phone Team"
+      og_type: "article"
   - scope:
       path: ""
       type: "services"
     values:
       layout: "service"
+      author: "The Loan Phone Team"
+      og_type: "website"
+      category: "loan-services"
   - scope:
       path: ""
       type: "locations"
     values:
       layout: "location"
+      author: "The Loan Phone Team"
+      og_type: "website"
+      category: "locations"
+
+# Site-wide SEO defaults
+seo:
+  default_title: "The Loan Phone - Compare Loans Fast"
+  default_description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score."
+  default_keywords: "loans, car loans, home loans, personal loans, business loans, australia"
+  fallback_image: "/assets/images/og-default.jpg"
+
+# Content validation rules (for future reference)
+validation:
+  required_fields:
+    pages: ["title", "meta_description"]
+    posts: ["title", "meta_description", "date"]
+    services: ["title", "meta_description", "service_type"]
+  max_lengths:
+    title: 60
+    meta_description: 160
+    excerpt: 300
 
 # SEO and social media defaults
 author: "The Loan Phone Team"
