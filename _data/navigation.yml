@@ -1,16 +1,15 @@
 # Navigation Data
-# Centralizes all navigation menus for consistent use across the site
-
 # Main header navigation
 main:
   - name: "How It Works"
     url: "/#how-it-works"
     type: "anchor"
-  
+  - name: "Services"
+    url: "/services/"
+    type: "page"
   - name: "Blog"
     url: "/blog/"
     type: "page"
-  
   - name: "About Us"
     url: "/about/"
     type: "page"
@@ -20,50 +19,13 @@ footer:
   company:
     - name: "About Us"
       url: "/about/"
-    
+    - name: "Services"
+      url: "/services/"
     - name: "Blog"
       url: "/blog/"
-    
     - name: "Privacy Policy"
       url: "/privacy/"
-    
     - name: "Support"
       url: "#"
       action: "modal"
       target: "support-modal"
-
-# Future navigation sections (for when you add these pages)
-future:
-  services:
-    - name: "All Services"
-      url: "/services/"
-    
-    - name: "Calculator"
-      url: "/calculator/"
-  
-  locations:
-    - name: "Locations"
-      url: "/locations/"
-    
-    - name: "Service Areas"
-      url: "/service-areas/"
-
-# Breadcrumb patterns for different page types
-breadcrumbs:
-  service_page:
-    - name: "Home"
-      url: "/"
-    - name: "Services"
-      url: "/services/"
-  
-  location_page:
-    - name: "Home"
-      url: "/"
-    - name: "Locations"
-      url: "/locations/"
-  
-  blog_post:
-    - name: "Home"
-      url: "/"
-    - name: "Blog"
-      url: "/blog/"
