@@ -1,6 +1,6 @@
 # Site settings
 title: "The Loan Phone"
-description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Best personalised rates from 100+ lenders."
+description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Australia's trusted loan comparison service."
 baseurl: "/loan-phone-website"
 url: "https://amsumo9.github.io"
 
@@ -14,11 +14,11 @@ contact:
 company:
   name: "The Loan Phone"
   tagline: "Your trusted partner in finding the perfect loan"
-  legal_notice: "It is important for you to know that any information provided to you by Loan Phone (loanphone.com.au) is not Financial or Credit Advice"
+  legal_notice: "It is important for you to know that any information provided to you by Loan Phone (loanphone.com.au) is not Financial or Credit Advice. You must read the Privacy Policy."
 
 # Feature flags
 features:
-  loan_widget_live: false  # Set to true when ready to go live
+  loan_widget_live: false # Set to true when ready to go live
   partner_id: "a996e580-c961-4586-a00c-9c86968f172d"
   source_url: "https://www.loanphone.com.au"
   widget_js: "https://loanoptions-widget.s3.ap-southeast-2.amazonaws.com/v2/main/js/main.js"
@@ -29,20 +29,17 @@ markdown: kramdown
 highlighter: rouge
 permalink: pretty
 
-# Plugin settings
-plugins:
-  - jekyll-sitemap
-  - jekyll-feed
+# Blog settings
+paginate: 6
+paginate_path: "/blog/page:num/"
 
-# Collections for future content organization
+# Collections
 collections:
   services:
     output: true
     permalink: /:name/
-  locations:
-    output: true
-    permalink: /locations/:name/
   posts:
+    output: true
     permalink: /blog/:year/:month/:day/:title/
 
 # Default settings for different content types
@@ -54,9 +51,14 @@ defaults:
       layout: "default"
       author: "The Loan Phone Team"
       og_type: "website"
-      og_image: "/assets/images/og-default.jpg"
-      twitter_image: "/assets/images/twitter-default.jpg"
-      meta_author: "The Loan Phone Team"
+  - scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "services"
+      author: "The Loan Phone Team"
+      og_type: "website"
+      category: "loan-services"
   - scope:
       path: ""
       type: "posts"
@@ -64,53 +66,20 @@ defaults:
       layout: "post"
       author: "The Loan Phone Team"
       og_type: "article"
-  - scope:
-      path: ""
-      type: "services"
-    values:
-      layout: "service"
-      author: "The Loan Phone Team"
-      og_type: "website"
-      category: "loan-services"
-  - scope:
-      path: ""
-      type: "locations"
-    values:
-      layout: "location"
-      author: "The Loan Phone Team"
-      og_type: "website"
-      category: "locations"
+      category: "Financial Tips"
 
-# Site-wide SEO defaults
+# SEO defaults
 seo:
   default_title: "The Loan Phone - Compare Loans Fast"
-  default_description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score."
-  default_keywords: "loans, car loans, home loans, personal loans, business loans, australia"
+  default_description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Get pre-approved in minutes."
+  default_keywords: "loans, car loans, home loans, personal loans, business loans, australia, loan comparison, finance"
   fallback_image: "/assets/images/og-default.jpg"
 
-# Content validation rules (for future reference)
-validation:
-  required_fields:
-    pages: ["title", "meta_description"]
-    posts: ["title", "meta_description", "date"]
-    services: ["title", "meta_description", "service_type"]
-  max_lengths:
-    title: 60
-    meta_description: 160
-    excerpt: 300
-
-# SEO and social media defaults
-author: "The Loan Phone Team"
-twitter:
-  username: loanphone
-facebook:
-  app_id: 
-  publisher: 
-social:
-  name: The Loan Phone
-  links:
-    - https://twitter.com/loanphone
-    - https://facebook.com/loanphone
+# Plugins (GitHub Pages compatible only)
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
 
 # Exclude from processing
 exclude:
@@ -122,3 +91,26 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
   - README.md
+  - LICENSE
+  - CHANGELOG.md
+
+# Include files
+include:
+  - _pages
+
+# Sass settings
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Site navigation (optional - for future use)
+navigation:
+  main:
+    - name: "How It Works"
+      url: "/#how-it-works"
+    - name: "Services" 
+      url: "/services/"
+    - name: "Blog"
+      url: "/blog/"
+    - name: "About Us"
+      url: "/about/"
