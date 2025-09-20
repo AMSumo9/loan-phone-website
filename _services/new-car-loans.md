@@ -1,5 +1,5 @@
 ---
-layout: service
+layout: services
 title: "New Car Loans | The Loan Phone"
 subtitle: "Drive your dream car today with competitive new car finance"
 meta_description: "Compare new car loans from Australia's leading lenders. Get competitive rates, flexible terms, and fast approval for your new vehicle purchase."
