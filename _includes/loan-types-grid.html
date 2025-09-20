@@ -1,14 +1,12 @@
-<!-- Loan Types Grid -->
+<!-- Loan Types Grid - Jekyll 3.x Compatible -->
 <div class="grid grid-cols-2 gap-x-8">
   <ul class="text-gray-400 space-y-2">
-    {% assign first_half = site.data.loan-types.all_types | slice: 0, 7 %}
-    {% for loan in first_half %}
+    {% for loan in site.data.loan_types.all_types limit:7 %}
       <li><a href="{{ site.baseurl }}{{ loan.url }}" class="hover:text-white">{{ loan.name }}</a></li>
     {% endfor %}
   </ul>
   <ul class="text-gray-400 space-y-2">
-    {% assign second_half = site.data.loan-types.all_types | slice: 7, 7 %}
-    {% for loan in second_half %}
+    {% for loan in site.data.loan_types.all_types offset:7 %}
       <li><a href="{{ site.baseurl }}{{ loan.url }}" class="hover:text-white">{{ loan.name }}</a></li>
     {% endfor %}
   </ul>
