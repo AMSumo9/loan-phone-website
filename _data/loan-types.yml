@@ -1,0 +1,101 @@
+# Loan Types Data
+# This file centralizes all loan type information for consistent use across the site
+
+# Main loan categories for homepage selector
+main_categories:
+  - name: "Home"
+    url: "/home-loans/"
+    icon: "fas fa-home"
+    description: "Home loans and mortgages"
+  
+  - name: "Car"
+    url: "/new-car-loans/"
+    icon: "fas fa-car"
+    description: "New and used car loans"
+  
+  - name: "Equipment"
+    url: "/equipment-finance/"
+    icon: "fas fa-tractor"
+    description: "Equipment and machinery finance"
+  
+  - name: "Personal"
+    url: "/personal-loans/"
+    icon: "fas fa-umbrella-beach"
+    description: "Personal loans for any purpose"
+  
+  - name: "Business"
+    url: "/business-loans/"
+    icon: "fas fa-store"
+    description: "Business loans and finance"
+  
+  - name: "Other Money"
+    url: "/other-loans/"
+    icon: "fas fa-money-bill-wave"
+    description: "Other financial products"
+
+# Complete loan types for footer and listings
+all_types:
+  # Vehicle loans
+  - name: "New Car Loans"
+    url: "/new-car-loans/"
+    category: "vehicle"
+    popular: true
+  
+  - name: "Used Car Loans"
+    url: "/used-car-loans/"
+    category: "vehicle"
+    popular: true
+  
+  - name: "Truck Loans"
+    url: "/truck-loans/"
+    category: "vehicle"
+  
+  - name: "Luxury Car Loans"
+    url: "/luxury-car-loans/"
+    category: "vehicle"
+
+  # Property loans
+  - name: "Home Loans"
+    url: "/home-loans/"
+    category: "property"
+    popular: true
+  
+  - name: "Home Renovations"
+    url: "/home-renovation-loans/"
+    category: "property"
+  
+  - name: "Refinance"
+    url: "/refinance/"
+    category: "property"
+
+  # Business loans
+  - name: "Business Loans"
+    url: "/business-loans/"
+    category: "business"
+    popular: true
+  
+  - name: "Equipment Finance"
+    url: "/equipment-finance/"
+    category: "business"
+  
+  - name: "Asset Finance"
+    url: "/asset-finance/"
+    category: "business"
+  
+  - name: "ABN Holder Loans"
+    url: "/abn-holder-loans/"
+    category: "business"
+
+  # Personal loans
+  - name: "Personal Loans"
+    url: "/personal-loans/"
+    category: "personal"
+    popular: true
+  
+  - name: "Green Loans (Eco)"
+    url: "/green-loans/"
+    category: "personal"
+  
+  - name: "Short-Term Loans"
+    url: "/short-term-loans/"
+    category: "personal"
