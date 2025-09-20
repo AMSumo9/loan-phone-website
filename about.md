@@ -3,14 +3,6 @@ layout: default
 title: "About Us | Our Mission to Simplify Finance | The Loan Phone"
 meta_description: "Learn about The Loan Phone's mission. We're dedicated to making loan comparisons simple, transparent, and stress-free for all Australians."
 meta_keywords: "about us, our mission, finance comparison, loan experts, australian loans"
-meta_author: "The Loan Phone Team"
-og_title: "About Us | Our Mission to Simplify Finance | The Loan Phone"
-og_description: "Learn about The Loan Phone's mission. We're dedicated to making loan comparisons simple, transparent, and stress-free for all Australians."
-og_type: "website"
-og_image: "/assets/images/about-og.jpg"
-twitter_title: "About Us | Our Mission to Simplify Finance | The Loan Phone"
-twitter_description: "Learn about The Loan Phone's mission. We're dedicated to making loan comparisons simple, transparent, and stress-free for all Australians."
-twitter_image: "/assets/images/about-twitter.jpg"
 permalink: /about/
 ---
 
@@ -27,11 +19,7 @@ permalink: /about/
     <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <!-- Left Column: Image -->
         <div class="animate-on-scroll delay-1">
-            {% include safe-image.html 
-              src="/assets/images/about-hero.png" 
-              alt="A happy customer smiling after securing a loan" 
-              class="rounded-lg shadow-2xl w-full h-auto aspect-square object-cover"
-              fallback="/assets/images/placeholder-person.jpg" %}
+            <img src="{{ site.baseurl }}/assets/images/about-hero.png" alt="A happy customer smiling after securing a loan" class="rounded-lg shadow-2xl w-full h-auto aspect-square object-cover">
         </div>
         <!-- Right Column: Text -->
         <div class="animate-on-scroll">
