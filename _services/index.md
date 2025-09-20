@@ -6,6 +6,9 @@ meta_keywords: "loan services, car loans, home loans, personal loans, business l
 permalink: /services/
 ---
 
+<!-- Services Index Content with proper spacing -->
+<div class="container mx-auto px-6 py-8">
+
 # Our Loan Services
 
 <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
@@ -204,3 +207,6 @@ permalink: /services/
         </button>
     </div>
 </div>
+
+</div>
+<!-- End container -->
