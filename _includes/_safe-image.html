@@ -1,0 +1,15 @@
+<!-- Safe Image Include - Provides fallback for missing images -->
+<!-- Usage: {% include safe-image.html src="/path/to/image.jpg" alt="Description" class="css-classes" fallback="/path/to/fallback.jpg" %} -->
+
+{% assign image_src = include.src | default: site.seo.fallback_image %}
+{% assign image_alt = include.alt | default: "Image" %}
+{% assign image_class = include.class | default: "" %}
+{% assign fallback_src = include.fallback | default: site.seo.fallback_image %}
+
+<img 
+  src="{{ site.baseurl }}{{ image_src }}" 
+  alt="{{ image_alt }}" 
+  class="{{ image_class }}"
+  onerror="this.onerror=null; this.src='{{ site.baseurl }}{{ fallback_src }}'; this.alt='{{ image_alt }} (fallback image)';"
+  loading="lazy"
+/>
