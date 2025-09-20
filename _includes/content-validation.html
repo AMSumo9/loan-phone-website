@@ -1,0 +1,31 @@
+<!-- Content Validation - Checks for missing required fields in development -->
+{% if jekyll.environment == "development" %}
+  {% assign missing_fields = "" %}
+  
+  <!-- Check for required page fields -->
+  {% unless page.title %}
+    {% assign missing_fields = missing_fields | append: "title, " %}
+  {% endunless %}
+  
+  {% unless page.meta_description %}
+    {% assign missing_fields = missing_fields | append: "meta_description, " %}
+  {% endunless %}
+  
+  <!-- Check title length -->
+  {% if page.title.size > 60 %}
+    {% assign missing_fields = missing_fields | append: "title too long ({{ page.title.size }} chars), " %}
+  {% endif %}
+  
+  <!-- Check meta description length -->
+  {% if page.meta_description.size > 160 %}
+    {% assign missing_fields = missing_fields | append: "meta_description too long ({{ page.meta_description.size }} chars), " %}
+  {% endif %}
+  
+  <!-- Display validation warnings if any -->
+  {% if missing_fields != "" %}
+    <div style="position: fixed; top: 0; left: 0; right: 0; background: #f59e0b; color: white; padding: 10px; text-align: center; z-index: 9999; font-size: 14px;">
+      <strong>⚠️ Content Validation:</strong> Missing or invalid fields: {{ missing_fields | remove_last: ", " }}
+      <button onclick="this.parentElement.style.display='none'" style="float: right; background: none; border: none; color: white; cursor: pointer;">✕</button>
+    </div>
+  {% endif %}
+{% endif %}
