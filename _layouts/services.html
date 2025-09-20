@@ -1,241 +1,137 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- SEO Meta Tags -->
-    <title>{{ page.title | default: site.seo.default_title }}</title>
-    <meta name="description" content="{{ page.meta_description | default: site.seo.default_description }}">
-    <meta name="keywords" content="{{ page.meta_keywords | default: site.seo.default_keywords }}">
-    <meta name="author" content="{{ page.author | default: 'The Loan Phone Team' }}">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="{{ page.og_type | default: 'website' }}">
-    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-    <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:description" content="{{ page.meta_description | default: site.seo.default_description }}">
-    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/{{ page.hero_image | default: 'og-default.jpg' }}">
-    
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-    <meta property="twitter:title" content="{{ page.title | default: site.title }}">
-    <meta property="twitter:description" content="{{ page.meta_description | default: site.seo.default_description }}">
-    <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/{{ page.hero_image | default: 'og-default.jpg' }}">
-    
-    <!-- Canonical URL -->
-    <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
-    
-    <!-- CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Custom CSS Variables -->
-    <style>
-        :root {
-            --primary-red: #DC2626;
-            --primary-red-dark: #B91C1C;
-            --primary-red-light: #F87171;
-        }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .bg-primary {
-            background-color: var(--primary-red) !important;
-        }
-        
-        .text-primary {
-            color: var(--primary-red) !important;
-        }
-        
-        .border-primary {
-            border-color: var(--primary-red) !important;
-        }
-        
-        .hero-gradient {
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--primary-red-dark) 100%);
-        }
-    </style>
-</head>
-<body class="bg-gray-50">
-    <!-- Header -->
-    {% include header.html %}
-    
-    <!-- Hero Section for Service Pages -->
-    {% if page.layout == 'services' and page.url != '/services/' %}
-    <section class="hero-gradient text-white py-16">
-        <div class="container mx-auto px-4">
-            <div class="max-w-4xl mx-auto text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                    {{ page.title | replace: ' | The Loan Phone', '' }}
-                </h1>
-                {% if page.subtitle %}
-                <p class="text-xl md:text-2xl mb-6 text-red-100">
-                    {{ page.subtitle }}
-                </p>
-                {% endif %}
-                {% if page.hero_highlight %}
-                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 inline-block">
-                    <p class="text-lg font-semibold">{{ page.hero_highlight }}</p>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-    </section>
-    {% endif %}
-    
-    <!-- Main Content -->
-    <main class="py-8">
-        <div class="container mx-auto px-4">
-            {% if page.layout == 'services' and page.url != '/services/' %}
-            <!-- Individual Service Page Layout -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Main Content -->
-                <div class="lg:col-span-2">
-                    <div class="bg-white rounded-lg shadow-lg p-8">
-                        {{ content }}
-                    </div>
-                </div>
-                
-                <!-- Sidebar -->
-                <div class="lg:col-span-1">
-                    <!-- Quick Facts -->
-                    {% if page.quick_facts and page.quick_facts.size > 0 %}
-                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">
-                            <i class="fas fa-info-circle mr-2"></i>Quick Facts
-                        </h3>
-                        <ul class="space-y-2">
-                            {% for fact in page.quick_facts %}
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1 flex-shrink-0"></i>
-                                <span>{{ fact }}</span>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-                    
-                    <!-- Key Benefits -->
-                    {% if page.key_benefits and page.key_benefits.size > 0 %}
-                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
-                        <h3 class="text-xl font-bold text-primary mb-4">
-                            <i class="fas fa-star mr-2"></i>Key Benefits
-                        </h3>
-                        <ul class="space-y-2">
-                            {% for benefit in page.key_benefits %}
-                            <li class="flex items-start">
-                                <i class="fas fa-arrow-right text-primary mr-2 mt-1 flex-shrink-0"></i>
-                                <span>{{ benefit }}</span>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-                    
-                    <!-- Contact CTA -->
-                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white rounded-lg p-6">
-                        <h3 class="text-xl font-bold mb-4">Ready to Get Started?</h3>
-                        <p class="mb-4">Get personalized loan options in minutes</p>
-                        <div class="space-y-3">
-                            <a href="tel:{{ site.contact.phone }}" class="block w-full bg-white text-red-600 text-center py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-200">
-                                <i class="fas fa-phone mr-2"></i>Call {{ site.contact.phone_display }}
-                            </a>
-                            <button onclick="openSupportModal()" class="block w-full bg-transparent border-2 border-white text-white py-3 rounded-lg font-semibold hover:bg-white/10 transition duration-200">
-                                <i class="fas fa-envelope mr-2"></i>Get Free Quote
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% else %}
-            <!-- Services Index Page Layout -->
-            <div class="max-w-6xl mx-auto">
-                {{ content }}
-            </div>
-            {% endif %}
-        </div>
-    </main>
-    
-    <!-- Footer -->
-    {% include footer.html %}
-    
-    <!-- Back to Top Button -->
-    {% include back-to-top.html %}
-    
-    <!-- Support Modal -->
-    {% include support-modal.html %}
-    
-    <!-- JavaScript -->
-    <script>
-        // Support Modal Functions
-        function openSupportModal() {
-            document.getElementById('support-modal').classList.remove('hidden');
-            document.getElementById('support-modal').classList.add('flex');
-        }
-        
-        function closeSupportModal() {
-            document.getElementById('support-modal').classList.add('hidden');
-            document.getElementById('support-modal').classList.remove('flex');
-        }
-        
-        // Close modal when clicking outside
-        document.addEventListener('click', function(event) {
-            const modal = document.getElementById('support-modal');
-            if (event.target === modal) {
-                closeSupportModal();
-            }
-        });
-        
-        // Escape key to close modal
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeSupportModal();
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // Back to top functionality
-        window.addEventListener('scroll', function() {
-            const backToTop = document.getElementById('back-to-top');
-            if (backToTop) {
-                if (window.pageYOffset > 300) {
-                    backToTop.style.display = 'block';
-                } else {
-                    backToTop.style.display = 'none';
-                }
-            }
-        });
-        
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-    </script>
-</body>
-</html>
+---
+layout: services
+title: "Loan Services | The Loan Phone"
+meta_description: "Compare car loans, home loans, personal loans, business loans and more. Find the perfect loan solution with competitive rates and expert guidance from The Loan Phone."
+meta_keywords: "loan services, car loans, home loans, personal loans, business loans, loan comparison, australia, competitive rates"
+permalink: /services/
+---
+
+# Our Loan Services
+
+At The Loan Phone, we specialize in helping Australians find the perfect loan solution. Whether you're buying a car, purchasing a home, growing your business, or need personal finance, our expert team compares rates and terms from multiple lenders to find you the best deal.
+
+## How Our Service Works
+
+1. **Tell Us What You Need** - Share your loan requirements with our expert team
+2. **We Do the Hard Work** - We compare rates and terms from multiple lenders
+3. **Get Your Best Options** - Receive tailored loan recommendations that suit your situation
+4. **Make Your Choice** - Choose the loan that works best for you
+
+---
+
+## Featured Services
+
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+  <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+    <div class="flex items-center mb-4">
+      <i class="fas fa-car text-3xl text-red-600 mr-4"></i>
+      <h3 class="text-xl font-bold text-red-800">New Car Loans</h3>
+    </div>
+    <p class="text-gray-700 mb-4">Get competitive rates and flexible terms for your new vehicle purchase</p>
+    <a href="{{ site.baseurl }}/new-car-loans/" class="inline-flex items-center text-red-600 font-semibold hover:text-red-800 transition duration-200">
+      Learn More <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+  </div>
+
+  <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+    <div class="flex items-center mb-4">
+      <i class="fas fa-home text-3xl text-green-600 mr-4"></i>
+      <h3 class="text-xl font-bold text-green-800">Home Loans</h3>
+    </div>
+    <p class="text-gray-700 mb-4">Find competitive mortgage rates for your home purchase or refinance</p>
+    <a href="{{ site.baseurl }}/home-loans/" class="inline-flex items-center text-green-600 font-semibold hover:text-green-800 transition duration-200">
+      Learn More <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+  </div>
+
+  <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
+    <div class="flex items-center mb-4">
+      <i class="fas fa-briefcase text-3xl text-purple-600 mr-4"></i>
+      <h3 class="text-xl font-bold text-purple-800">Business Loans</h3>
+    </div>
+    <p class="text-gray-700 mb-4">Grow your business with tailored finance solutions</p>
+    <a href="{{ site.baseurl }}/business-loans/" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-800 transition duration-200">
+      Learn More <i class="fas fa-arrow-right ml-2"></i>
+    </a>
+  </div>
+</div>
+
+---
+
+## All Services by Category
+
+### Home & Property Finance
+<div class="bg-red-50 p-6 rounded-lg mb-6 border-l-4 border-red-500">
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <li><a href="{{ site.baseurl }}/home-loans/" class="text-red-700 hover:text-red-900 font-medium flex items-center"><i class="fas fa-home mr-2"></i> Home Loans</a></li>
+    <li><a href="{{ site.baseurl }}/home-renovation-loans/" class="text-red-700 hover:text-red-900 font-medium flex items-center"><i class="fas fa-hammer mr-2"></i> Home Renovation Loans</a></li>
+    <li><a href="{{ site.baseurl }}/refinance/" class="text-red-700 hover:text-red-900 font-medium flex items-center"><i class="fas fa-sync-alt mr-2"></i> Refinance</a></li>
+  </ul>
+</div>
+
+### Vehicle Finance
+<div class="bg-green-50 p-6 rounded-lg mb-6 border-l-4 border-green-500">
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <li><a href="{{ site.baseurl }}/new-car-loans/" class="text-green-700 hover:text-green-900 font-medium flex items-center"><i class="fas fa-car mr-2"></i> New Car Loans</a></li>
+    <li><a href="{{ site.baseurl }}/used-car-loans/" class="text-green-700 hover:text-green-900 font-medium flex items-center"><i class="fas fa-car mr-2"></i> Used Car Loans</a></li>
+    <li><a href="{{ site.baseurl }}/luxury-car-loans/" class="text-green-700 hover:text-green-900 font-medium flex items-center"><i class="fas fa-car-side mr-2"></i> Luxury Car Loans</a></li>
+    <li><a href="{{ site.baseurl }}/truck-loans/" class="text-green-700 hover:text-green-900 font-medium flex items-center"><i class="fas fa-truck mr-2"></i> Truck Loans</a></li>
+  </ul>
+</div>
+
+### Business Finance
+<div class="bg-purple-50 p-6 rounded-lg mb-6 border-l-4 border-purple-500">
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <li><a href="{{ site.baseurl }}/business-loans/" class="text-purple-700 hover:text-purple-900 font-medium flex items-center"><i class="fas fa-briefcase mr-2"></i> Business Loans</a></li>
+    <li><a href="{{ site.baseurl }}/equipment-finance/" class="text-purple-700 hover:text-purple-900 font-medium flex items-center"><i class="fas fa-tractor mr-2"></i> Equipment Finance</a></li>
+    <li><a href="{{ site.baseurl }}/asset-finance/" class="text-purple-700 hover:text-purple-900 font-medium flex items-center"><i class="fas fa-chart-line mr-2"></i> Asset Finance</a></li>
+    <li><a href="{{ site.baseurl }}/abn-holder-loans/" class="text-purple-700 hover:text-purple-900 font-medium flex items-center"><i class="fas fa-id-card mr-2"></i> ABN Holder Loans</a></li>
+  </ul>
+</div>
+
+### Personal Finance
+<div class="bg-orange-50 p-6 rounded-lg mb-6 border-l-4 border-orange-500">
+  <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
+    <li><a href="{{ site.baseurl }}/personal-loans/" class="text-orange-700 hover:text-orange-900 font-medium flex items-center"><i class="fas fa-umbrella-beach mr-2"></i> Personal Loans</a></li>
+    <li><a href="{{ site.baseurl }}/short-term-loans/" class="text-orange-700 hover:text-orange-900 font-medium flex items-center"><i class="fas fa-clock mr-2"></i> Short-Term Loans</a></li>
+  </ul>
+</div>
+
+### Specialty Finance
+<div class="bg-teal-50 p-6 rounded-lg mb-6 border-l-4 border-teal-500">
+  <ul>
+    <li><a href="{{ site.baseurl }}/green-loans/" class="text-teal-700 hover:text-teal-900 font-medium flex items-center"><i class="fas fa-leaf mr-2"></i> Green Loans (Eco)</a></li>
+  </ul>
+</div>
+
+---
+
+## Complete Service Directory
+
+<div class="bg-gray-50 p-6 rounded-lg">
+  <h3 class="text-xl font-bold mb-4">All Available Services</h3>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+    {% for loan_type in site.data.loan_types.all_types %}
+    <a href="{{ site.baseurl }}{{ loan_type.url }}" class="block p-3 bg-white rounded hover:bg-red-50 hover:text-red-700 transition duration-200 shadow-sm hover:shadow-md">
+      {{ loan_type.name }}
+    </a>
+    {% endfor %}
+  </div>
+</div>
+
+---
+
+## Ready to Get Started?
+
+<div class="bg-gradient-to-r from-red-600 to-red-800 text-white p-8 rounded-lg text-center my-8">
+  <h3 class="text-2xl font-bold mb-4">Ready to Compare Loans?</h3>
+  <p class="text-lg mb-6">Get personalized loan options in minutes</p>
+  <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+    <a href="tel:{{ site.contact.phone }}" class="inline-block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-200">
+      Call {{ site.contact.phone_display }}
+    </a>
+    <button onclick="openSupportModal()" class="inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10 transition duration-200">
+      Get Free Quote
+    </button>
+  </div>
+</div>
