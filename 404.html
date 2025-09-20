@@ -1,0 +1,52 @@
+---
+layout: default
+title: "Page Not Found | The Loan Phone"
+meta_description: "The page you're looking for couldn't be found. Return to The Loan Phone homepage to find the best loan options for you."
+meta_keywords: "404, page not found, loan comparison, car loans, home loans"
+permalink: /404.html
+sitemap: false
+---
+
+<section class="bg-[var(--bg-accent)] py-20 md:py-32 transition-colors duration-300">
+  <div class="container mx-auto px-6 text-center">
+    <div class="animate-on-scroll">
+      <h1 class="text-6xl md:text-8xl font-extrabold text-[var(--text-primary)] mb-4">404</h1>
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-4">Page Not Found</h2>
+      <p class="text-xl text-[var(--text-secondary)] max-w-2xl mx-auto mb-8">
+        Sorry, we couldn't find the page you're looking for. Let's get you back on track to finding the perfect loan.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="{{ site.baseurl }}/" class="inline-block bg-brand-red text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:bg-brand-red-dark transition-transform duration-300 transform hover:scale-105">
+          Back to Homepage
+        </a>
+        <a href="{{ site.baseurl }}/#loan-selector" class="inline-block bg-gray-600 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:bg-gray-700 transition-transform duration-300 transform hover:scale-105">
+          Find a Loan
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-[var(--bg-secondary)] transition-colors duration-300">
+  <div class="container mx-auto px-6">
+    <h3 class="text-2xl font-bold text-center mb-8 animate-on-scroll">Popular Loan Types</h3>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 animate-on-scroll delay-1">
+      <a href="{{ site.baseurl }}/new-car-loans/" class="text-center p-6 bg-[var(--bg-primary)] rounded-lg hover:shadow-md transition-shadow">
+        <i class="fas fa-car text-3xl brand-red mb-3"></i>
+        <p class="font-semibold text-[var(--text-secondary)]">New Car Loans</p>
+      </a>
+      <a href="{{ site.baseurl }}/home-loans/" class="text-center p-6 bg-[var(--bg-primary)] rounded-lg hover:shadow-md transition-shadow">
+        <i class="fas fa-home text-3xl brand-red mb-3"></i>
+        <p class="font-semibold text-[var(--text-secondary)]">Home Loans</p>
+      </a>
+      <a href="{{ site.baseurl }}/personal-loans/" class="text-center p-6 bg-[var(--bg-primary)] rounded-lg hover:shadow-md transition-shadow">
+        <i class="fas fa-umbrella-beach text-3xl brand-red mb-3"></i>
+        <p class="font-semibold text-[var(--text-secondary)]">Personal Loans</p>
+      </a>
+      <a href="{{ site.baseurl }}/business-loans/" class="text-center p-6 bg-[var(--bg-primary)] rounded-lg hover:shadow-md transition-shadow">
+        <i class="fas fa-store text-3xl brand-red mb-3"></i>
+        <p class="font-semibold text-[var(--text-secondary)]">Business Loans</p>
+      </a>
+    </div>
+  </div>
+</section>
