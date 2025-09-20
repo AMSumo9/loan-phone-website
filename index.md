@@ -118,7 +118,3 @@ twitter_image: "/assets/images/loan-twitter.jpg"
     </div>
   </div>
 </section>
-
-<button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center">
-  <i class="fas fa-arrow-up"></i>
-</button>
