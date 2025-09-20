@@ -1,5 +1,5 @@
 ---
-layout: services
+layout: default
 title: "Loan Services | The Loan Phone"
 meta_description: "Compare car loans, home loans, personal loans, business loans and more. Find the perfect loan solution with Australia's trusted loan comparison service."
 meta_keywords: "loan services, car loans, home loans, personal loans, business loans, loan comparison, australia"
