@@ -1,6 +1,16 @@
 ---
 layout: default
-title: "Home"
+title: "Compare Loans FAST with No Impact | The Loan Phone"
+meta_description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Best personalised rates from 100+ lenders."
+meta_keywords: "car loans, personal loans, home loans, investment loans, business loans, refinance, best loan rates"
+meta_author: "The Loan Phone Team"
+og_title: "Compare Loans FAST | The Loan Phone"
+og_description: "Get personalised best loan rates from 100+ lenders with no credit score impact."
+og_type: "website"
+og_image: "/assets/images/loan-hero.jpg"
+twitter_title: "Compare Loans FAST | The Loan Phone"
+twitter_description: "Find the best loans personalised for you with zero impact on credit score."
+twitter_image: "/assets/images/loan-twitter.jpg"
 ---
 
 <section class="bg-[var(--bg-accent)] py-20 md:py-32 transition-colors duration-300">
