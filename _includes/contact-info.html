@@ -1,0 +1,11 @@
+<!-- Contact Information Include -->
+<div class="flex flex-col space-y-4">
+  <a href="mailto:{{ site.contact.email }}" class="w-full inline-flex justify-center items-center space-x-2 bg-brand-red text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-brand-red-dark">
+    <i class="fas fa-envelope"></i>
+    <span>Email Us</span>
+  </a>
+  <a href="tel:{{ site.contact.phone }}" class="w-full inline-flex justify-center items-center space-x-2 bg-gray-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-gray-700">
+    <i class="fas fa-phone"></i>
+    <span>Call {{ site.contact.phone_display }}</span>
+  </a>
+</div>
