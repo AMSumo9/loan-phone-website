@@ -1,43 +1,28 @@
 ---
-layout: none
+layout: default
 title: "Home"
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Loan Phone - Home</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Add any other head content from your original home.html here -->
-</head>
-<body>
-  <header>
-    <h1 style="color:red; font-weight:bold; font-size:2rem;">THE LOAN PHONE</h1>
-    <nav>
-      <a href="/blog/">Blog</a>
-    </nav>
-  </header>
 
-  <main>
-    <h2>Only 3 Quick & Easy Steps</h2>
+<!-- Paste homepage specific HTML content here, inside this markdown -->
 
-    <h3>1. Click & Share</h3>
-    <p>Click to Pick a Loan Type - Share some info about You.</p>
+<div class="bg-pink-100 p-6 rounded-lg shadow-md mb-12">
+  <h1 class="text-4xl font-bold mb-4">Compare Loans <span class="text-red-600">FAST</span> with NO IMPACT to Credit Score.</h1>
+  <p class="mb-6">Compare Car Loans, Personal Loans, Home Loans, Investment Loans or Business Loans - Best Rates Personalised FOR YOU from 100+ Lenders.</p>
 
-    <h3>2. Compare</h3>
-    <p>We provide personalised options based on real data matching.</p>
+  <button class="bg-red-600 text-white px-6 py-3 rounded shadow hover:bg-red-700">Select a Loan to Start</button>
+  
+  <!-- Add the widget here -->
+</div>
 
-    <h3>3. Pick Your Winner</h3>
-    <p>Choose the option that works best for you. Zero pressure.</p>
+<div>
+  <h2 class="text-3xl font-semibold mb-4">Only 3 Quick & Easy Steps</h2>
 
-    <h2>See How we Compare Loans FAST</h2>
+  <ol class="list-decimal list-inside">
+    <li><strong>Click & Share</strong><br />Click to Pick a Loan Type - Share some info about You.</li>
+    <li><strong>Compare</strong><br />We provide personalised options based on real data matching.</li>
+    <li><strong>Pick Your Winner</strong><br />Choose the option that works best for you. Zero pressure.</li>
+  </ol>
 
-    <p>Whatever Loan You need, talk to Loan Phone</p>
-  </main>
-
-  <footer>
-    &copy; 2025 The Loan Phone
-  </footer>
-</body>
-</html>
+  <p class="mt-4">See How we Compare Loans FAST</p>
+  <p>Whatever Loan You need, talk to Loan Phone</p>
+</div>
