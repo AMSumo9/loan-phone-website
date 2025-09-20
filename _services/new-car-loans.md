@@ -1,128 +1,97 @@
 ---
 layout: services
 title: "New Car Loans | The Loan Phone"
-subtitle: "Drive away today with competitive car loan rates"
-meta_description: "Compare new car loans with competitive rates and flexible terms. Get expert guidance to find the perfect car finance solution from The Loan Phone."
-meta_keywords: "new car loans, car finance, vehicle loans, auto loans, competitive rates, car loan comparison"
-service_type: "Vehicle Finance"
+subtitle: "Drive your dream car home with competitive finance"
+meta_description: "Get competitive new car loan rates and flexible terms. Compare offers from multiple lenders with no impact on your credit score. Fast approval process."
+meta_keywords: "new car loans, car finance, vehicle loans, auto loans, car financing Australia"
+service_type: "New Car Finance"
 category: "vehicle"
 featured: true
 order: 1
 icon: "fas fa-car"
-excerpt: "Get competitive rates and flexible terms for your new vehicle purchase"
-hero_highlight: "Rates from 4.99% p.a. - Get pre-approved in minutes"
-permalink: /new-car-loans/
+excerpt: "Whether you're buying your first car or upgrading to something special, we'll help you find competitive finance with terms that suit your budget."
+hero_highlight: "Car"
+hero_image: "new-car-hero.jpg"
 
-# Sidebar data
-quick_facts:
-  - "Rates from 4.99% p.a. (comparison rate applies)"
-  - "Loan terms from 1-7 years"
-  - "Borrow up to $100,000"
-  - "Fast pre-approval process"
-  - "No early repayment penalties"
-
+# Key benefits for the features section
 key_benefits:
-  - "Compare multiple lenders in one place"
-  - "Expert guidance throughout the process"
-  - "Competitive interest rates"
-  - "Flexible repayment options"
-  - "Quick approval decisions"
-  - "No hidden fees or charges"
+  - title: "Competitive Rates"
+    icon: "fas fa-percentage"
+    description: "Access rates from major banks, credit unions, and specialist car lenders to ensure you get a competitive deal on your new car."
+    
+  - title: "Fast Pre-Approval"
+    icon: "fas fa-tachometer-alt"
+    description: "Get a decision in minutes, not days. Our streamlined process means you can shop with confidence knowing your budget."
+    
+  - title: "Flexible Terms"
+    icon: "fas fa-calendar-alt"
+    description: "Choose loan terms from 1-7 years with weekly, fortnightly, or monthly repayments to suit your cash flow."
+    
+  - title: "No Early Exit Fees"
+    icon: "fas fa-unlock"
+    description: "Many of our lenders offer loans with no early exit fees, giving you the freedom to pay off your loan sooner if you choose."
+    
+  - title: "Include Extras"
+    icon: "fas fa-plus-circle"
+    description: "Finance your car plus extras like extended warranty, insurance, and accessories all in one convenient loan."
+    
+  - title: "Credit Score Protection"
+    icon: "fas fa-shield-alt"
+    description: "Check your genuine finance options without impacting your credit score through our soft credit check process."
+
+# Quick facts for sidebar (if using the old layout)
+quick_facts:
+  - "Loan amounts from $5,000 to $150,000"
+  - "Terms from 1 to 7 years"
+  - "Fixed and variable rate options"
+  - "No application fees"
+
+# Features section title
+features_title: "The Smarter Way to Finance Your New Car"
 ---
 
-## New Car Loans Made Simple
+# Why Choose The Loan Phone for New Car Finance?
 
-Looking for a new car loan? The Loan Phone makes it easy to compare rates from Australia's leading lenders and find the finance solution that's right for you. Whether you're buying your first car or upgrading to something special, we'll help you drive away with confidence.
+When you're ready to buy a new car, the last thing you want is to be stuck with the first finance offer you see. Car yards often have relationships with specific lenders, which means you might not be getting the most competitive rate available.
 
-### Why Choose Us for Your New Car Loan?
+## Compare Before You Buy
 
-Our experienced team works with a panel of trusted lenders to find you competitive rates and terms that suit your budget. We handle the paperwork, negotiations, and comparisons so you can focus on choosing the perfect car.
+Our service gives you access to a panel of lenders before you even step foot in a dealership. This means you can:
 
-## How New Car Loans Work
+- **Shop with confidence** knowing your maximum budget
+- **Negotiate better** with pre-approved finance in hand  
+- **Save money** by comparing multiple lenders' offers
+- **Avoid dealer markups** on finance rates
 
-### 1. Choose Your Vehicle
-Browse new cars from dealerships or private sellers. Our loans cover most makes and models from reputable dealers.
+## What We Can Finance
 
-### 2. Get Pre-Approved
-Apply for pre-approval to know your budget before you shop. This strengthens your negotiating position and speeds up the purchase process.
+Our lenders provide finance for:
 
-### 3. Complete Your Purchase
-Once you've found the perfect car, we'll finalize your loan and arrange settlement quickly and efficiently.
+- **New passenger vehicles** - sedans, hatchbacks, SUVs, and wagons
+- **New commercial vehicles** - utes, vans, and light trucks
+- **Motorcycles and recreational vehicles** - bikes, boats, and caravans
+- **Electric and hybrid vehicles** - with some lenders offering special green rates
 
-## Loan Features & Options
+## The Application Process
 
-### **Loan Amounts**
-- Minimum: $5,000
-- Maximum: $100,000 (subject to approval)
-- Borrow up to 100% of the vehicle value
+Getting pre-approved for your new car loan is straightforward:
 
-### **Loan Terms**
-- 1-7 years available
-- Choose weekly, fortnightly, or monthly repayments
-- Fixed or variable rate options
+1. **Tell us about your loan needs** - amount, term, and vehicle type
+2. **Provide basic financial information** - income, expenses, and employment details
+3. **Receive your pre-approval** - usually within 24 hours
+4. **Shop for your car** with confidence in your budget
+5. **Finalise your loan** once you've found the perfect vehicle
 
-### **Interest Rates**
-- Competitive rates from 4.99% p.a.*
-- Comparison rates available
-- Rate depends on loan amount, term, and your credit profile
+## Tips for Getting the Best Rate
 
-## Eligibility Requirements
+- **Check your credit score** before applying
+- **Save a deposit** - even 10% can improve your rate
+- **Consider the total loan cost** not just the monthly payment
+- **Choose a realistic loan term** that fits your budget
+- **Keep your financial documents** up to date
 
-To qualify for a new car loan, you'll typically need:
+## Ready to Get Started?
 
-- **Age**: 18 years or older
-- **Income**: Regular employment or stable income
-- **Credit**: Good credit history (we work with all credit types)
-- **Residency**: Australian citizen or permanent resident
-- **Vehicle**: The car must meet lender age and value requirements
+Don't settle for the first car loan offer you receive. Let us help you compare options from our panel of trusted lenders and find a deal that saves you money.
 
-## Required Documentation
-
-When applying, please have ready:
-
-- **Identification**: Driver's license and passport/birth certificate
-- **Income**: Recent payslips (2-3 months) or tax returns if self-employed
-- **Banking**: Recent bank statements (3 months)
-- **Vehicle**: Details of the car you want to purchase
-- **Insurance**: Comprehensive insurance quote
-
-## Benefits of Financing a New Car
-
-### **Warranty Protection**
-New cars come with manufacturer warranties, giving you peace of mind and protection against unexpected repair costs.
-
-### **Latest Technology**
-Enjoy the latest safety features, fuel efficiency, and technology that new vehicles offer.
-
-### **Lower Maintenance**
-New cars typically require less maintenance and repairs in the first few years, saving you money.
-
-### **Better Loan Terms**
-New car loans often offer better interest rates and terms compared to used car loans.
-
-## Frequently Asked Questions
-
-### **Can I trade in my current car?**
-Yes, most lenders accept trade-ins. The trade value can be used as a deposit to reduce your loan amount.
-
-### **Do I need a deposit?**
-While not always required, a deposit can help secure better rates and reduce your loan amount.
-
-### **How long does approval take?**
-Pre-approval can be completed within 24 hours. Final approval usually takes 2-3 business days once all documents are provided.
-
-### **Can I make extra repayments?**
-Most loans allow unlimited extra repayments without penalties, helping you pay off your loan faster.
-
-## Next Steps
-
-Ready to secure your new car loan? Our team is here to help you through every step of the process.
-
-**Get started today:**
-1. **Call us** on {{ site.contact.phone_display }} for a quick chat
-2. **Request a quote** using our online form
-3. **Visit us** to discuss your options face-to-face
-
----
-
-*Important: This information is general in nature and doesn't take into account your personal financial situation. Interest rates, fees, and lending criteria may vary between lenders. Comparison rate calculations based on a $30,000 loan over 5 years. Full terms and conditions apply.*
+**Call us today on {{ site.contact.phone_display }} or get a free quote online.**
