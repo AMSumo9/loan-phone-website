@@ -8,18 +8,18 @@
   <meta name="description" content="Need a Car Loan? | Find the Best Rate with AI Powered Car Loan Calculator. Easily compare personal loan, car loan, business loan, home loan options." />
   <meta name="keywords" content="Car Loans, Auto Loans, Best Car Loan Rates" />
 
-  <!-- Google Fonts: Poppins & Open Sans -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- Font Awesome -->
+  <!-- FontAwesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Internal CSS -->
+  <!-- Internal CSS (your variables and styles) -->
   <style>
     :root {
       --bg-primary: #ffffff;
@@ -37,82 +37,23 @@
       --text-primary: #f9fafb;
       --text-secondary: #d1d5db;
     }
-    html.dark .features-heading,
-    html.dark .features-benefits-section h3 {
-      color: #ffffff;
-    }
     body {
       font-family: 'Open Sans', sans-serif;
       background-color: var(--bg-primary);
       color: var(--text-primary);
       transition: background-color 0.3s, color 0.3s;
     }
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
+    h1, h2, h3, h4, h5, h6 {
       font-family: 'Poppins', sans-serif;
     }
-    .brand-red {
-      color: var(--brand-red);
-    }
-    .bg-brand-red {
-      background-color: var(--brand-red);
-    }
-    .hover\:bg-brand-red-dark:hover {
-      background-color: var(--brand-red-dark);
-    }
-    #back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(20px);
-      transition: all 0.3s;
-      z-index: 100;
-    }
-    #back-to-top.active {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-    .animate-on-scroll {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    .animate-on-scroll.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .delay-1 {
-      transition-delay: 0.1s;
-    }
-    .delay-2 {
-      transition-delay: 0.2s;
-    }
-    .delay-3 {
-      transition-delay: 0.3s;
-    }
-    .mobile-nav {
-      display: none;
-    }
-    .mobile-nav.active {
-      display: flex;
-    }
-    @media (max-width: 768px) {
-      .desktop-nav {
-        display: none;
-      }
-    }
+    .brand-red { color: var(--brand-red); }
+    .bg-brand-red { background-color: var(--brand-red); }
+    .hover\:bg-brand-red-dark:hover { background-color: var(--brand-red-dark); }
+    /* Plus your additional styles */
   </style>
 </head>
 
 <body class="bg-white text-gray-800">
-
   {% include header.html %}
 
   {{ content }}
@@ -120,7 +61,7 @@
   {% include footer.html %}
 
   <script>
-    // Start of embedded JavaScript from original home.html for toggles, animations, modals, theme switching...
+    // Your theme toggles, mobile menus, animations & modal JS from home.html
     document.addEventListener('DOMContentLoaded', () => {
       const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
       const htmlEl = document.documentElement;
@@ -174,4 +115,25 @@
       }, { threshold: 0.1 });
       const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
       elementsToAnimate.forEach(el => observer.observe(el));
-      const supportLink = document.get
+      const supportLink = document.getElementById('support-link');
+      const supportModal = document.getElementById('support-modal');
+      const modalCloseBtn = document.getElementById('modal-close');
+      if (supportLink && supportModal && modalCloseBtn) {
+        supportLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          supportModal.style.display = 'flex';
+        });
+        modalCloseBtn.addEventListener('click', () => {
+          supportModal.style.display = 'none';
+        });
+        supportModal.addEventListener('click', (e) => {
+          if (e.target === supportModal) {
+            supportModal.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
