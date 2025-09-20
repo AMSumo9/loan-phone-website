@@ -4,6 +4,18 @@ description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, o
 baseurl: "/loan-phone-website"
 url: "https://amsumo9.github.io"
 
+# Contact information
+contact:
+  email: "loans@loanphone.com.au"
+  phone: "+61440135626"
+  phone_display: "0440 135 626"
+
+# Company information
+company:
+  name: "The Loan Phone"
+  tagline: "Your trusted partner in finding the perfect loan"
+  legal_notice: "It is important for you to know that any information provided to you by Loan Phone (loanphone.com.au) is not Financial or Credit Advice"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
