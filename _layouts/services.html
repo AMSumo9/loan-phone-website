@@ -1,1 +1,317 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{{ page.title | default: site.seo.default_title }}</title>
+    <meta name="description" content="{{ page.meta_description | default: site.seo.default_description }}">
+    <meta name="keywords" content="{{ page.meta_keywords | default: site.seo.default_keywords }}">
+    <meta name="author" content="{{ page.author | default: site.company.name }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{{ page.og_type | default: 'website' }}">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:title" content="{{ page.title | default: site.seo.default_title }}">
+    <meta property="og:description" content="{{ page.meta_description | default: site.seo.default_description }}">
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ page.og_image | default: site.seo.fallback_image }}">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="twitter:title" content="{{ page.title | default: site.seo.default_title }}">
+    <meta property="twitter:description" content="{{ page.meta_description | default: site.seo.default_description }}">
+    <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ page.og_image | default: site.seo.fallback_image }}">
+    
+    <!-- Service-specific Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "{{ page.title | strip_html }}",
+      "description": "{{ page.meta_description | default: site.seo.default_description }}",
+      "provider": {
+        "@type": "Organization",
+        "name": "{{ site.company.name }}",
+        "url": "{{ site.url }}{{ site.baseurl }}",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "{{ site.contact.phone }}",
+          "contactType": "Customer Service",
+          "email": "{{ site.contact.email }}"
+        }
+      },
+      "serviceType": "{{ page.service_type | default: 'Financial Services' }}",
+      "areaServed": "Australia",
+      "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    {% if site.features.loan_widget_live %}
+    <!-- Widget CSS -->
+    <link rel="stylesheet" href="{{ site.features.widget_css }}">
+    {% endif %}
+    
+    <style>
+        :root {
+            --primary-blue: #2563eb !important;
+            --primary-purple: #7c3aed !important;
+            --accent-orange: #f97316 !important;
+            --text-dark: #1f2937 !important;
+            --text-light: #6b7280 !important;
+            --bg-light: #f8fafc !important;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-purple));
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .service-highlight {
+            background: linear-gradient(135deg, var(--bg-light), #e0e7ff);
+            border-left: 4px solid var(--primary-blue);
+        }
+        
+        .breadcrumb {
+            background-color: var(--bg-light);
+            padding: 1rem 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .related-services {
+            background: linear-gradient(135deg, #f8fafc, #e0e7ff);
+        }
+    </style>
+</head>
+<body>
+    {% include header.html %}
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="container mx-auto px-6">
+            <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                <li><a href="{{ site.baseurl }}/" class="hover:text-blue-600">Home</a></li>
+                <li><i class="fas fa-chevron-right text-xs"></i></li>
+                <li><a href="{{ site.baseurl }}/services/" class="hover:text-blue-600">Services</a></li>
+                <li><i class="fas fa-chevron-right text-xs"></i></li>
+                <li class="text-gray-900 font-medium">{{ page.title | strip_html | remove: ' | The Loan Phone' }}</li>
+            </ol>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main class="min-h-screen">
+        <div class="container mx-auto px-6 py-8">
+            
+            <!-- Service Header -->
+            <div class="service-highlight p-8 rounded-lg mb-8">
+                <div class="flex flex-col lg:flex-row items-start justify-between">
+                    <div class="lg:w-2/3">
+                        <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                            {{ page.title | strip_html | remove: ' | The Loan Phone' }}
+                        </h1>
+                        {% if page.subtitle %}
+                        <p class="text-xl text-gray-700 mb-6">{{ page.subtitle }}</p>
+                        {% endif %}
+                        <p class="text-lg text-gray-600">{{ page.meta_description }}</p>
+                    </div>
+                    <div class="lg:w-1/3 lg:pl-8 mt-6 lg:mt-0">
+                        <div class="bg-white p-6 rounded-lg shadow-lg">
+                            <h3 class="text-lg font-semibold mb-4">Get Started Today</h3>
+                            <div class="space-y-3">
+                                <a href="tel:{{ site.contact.phone }}" class="btn-primary w-full text-center block">
+                                    <i class="fas fa-phone mr-2"></i>Call {{ site.contact.phone_display }}
+                                </a>
+                                <button onclick="openSupportModal()" class="w-full px-4 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">
+                                    <i class="fas fa-envelope mr-2"></i>Get Free Quote
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Service Content -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Main Content Area -->
+                <div class="lg:col-span-2">
+                    <div class="prose prose-lg max-w-none">
+                        {{ content }}
+                    </div>
+                </div>
+                
+                <!-- Sidebar -->
+                <div class="lg:col-span-1">
+                    
+                    <!-- Quick Facts -->
+                    {% if page.quick_facts %}
+                    <div class="bg-blue-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-lg font-semibold mb-4 text-blue-800">Quick Facts</h3>
+                        <ul class="space-y-2">
+                            {% for fact in page.quick_facts %}
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                                <span>{{ fact }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Key Benefits -->
+                    {% if page.key_benefits %}
+                    <div class="bg-green-50 p-6 rounded-lg mb-8">
+                        <h3 class="text-lg font-semibold mb-4 text-green-800">Key Benefits</h3>
+                        <ul class="space-y-2">
+                            {% for benefit in page.key_benefits %}
+                            <li class="flex items-start">
+                                <i class="fas fa-star text-green-600 mt-1 mr-2"></i>
+                                <span>{{ benefit }}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Contact Info -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold mb-4">Need Help?</h3>
+                        <p class="text-gray-600 mb-4">Speak with one of our loan specialists today.</p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-blue-600 mr-3"></i>
+                                <a href="tel:{{ site.contact.phone }}" class="text-blue-600 font-semibold">{{ site.contact.phone_display }}</a>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-blue-600 mr-3"></i>
+                                <a href="mailto:{{ site.contact.email }}" class="text-blue-600">{{ site.contact.email }}</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Related Services Section -->
+        {% if page.category %}
+            {% assign related_services = site.services | where: "category", page.category | where_exp: "item", "item.url != page.url" %}
+        {% else %}
+            {% assign related_services = site.services | where_exp: "item", "item.url != page.url" %}
+        {% endif %}
+        
+        {% if related_services.size > 0 %}
+        <section class="related-services py-12 mt-16">
+            <div class="container mx-auto px-6">
+                <h2 class="text-2xl font-bold text-center mb-8">
+                    {% if page.category %}Related {{ page.category | capitalize }} Services{% else %}Related Loan Services{% endif %}
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {% for service in related_services limit: 6 %}
+                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                        {% if service.icon %}
+                        <i class="{{ service.icon }} text-2xl text-blue-600 mb-3"></i>
+                        {% endif %}
+                        <h3 class="text-lg font-semibold mb-2">{{ service.title | remove: ' | The Loan Phone' }}</h3>
+                        <p class="text-gray-600 mb-4">{{ service.excerpt | default: 'Find competitive rates and expert guidance.' }}</p>
+                        <a href="{{ service.url }}" class="text-blue-600 font-semibold hover:text-blue-800">
+                            Learn More <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="text-center mt-8">
+                    
+        
+    </main>
+    
+    {% include footer.html %}
+    {% include back-to-top.html %}
+    
+    {% if site.features.loan_widget_live %}
+    <!-- Widget JavaScript -->
+    <script src="{{ site.features.widget_js }}"></script>
+    {% endif %}
+    
+    <!-- JavaScript -->
+    <script>
+        // Support Modal Function
+        function openSupportModal() {
+            const modal = document.getElementById('support-modal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+            }
+        }
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            }
+        });
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
