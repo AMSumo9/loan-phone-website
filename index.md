@@ -1,4 +1,4 @@
-***
+---
 layout: default
 title: "Compare Loans FAST with No Impact | The Loan Phone"
 meta_description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Best personalised rates from 100+ lenders."
@@ -11,7 +11,7 @@ og_image: "/assets/images/loan-hero.jpg"
 twitter_title: "Compare Loans FAST | The Loan Phone"
 twitter_description: "Find the best loans personalised for you with zero impact on credit score."
 twitter_image: "/assets/images/loan-twitter.jpg"
-***
+---
 
 <section class="bg-[var(--bg-accent)] py-20 md:py-32 transition-colors duration-300">
   <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
