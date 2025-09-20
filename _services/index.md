@@ -6,22 +6,16 @@ meta_keywords: "loan services, car loans, home loans, personal loans, business l
 permalink: /services/
 ---
 
-<div class="container mx-auto px-6 py-8">
-
 # Our Loan Services
 
-<p class="text-xl text-gray-600 mb-8">At The Loan Phone, we specialize in helping Australians find the perfect loan solution. Whether you're buying a car, purchasing a home, expanding your business, or need personal finance, we connect you with competitive rates from trusted lenders across Australia.</p>
+At The Loan Phone, we specialize in helping Australians find the perfect loan solution. Whether you're buying a car, purchasing a home, expanding your business, or need personal finance, we connect you with competitive rates from trusted lenders across Australia.
 
 ## How Our Service Works
 
-<div class="bg-blue-50 p-6 rounded-lg mb-8">
-<ol class="list-decimal list-inside space-y-2">
-<li><strong>Tell Us What You Need</strong> - Share your loan requirements with our expert team</li>
-<li><strong>We Do the Hard Work</strong> - We compare rates and terms from multiple lenders</li>
-<li><strong>Get Your Best Options</strong> - Receive tailored loan recommendations that suit your situation</li>
-<li><strong>Make Your Choice</strong> - Choose the loan that works best for you</li>
-</ol>
-</div>
+1. **Tell Us What You Need** - Share your loan requirements with our expert team
+2. **We Do the Hard Work** - We compare rates and terms from multiple lenders
+3. **Get Your Best Options** - Receive tailored loan recommendations that suit your situation
+4. **Make Your Choice** - Choose the loan that works best for you
 
 ---
 
@@ -29,29 +23,20 @@ permalink: /services/
 
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
 
-<div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg shadow-lg">
-<div class="flex items-center mb-4">
-<i class="fas fa-car text-3xl text-blue-600 mr-4"></i>
-<h3 class="text-xl font-bold text-blue-800">New Car Loans</h3>
-</div>
+<div class="bg-blue-50 p-6 rounded-lg shadow-lg">
+<h3 class="text-xl font-bold text-blue-800 mb-3">🚗 New Car Loans</h3>
 <p class="text-gray-700 mb-4">Get competitive rates and flexible terms for your new vehicle purchase</p>
 <a href="{{ site.baseurl }}/new-car-loans/" class="text-blue-600 font-semibold hover:text-blue-800">Learn More →</a>
 </div>
 
-<div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg shadow-lg">
-<div class="flex items-center mb-4">
-<i class="fas fa-home text-3xl text-green-600 mr-4"></i>
-<h3 class="text-xl font-bold text-green-800">Home Loans</h3>
-</div>
+<div class="bg-green-50 p-6 rounded-lg shadow-lg">
+<h3 class="text-xl font-bold text-green-800 mb-3">🏠 Home Loans</h3>
 <p class="text-gray-700 mb-4">Find competitive mortgage rates for your home purchase or refinance</p>
 <a href="{{ site.baseurl }}/home-loans/" class="text-green-600 font-semibold hover:text-green-800">Learn More →</a>
 </div>
 
-<div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg shadow-lg">
-<div class="flex items-center mb-4">
-<i class="fas fa-briefcase text-3xl text-purple-600 mr-4"></i>
-<h3 class="text-xl font-bold text-purple-800">Business Loans</h3>
-</div>
+<div class="bg-purple-50 p-6 rounded-lg shadow-lg">
+<h3 class="text-xl font-bold text-purple-800 mb-3">💼 Business Loans</h3>
 <p class="text-gray-700 mb-4">Grow your business with tailored finance solutions</p>
 <a href="{{ site.baseurl }}/business-loans/" class="text-purple-600 font-semibold hover:text-purple-800">Learn More →</a>
 </div>
@@ -63,48 +48,28 @@ permalink: /services/
 ## All Services by Category
 
 ### Home & Property Finance
-<div class="bg-blue-50 p-6 rounded-lg mb-6">
-<ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-<li><a href="{{ site.baseurl }}/home-loans/" class="text-blue-700 hover:text-blue-900">→ Home Loans</a></li>
-<li><a href="{{ site.baseurl }}/home-renovation-loans/" class="text-blue-700 hover:text-blue-900">→ Home Renovation Loans</a></li>
-<li><a href="{{ site.baseurl }}/refinance/" class="text-blue-700 hover:text-blue-900">→ Refinance</a></li>
-</ul>
-</div>
+- [Home Loans]({{ site.baseurl }}/home-loans/)
+- [Home Renovation Loans]({{ site.baseurl }}/home-renovation-loans/)
+- [Refinance]({{ site.baseurl }}/refinance/)
 
 ### Vehicle Finance
-<div class="bg-green-50 p-6 rounded-lg mb-6">
-<ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-<li><a href="{{ site.baseurl }}/new-car-loans/" class="text-green-700 hover:text-green-900">→ New Car Loans</a></li>
-<li><a href="{{ site.baseurl }}/used-car-loans/" class="text-green-700 hover:text-green-900">→ Used Car Loans</a></li>
-<li><a href="{{ site.baseurl }}/luxury-car-loans/" class="text-green-700 hover:text-green-900">→ Luxury Car Loans</a></li>
-<li><a href="{{ site.baseurl }}/truck-loans/" class="text-green-700 hover:text-green-900">→ Truck Loans</a></li>
-</ul>
-</div>
+- [New Car Loans]({{ site.baseurl }}/new-car-loans/)
+- [Used Car Loans]({{ site.baseurl }}/used-car-loans/)
+- [Luxury Car Loans]({{ site.baseurl }}/luxury-car-loans/)
+- [Truck Loans]({{ site.baseurl }}/truck-loans/)
 
 ### Business Finance
-<div class="bg-purple-50 p-6 rounded-lg mb-6">
-<ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-<li><a href="{{ site.baseurl }}/business-loans/" class="text-purple-700 hover:text-purple-900">→ Business Loans</a></li>
-<li><a href="{{ site.baseurl }}/equipment-finance/" class="text-purple-700 hover:text-purple-900">→ Equipment Finance</a></li>
-<li><a href="{{ site.baseurl }}/asset-finance/" class="text-purple-700 hover:text-purple-900">→ Asset Finance</a></li>
-<li><a href="{{ site.baseurl }}/abn-holder-loans/" class="text-purple-700 hover:text-purple-900">→ ABN Holder Loans</a></li>
-</ul>
-</div>
+- [Business Loans]({{ site.baseurl }}/business-loans/)
+- [Equipment Finance]({{ site.baseurl }}/equipment-finance/)
+- [Asset Finance]({{ site.baseurl }}/asset-finance/)
+- [ABN Holder Loans]({{ site.baseurl }}/abn-holder-loans/)
 
 ### Personal Finance
-<div class="bg-orange-50 p-6 rounded-lg mb-6">
-<ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-<li><a href="{{ site.baseurl }}/personal-loans/" class="text-orange-700 hover:text-orange-900">→ Personal Loans</a></li>
-<li><a href="{{ site.baseurl }}/short-term-loans/" class="text-orange-700 hover:text-orange-900">→ Short-Term Loans</a></li>
-</ul>
-</div>
+- [Personal Loans]({{ site.baseurl }}/personal-loans/)
+- [Short-Term Loans]({{ site.baseurl }}/short-term-loans/)
 
 ### Specialty Finance
-<div class="bg-teal-50 p-6 rounded-lg mb-6">
-<ul>
-<li><a href="{{ site.baseurl }}/green-loans/" class="text-teal-700 hover:text-teal-900">→ Green Loans (Eco)</a></li>
-</ul>
-</div>
+- [Green Loans (Eco)]({{ site.baseurl }}/green-loans/)
 
 ---
 
@@ -136,6 +101,4 @@ Call {{ site.contact.phone_display }}
 Get Free Quote
 </button>
 </div>
-</div>
-
 </div>
