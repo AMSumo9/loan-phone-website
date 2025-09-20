@@ -16,6 +16,14 @@ company:
   tagline: "Your trusted partner in finding the perfect loan"
   legal_notice: "It is important for you to know that any information provided to you by Loan Phone (loanphone.com.au) is not Financial or Credit Advice"
 
+# Feature flags
+features:
+  loan_widget_live: false  # Set to true when ready to go live
+  partner_id: "a996e580-c961-4586-a00c-9c86968f172d"
+  source_url: "https://www.loanphone.com.au"
+  widget_js: "https://loanoptions-widget.s3.ap-southeast-2.amazonaws.com/v2/main/js/main.js"
+  widget_css: "https://loanoptions-widget.s3.ap-southeast-2.amazonaws.com/v2/main/css/main.css"
+
 # Build settings
 markdown: kramdown
 highlighter: rouge
