@@ -2,12 +2,12 @@
   <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
     <a href="{{ site.baseurl }}/" class="flex items-center space-x-2 text-[var(--text-primary)]">
       <i class="fa-solid fa-phone-volume text-3xl brand-red"></i>
-      <h1 class="text-2xl font-bold transition-colors duration-300">THE LOAN PHONE</h1>
+      <h1 class="text-2xl font-bold transition-colors duration-300">{{ site.company.name }}</h1>
     </a>
     <div class="desktop-nav hidden md:flex items-center space-x-6">
-      <a href="{{ site.baseurl }}/#how-it-works" class="text-[var(--text-secondary)] hover:brand-red transition-colors duration-300">How It Works</a>
-      <a href="{{ site.baseurl }}/blog/" class="text-[var(--text-secondary)] hover:brand-red transition-colors duration-300">Blog</a>
-      <a href="{{ site.baseurl }}/about/" class="text-[var(--text-secondary)] hover:brand-red transition-colors duration-300">About Us</a>
+      {% for item in site.data.navigation.main %}
+        <a href="{{ site.baseurl }}{{ item.url }}" class="text-[var(--text-secondary)] hover:brand-red transition-colors duration-300">{{ item.name }}</a>
+      {% endfor %}
       <button id="theme-toggle-desktop" class="text-xl text-[var(--text-secondary)] hover:brand-red"><i class="fas fa-moon"></i></button>
     </div>
     <div class="flex items-center md:hidden">
@@ -16,8 +16,8 @@
     </div>
   </nav>
   <div id="mobile-menu" class="mobile-nav flex-col md:hidden absolute bg-[var(--bg-primary)] w-full shadow-lg hidden">
-    <a href="{{ site.baseurl }}/#how-it-works" class="block py-3 px-6 text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">How It Works</a>
-    <a href="{{ site.baseurl }}/blog/" class="block py-3 px-6 text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">Blog</a>
-    <a href="{{ site.baseurl }}/about/" class="block py-3 px-6 text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">About Us</a>
+    {% for item in site.data.navigation.main %}
+      <a href="{{ site.baseurl }}{{ item.url }}" class="block py-3 px-6 text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">{{ item.name }}</a>
+    {% endfor %}
   </div>
 </header>
