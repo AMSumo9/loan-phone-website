@@ -27,7 +27,7 @@ permalink: /about/
     <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <!-- Left Column: Image -->
         <div class="animate-on-scroll delay-1">
-            <img src="images/about-hero.png" alt="A happy customer smiling after securing a loan" class="rounded-lg shadow-2xl w-full h-auto aspect-square object-cover">
+            <img src="{{ site.baseurl }}/assets/images/about-hero.png" alt="A happy customer smiling after securing a loan" class="rounded-lg shadow-2xl w-full h-auto aspect-square object-cover">
         </div>
         <!-- Right Column: Text -->
         <div class="animate-on-scroll">
