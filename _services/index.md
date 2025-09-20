@@ -26,19 +26,19 @@ At The Loan Phone, we specialize in helping Australians find the perfect loan so
 <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
 <h3 class="text-xl font-bold text-blue-800 mb-3">New Car Loans</h3>
 <p class="text-gray-700 mb-4">Get competitive rates and flexible terms for your new vehicle purchase</p>
-<a href="{{ site.baseurl }}/new-car-loans/" class="text-blue-600 font-semibold hover:text-blue-800">Learn More →</a>
+<a href="/loan-phone-website/new-car-loans/" class="text-blue-600 font-semibold hover:text-blue-800">Learn More →</a>
 </div>
 
 <div class="bg-green-50 p-6 rounded-lg shadow-lg">
 <h3 class="text-xl font-bold text-green-800 mb-3">Home Loans</h3>
 <p class="text-gray-700 mb-4">Find competitive mortgage rates for your home purchase or refinance</p>
-<a href="{{ site.baseurl }}/home-loans/" class="text-green-600 font-semibold hover:text-green-800">Learn More →</a>
+<a href="/loan-phone-website/home-loans/" class="text-green-600 font-semibold hover:text-green-800">Learn More →</a>
 </div>
 
 <div class="bg-purple-50 p-6 rounded-lg shadow-lg">
 <h3 class="text-xl font-bold text-purple-800 mb-3">Business Loans</h3>
 <p class="text-gray-700 mb-4">Grow your business with tailored finance solutions</p>
-<a href="{{ site.baseurl }}/business-loans/" class="text-purple-600 font-semibold hover:text-purple-800">Learn More →</a>
+<a href="/loan-phone-website/business-loans/" class="text-purple-600 font-semibold hover:text-purple-800">Learn More →</a>
 </div>
 
 </div>
@@ -48,43 +48,28 @@ At The Loan Phone, we specialize in helping Australians find the perfect loan so
 ## All Services
 
 ### Home & Property Finance
-- [Home Loans]({{ site.baseurl }}/home-loans/)
-- [Home Renovation Loans]({{ site.baseurl }}/home-renovation-loans/)
-- [Refinance]({{ site.baseurl }}/refinance/)
+- [Home Loans](/loan-phone-website/home-loans/)
+- [Home Renovation Loans](/loan-phone-website/home-renovation-loans/)
+- [Refinance](/loan-phone-website/refinance/)
 
 ### Vehicle Finance
-- [New Car Loans]({{ site.baseurl }}/new-car-loans/)
-- [Used Car Loans]({{ site.baseurl }}/used-car-loans/)
-- [Luxury Car Loans]({{ site.baseurl }}/luxury-car-loans/)
-- [Truck Loans]({{ site.baseurl }}/truck-loans/)
+- [New Car Loans](/loan-phone-website/new-car-loans/)
+- [Used Car Loans](/loan-phone-website/used-car-loans/)
+- [Luxury Car Loans](/loan-phone-website/luxury-car-loans/)
+- [Truck Loans](/loan-phone-website/truck-loans/)
 
 ### Business Finance
-- [Business Loans]({{ site.baseurl }}/business-loans/)
-- [Equipment Finance]({{ site.baseurl }}/equipment-finance/)
-- [Asset Finance]({{ site.baseurl }}/asset-finance/)
-- [ABN Holder Loans]({{ site.baseurl }}/abn-holder-loans/)
+- [Business Loans](/loan-phone-website/business-loans/)
+- [Equipment Finance](/loan-phone-website/equipment-finance/)
+- [Asset Finance](/loan-phone-website/asset-finance/)
+- [ABN Holder Loans](/loan-phone-website/abn-holder-loans/)
 
 ### Personal Finance
-- [Personal Loans]({{ site.baseurl }}/personal-loans/)
-- [Short-Term Loans]({{ site.baseurl }}/short-term-loans/)
+- [Personal Loans](/loan-phone-website/personal-loans/)
+- [Short-Term Loans](/loan-phone-website/short-term-loans/)
 
 ### Specialty Finance
-- [Green Loans (Eco)]({{ site.baseurl }}/green-loans/)
-
----
-
-## Complete Service Directory
-
-<div class="bg-gray-50 p-6 rounded-lg">
-<h3 class="text-xl font-bold mb-4">All Available Services</h3>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-{% for loan_type in site.data.loan_types.all_types %}
-<a href="{{ site.baseurl }}{{ loan_type.url }}" class="block p-3 bg-white rounded hover:bg-blue-50 hover:text-blue-700 transition duration-200">
-{{ loan_type.name }}
-</a>
-{% endfor %}
-</div>
-</div>
+- [Green Loans (Eco)](/loan-phone-website/green-loans/)
 
 ---
 
@@ -94,8 +79,8 @@ At The Loan Phone, we specialize in helping Australians find the perfect loan so
 <h3 class="text-2xl font-bold mb-4">Ready to Compare Loans?</h3>
 <p class="text-lg mb-6">Get personalized loan options in minutes</p>
 <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-<a href="tel:{{ site.contact.phone }}" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
-Call {{ site.contact.phone_display }}
+<a href="tel:+61440135626" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
+Call 0440 135 626
 </a>
 <button onclick="openSupportModal()" class="inline-block bg-transparent border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition duration-300">
 Get Free Quote
