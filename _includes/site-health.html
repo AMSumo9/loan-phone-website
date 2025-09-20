@@ -1,0 +1,45 @@
+<!-- Site Health Check - Only visible in development -->
+{% if jekyll.environment == "development" %}
+  {% comment %}
+  Check various site health indicators
+  {% endcomment %}
+  
+  {% assign health_issues = 0 %}
+  {% assign health_warnings = "" %}
+  
+  <!-- Check if essential data files exist -->
+  {% unless site.data.loan-types %}
+    {% assign health_issues = health_issues | plus: 1 %}
+    {% assign health_warnings = health_warnings | append: "Missing loan-types data file. " %}
+  {% endunless %}
+  
+  {% unless site.data.navigation %}
+    {% assign health_issues = health_issues | plus: 1 %}
+    {% assign health_warnings = health_warnings | append: "Missing navigation data file. " %}
+  {% endunless %}
+  
+  <!-- Check if essential config values are set -->
+  {% unless site.contact.email %}
+    {% assign health_issues = health_issues | plus: 1 %}
+    {% assign health_warnings = health_warnings | append: "Missing contact email in config. " %}
+  {% endunless %}
+  
+  {% unless site.baseurl %}
+    {% assign health_issues = health_issues | plus: 1 %}
+    {% assign health_warnings = health_warnings | append: "Missing baseurl in config. " %}
+  {% endunless %}
+  
+  <!-- Display health status -->
+  {% if health_issues > 0 %}
+    <div style="position: fixed; bottom: 20px; right: 20px; background: #dc2626; color: white; padding: 15px; border-radius: 8px; max-width: 300px; z-index: 9999; font-size: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+      <div style="font-weight: bold; margin-bottom: 8px;">🔧 Site Health Issues ({{ health_issues }})</div>
+      <div>{{ health_warnings }}</div>
+      <button onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 8px; background: none; border: none; color: white; cursor: pointer;">✕</button>
+    </div>
+  {% else %}
+    <div style="position: fixed; bottom: 20px; right: 20px; background: #059669; color: white; padding: 10px 15px; border-radius: 8px; z-index: 9999; font-size: 12px;">
+      ✅ Site Health: Good
+      <button onclick="this.parentElement.style.display='none'" style="margin-left: 10px; background: none; border: none; color: white; cursor: pointer;">✕</button>
+    </div>
+  {% endif %}
+{% endif %}
