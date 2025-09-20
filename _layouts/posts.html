@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{{ page.title }} | The Loan Phone Blog</title>
+    <meta name="description" content="{{ page.meta_description | default: page.excerpt | strip_html | truncatewords: 30 }}">
+    <meta name="keywords" content="{{ page.meta_keywords | default: site.seo.default_keywords }}">
+    <meta name="author" content="{{ page.author | default: 'The Loan Phone Team' }}">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{ page.title }} | The Loan Phone Blog">
+    <meta property="og:description" content="{{ page.meta_description | default: page.excerpt | strip_html | truncatewords: 30 }}">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/blog/{{ page.featured_image | default: 'default-blog.jpg' }}">
+    <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+    {% if page.author %}<meta property="article:author" content="{{ page.author }}">{% endif %}
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ page.title }} | The Loan Phone Blog">
+    <meta name="twitter:description" content="{{ page.meta_description | default: page.excerpt | strip_html | truncatewords: 30 }}">
+    <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/images/blog/{{ page.featured_image | default: 'default-blog.jpg' }}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/assets/images/favicon.ico">
+    
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Internal CSS -->
+    <style>
+        :root { 
+            --bg-primary: #ffffff; 
+            --bg-secondary: #f9fafb; 
+            --bg-accent: #fce8e8; 
+            --text-primary: #1f2937; 
+            --text-secondary: #4b5563; 
+            --brand-red: #DC2626; 
+            --brand-red-dark: #B91C1C; 
+        }
+        body { 
+            font-family: 'Open Sans', sans-serif; 
+            background-color: var(--bg-primary); 
+            color: var(--text-primary); 
+            line-height: 1.7;
+        }
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Poppins', sans-serif; 
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .brand-red { 
+            color: var(--brand-red); 
+        }
+        .bg-brand-red { 
+            background-color: var(--brand-red); 
+        }
+        .hover\:bg-brand-red-dark:hover { 
+            background-color: var(--brand-red-dark); 
+        }
+        
+        /* Blog content styling */
+        .blog-content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .blog-content h1 { font-size: 2.5rem; margin: 2rem 0 1rem 0; }
+        .blog-content h2 { font-size: 2rem; margin: 2rem 0 1rem 0; }
+        .blog-content h3 { font-size: 1.5rem; margin: 1.5rem 0 1rem 0; }
+        .blog-content h4 { font-size: 1.25rem; margin: 1.5rem 0 1rem 0; }
+        .blog-content p { margin-bottom: 1.5rem; }
+        .blog-content ul, .blog-content ol { 
+            margin-bottom: 1.5rem; 
+            padding-left: 2rem; 
+        }
+        .blog-content li { margin-bottom: 0.5rem; }
+        .blog-content blockquote {
+            border-left: 4px solid var(--brand-red);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        .blog-content a {
+            color: var(--brand-red);
+            text-decoration: underline;
+        }
+        .blog-content a:hover {
+            color: var(--brand-red-dark);
+        }
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        #back-to-top { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            opacity: 0; 
+            visibility: hidden; 
+            transform: translateY(20px); 
+            transition: all 0.3s; 
+            z-index: 100; 
+        }
+        #back-to-top.active { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateY(0); 
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    {% include header.html %}
+    
+    <main>
+        <!-- Blog Post Header -->
+        <section class="bg-[var(--bg-accent)] py-16">
+            <div class="container mx-auto px-6">
+                <!-- Breadcrumbs -->
+                <nav class="text-gray-600 text-sm mb-6">
+                    <a href="{{ site.baseurl }}/" class="hover:text-red-600">Home</a>
+                    <span class="mx-2">></span>
+                    <a href="{{ site.baseurl }}/blog/" class="hover:text-red-600">Blog</a>
+                    <span class="mx-2">></span>
+                    <span class="text-gray-800">{{ page.title }}</span>
+                </nav>
+                
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">{{ page.title }}</h1>
+                    
+                    <div class="flex flex-wrap justify-center items-center gap-4 text-gray-600 mb-8">
+                        <span class="flex items-center">
+                            <i class="fas fa-calendar mr-2"></i>
+                            {{ page.date | date: "%B %d, %Y" }}
+                        </span>
+                        {% if page.author %}
+                        <span class="flex items-center">
+                            <i class="fas fa-user mr-2"></i>
+                            {{ page.author }}
+                        </span>
+                        {% endif %}
+                        {% if page.read_time %}
+                        <span class="flex items-center">
+                            <i class="fas fa-clock mr-2"></i>
+                            {{ page.read_time }} min read
+                        </span>
+                        {% endif %}
+                        {% if page.category %}
+                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">
+                            {{ page.category }}
+                        </span>
+                        {% endif %}
+                    </div>
+                    
+                    {% if page.excerpt %}
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">{{ page.excerpt }}</p>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        
+        <!-- Featured Image -->
+        {% if page.featured_image %}
+        <section class="py-8">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <img src="{{ site.baseurl }}/assets/images/blog/{{ page.featured_image }}" 
+                         alt="{{ page.title }}" 
+                         class="w-full h-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </section>
+        {% endif %}
+        
+        <!-- Blog Content -->
+        <section class="py-8">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex flex-col lg:flex-row gap-8">
+                        <!-- Main Content -->
+                        <article class="lg:w-2/3 blog-content">
+                            {{ content }}
+                            
+                            <!-- Tags -->
+                            {% if page.tags %}
+                            <div class="mt-8 pt-8 border-t border-gray-200">
+                                <h4 class="text-lg font-semibold mb-4">Tags:</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    {% for tag in page.tags %}
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+                                        {{ tag }}
+                                    </span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <!-- Share Section -->
+                            <div class="mt-8 pt-8 border-t border-gray-200">
+                                <h4 class="text-lg font-semibold mb-4">Share this article:</h4>
+                                <div class="flex gap-4">
+                                    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" 
+                                       class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
+                                       target="_blank">
+                                        <i class="fab fa-twitter mr-2"></i>Twitter
+                                    </a>
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}" 
+                                       class="bg-blue-700 text-white px-4 py-2 rounded hover:bg-blue-800 transition duration-300"
+                                       target="_blank">
+                                        <i class="fab fa-facebook mr-2"></i>Facebook
+                                    </a>
+                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ site.baseurl }}{{ page.url }}" 
+                                       class="bg-blue-800 text-white px-4 py-2 rounded hover:bg-blue-900 transition duration-300"
+                                       target="_blank">
+                                        <i class="fab fa-linkedin mr-2"></i>LinkedIn
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        
+                        <!-- Sidebar -->
+                        <aside class="lg:w-1/3">
+                            <!-- Contact CTA -->
+                            <div class="bg-red-600 text-white p-6 rounded-lg mb-6">
+                                <h3 class="text-xl font-bold mb-4">Need Loan Advice?</h3>
+                                <p class="mb-4">Get personalized loan recommendations from our experts.</p>
+                                <div class="space-y-3">
+                                    <a href="tel:{{ site.contact.phone }}" class="block w-full bg-white text-red-600 text-center py-3 rounded font-semibold hover:bg-gray-100 transition duration-300">
+                                        <i class="fas fa-phone mr-2"></i>
+                                        {{ site.contact.phone_display }}
+                                    </a>
+                                    <button onclick="openSupportModal()" class="block w-full bg-transparent border-2 border-white text-white text-center py-3 rounded font-semibold hover:bg-white hover:text-red-600 transition duration-300">
+                                        <i class="fas fa-envelope mr-2"></i>
+                                        Email Us
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            <!-- Recent Posts -->
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <h3 class="text-xl font-bold mb-4">Recent Posts</h3>
+                                {% assign recent_posts = site.posts | limit: 5 %}
+                                {% for post in recent_posts %}
+                                    {% unless post.url == page.url %}
+                                    <div class="mb-4 pb-4 {% unless forloop.last %}border-b border-gray-200{% endunless %}">
+                                        <h4 class="font-semibold text-gray-800 hover:text-red-600 transition duration-300">
+                                            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                                        </h4>
+                                        <p class="text-sm text-gray-600 mt-1">{{ post.date | date: "%B %d, %Y" }}</p>
+                                    </div>
+                                    {% endunless %}
+                                {% endfor %}
+                                
+                                <div class="mt-6">
+                                    <a href="{{ site.baseurl }}/blog/" class="text-red-600 font-semibold hover:text-red-800">
+                                        <i class="fas fa-arrow-left mr-2"></i>
+                                        Back to All Posts
+                                    </a>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Related Posts -->
+        {% assign related_posts = site.posts | where: "category", page.category | limit: 3 %}
+        {% if related_posts.size > 1 %}
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-6xl mx-auto">
+                    <h2 class="text-3xl font-bold text-center mb-12">Related Articles</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {% for post in related_posts %}
+                            {% unless post.url == page.url %}
+                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                {% if post.featured_image %}
+                                <img src="{{ site.baseurl }}/assets/images/blog/{{ post.featured_image }}" alt="{{ post.title }}" class="w-full h-48 object-cover">
+                                {% else %}
+                                <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
+                                    <i class="fas fa-{{ post.icon | default: 'newspaper' }} text-4xl text-gray-400"></i>
+                                </div>
+                                {% endif %}
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-2">{{ post.title }}</h3>
+                                    <p class="text-gray-600 mb-4">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                                    <a href="{{ site.baseurl }}{{ post.url }}" class="font-semibold text-red-600 hover:text-red-800">
+                                        Read More &rarr;
+                                    </a>
+                                </div>
+                            </div>
+                            {% endunless %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+    
+    <!-- Footer -->
+    {% include footer.html %}
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Back to top functionality
+            const backToTopButton = document.getElementById('back-to-top');
+            if(backToTopButton){
+                window.addEventListener('scroll', () => { 
+                    if (window.scrollY > 300) { 
+                        backToTopButton.classList.add('active'); 
+                    } else { 
+                        backToTopButton.classList.remove('active'); 
+                    } 
+                });
+                backToTopButton.addEventListener('click', () => { 
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                });
+            }
+            
+            // Support modal functionality (if modal exists in footer)
+            function openSupportModal() {
+                const modal = document.getElementById('support-modal');
+                if (modal) {
+                    modal.style.display = 'flex';
+                }
+            }
+            
+            // Make function available globally
+            window.openSupportModal = openSupportModal;
+        });
+    </script>
+</body>
+</html>
