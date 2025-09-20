@@ -38,7 +38,7 @@ permalink: /about/
                 <p>At Loan Phone, we turn complexity into simplicity. Our smart technology cuts through the noise, instantly comparing over 100 lenders to find options that are personalised for you—all without impacting your credit score. We connect you with experienced, accredited brokers who speak your language and fight to get you a great deal.</p>
                 <p>No overwhelm. No runaround. Just a clear path to the funding you need.</p>
             </div>
-             <a href="/#loan-selector" class="mt-8 inline-block bg-brand-red text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:bg-brand-red-dark transition-transform duration-300 transform hover:scale-105">
+             <a href="{{ site.baseurl }}/#loan-selector" class="mt-8 inline-block bg-brand-red text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:bg-brand-red-dark transition-transform duration-300 transform hover:scale-105">
                 Start Your Comparison
             </a>
         </div>
