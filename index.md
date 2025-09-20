@@ -29,11 +29,11 @@ twitter_image: "/assets/images/loan-twitter.jpg"
     <div id="loan-selector" class="bg-[var(--bg-primary)] p-4 sm:p-8 rounded-2xl shadow-2xl animate-on-scroll delay-3">
       <h3 class="text-xl font-bold text-center mb-4 text-[var(--text-primary)]">What type of loan do you need?</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        <a href="/home-loans.html" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-home text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Home</p></a>
-        <a href="/new-car-loans.html" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-car text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Car</p></a>
-        <a href="/equipment-finance.html" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-tractor text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Equipment</p></a>
-        <a href="/personal-loans.html" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-umbrella-beach text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Personal</p></a>
-        <a href="/business-loans.html" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-store text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Business</p></a>
+        <a href="/home-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-home text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Home</p></a>
+        <a href="/new-car-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-car text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Car</p></a>
+        <a href="/equipment-finance/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-tractor text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Equipment</p></a>
+        <a href="/personal-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-umbrella-beach text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Personal</p></a>
+        <a href="/business-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-store text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Business</p></a>
         <div class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-money-bill-wave text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Other Money</p></div>
       </div>
     </div>
@@ -77,26 +77,26 @@ twitter_image: "/assets/images/loan-twitter.jpg"
   <div class="container mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12 animate-on-scroll">Covering All Your Loan Needs</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center text-[var(--text-secondary)] animate-on-scroll delay-1">
-      <a href="/new-car-loans.html" class="hover:brand-red font-semibold">New Car Loans</a>
-      <a href="/used-car-loans.html" class="hover:brand-red font-semibold">Used Car Loans</a>
-      <a href="/home-loans.html" class="hover:brand-red font-semibold">Home Loans</a>
-      <a href="/business-loans.html" class="hover:brand-red font-semibold">Business Loans</a>
-      <a href="/truck-loans.html" class="hover:brand-red font-semibold">Truck Loans</a>
-      <a href="/green-loans.html" class="hover:brand-red font-semibold">Green Loans (Eco)</a>
-      <a href="/personal-loans.html" class="hover:brand-red font-semibold">Personal Loans</a>
-      <a href="/refinance.html" class="hover:brand-red font-semibold">Refinance</a>
-      <a href="/home-renovation-loans.html" class="hover:brand-red font-semibold">Home Renovations</a>
-      <a href="/equipment-finance.html" class="hover:brand-red font-semibold">Equipment Finance</a>
-      <a href="/asset-finance.html" class="hover:brand-red font-semibold">Asset Finance</a>
-      <a href="/abn-holder-loans.html" class="hover:brand-red font-semibold">ABN Holder Loans</a>
-      <a href="/short-term-loans.html" class="hover:brand-red font-semibold">Short-Term Loans</a>
-      <a href="/luxury-car-loans.html" class="hover:brand-red font-semibold">Luxury Car Loans</a>
+      <a href="/new-car-loans/" class="hover:brand-red font-semibold">New Car Loans</a>
+      <a href="/used-car-loans/" class="hover:brand-red font-semibold">Used Car Loans</a>
+      <a href="/home-loans/" class="hover:brand-red font-semibold">Home Loans</a>
+      <a href="/business-loans/" class="hover:brand-red font-semibold">Business Loans</a>
+      <a href="/truck-loans/" class="hover:brand-red font-semibold">Truck Loans</a>
+      <a href="/green-loans/" class="hover:brand-red font-semibold">Green Loans (Eco)</a>
+      <a href="/personal-loans/" class="hover:brand-red font-semibold">Personal Loans</a>
+      <a href="/refinance/" class="hover:brand-red font-semibold">Refinance</a>
+      <a href="/home-renovation-loans/" class="hover:brand-red font-semibold">Home Renovations</a>
+      <a href="/equipment-finance/" class="hover:brand-red font-semibold">Equipment Finance</a>
+      <a href="/asset-finance/" class="hover:brand-red font-semibold">Asset Finance</a>
+      <a href="/abn-holder-loans/" class="hover:brand-red font-semibold">ABN Holder Loans</a>
+      <a href="/short-term-loans/" class="hover:brand-red font-semibold">Short-Term Loans</a>
+      <a href="/luxury-car-loans/" class="hover:brand-red font-semibold">Luxury Car Loans</a>
     </div>
   </div>
 </section>
 
 <button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center"><i class="fas fa-arrow-up"></i></button>
-<div id="support-modal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 z- justify-center items-center">
+<div id="support-modal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 z-[1000] justify-center items-center">
   <div class="bg-[var(--bg-primary)] p-8 rounded-lg shadow-lg w-11/12 max-w-md text-center relative text-[var(--text-primary)]">
     <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 dark:hover:text-white"><i class="fas fa-times text-2xl"></i></button>
     <h3 class="text-2xl font-bold mb-4">Contact Support</h3>
