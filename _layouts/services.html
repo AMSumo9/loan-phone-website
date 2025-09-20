@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,285 +25,210 @@
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/assets/images/favicon.ico">
     
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Custom CSS -->
+    <!-- Internal CSS -->
     <style>
-        :root {
-            --primary-red: #DC2626;
-            --dark-red: #B91C1C;
-            --light-red: #FEF2F2;
+        :root { 
+            --bg-primary: #ffffff; 
+            --bg-secondary: #f9fafb; 
+            --bg-accent: #fce8e8; 
+            --text-primary: #1f2937; 
+            --text-secondary: #4b5563; 
+            --brand-red: #DC2626; 
+            --brand-red-dark: #B91C1C; 
         }
-        
-        body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.6;
+        html.dark { 
+            --bg-primary: #1f2937; 
+            --bg-secondary: #374151; 
+            --bg-accent: #374151; 
+            --text-primary: #f9fafb; 
+            --text-secondary: #d1d5db; 
         }
-        
-        .font-heading {
-            font-family: 'Poppins', sans-serif;
+        html.dark .features-heading, 
+        html.dark .features-benefits-section h3 { 
+            color: #ffffff; 
         }
-        
-        .text-primary { color: var(--primary-red) !important; }
-        .bg-primary { background-color: var(--primary-red) !important; }
-        .border-primary { border-color: var(--primary-red) !important; }
-        .hover\:bg-primary:hover { background-color: var(--primary-red) !important; }
-        .hover\:text-primary:hover { color: var(--primary-red) !important; }
-        
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
-            min-height: 300px;
+        body { 
+            font-family: 'Open Sans', sans-serif; 
+            background-color: var(--bg-primary); 
+            color: var(--text-primary); 
+            transition: background-color 0.3s, color 0.3s; 
         }
-        
-        .service-card {
-            transition: all 0.3s ease;
-            border-left: 4px solid transparent;
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Poppins', sans-serif; 
         }
-        
-        .service-card:hover {
-            border-left-color: var(--primary-red);
-            transform: translateY(-2px);
+        .brand-red { 
+            color: var(--brand-red); 
         }
-        
-        .content-area {
-            font-size: 16px;
-            line-height: 1.7;
+        .bg-brand-red { 
+            background-color: var(--brand-red); 
         }
-        
-        .content-area h1,
-        .content-area h2,
-        .content-area h3,
-        .content-area h4 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #1F2937;
+        .hover\:bg-brand-red-dark:hover { 
+            background-color: var(--brand-red-dark); 
         }
-        
-        .content-area h1 { font-size: 2.5rem; }
-        .content-area h2 { font-size: 2rem; }
-        .content-area h3 { font-size: 1.5rem; }
-        .content-area h4 { font-size: 1.25rem; }
-        
-        .content-area p {
-            margin-bottom: 1.5rem;
-            color: #374151;
+        #back-to-top { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            opacity: 0; 
+            visibility: hidden; 
+            transform: translateY(20px); 
+            transition: all 0.3s; 
+            z-index: 100; 
         }
-        
-        .content-area ul,
-        .content-area ol {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
+        #back-to-top.active { 
+            opacity: 1; 
+            visibility: visible; 
+            transform: translateY(0); 
         }
-        
-        .content-area li {
-            margin-bottom: 0.5rem;
-            color: #374151;
+        .animate-on-scroll { 
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
         }
-        
-        .quick-facts,
-        .key-benefits {
-            background: var(--light-red);
-            border: 1px solid #FEE2E2;
+        .animate-on-scroll.is-visible { 
+            opacity: 1; 
+            transform: translateY(0); 
         }
-        
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-red);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-        
-        .back-to-top:hover {
-            background: var(--dark-red);
-            transform: translateY(-2px);
+        .delay-1 { transition-delay: 0.1s; } 
+        .delay-2 { transition-delay: 0.2s; } 
+        .delay-3 { transition-delay: 0.3s; }
+        .mobile-nav { display: none; } 
+        .mobile-nav.active { display: flex; }
+        @media (max-width: 768px) { 
+            .desktop-nav { display: none; } 
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    
+<body class="bg-white text-gray-800">
+
     <!-- Header -->
     {% include header.html %}
     
-    <!-- Hero Section for Individual Service Pages -->
-    {% if page.layout == 'services' and page.service_type %}
-    <div class="hero-section text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-black opacity-10"></div>
-        <div class="container mx-auto px-4 py-16 relative z-10">
-            <div class="max-w-4xl mx-auto text-center">
-                <!-- Breadcrumbs -->
-                <nav class="text-white/80 text-sm mb-6">
-                    <a href="{{ site.baseurl }}/" class="hover:text-white">Home</a>
-                    <span class="mx-2">></span>
-                    <a href="{{ site.baseurl }}/services/" class="hover:text-white">Services</a>
-                    <span class="mx-2">></span>
-                    <span class="text-white">{{ page.service_type | default: "Service" }}</span>
-                </nav>
-                
-                <h1 class="text-4xl md:text-5xl font-heading font-bold mb-6">
-                    {% if page.hero_highlight %}
-                        {{ page.title | replace: page.hero_highlight, '<span class="text-yellow-300">' | append: page.hero_highlight | append: '</span>' }}
-                    {% else %}
-                        {{ page.title | remove: ' | The Loan Phone' }}
+    <main>
+        {% if page.service_type %}
+        <!-- Hero Section for Individual Service Pages -->
+        <section class="bg-[var(--bg-accent)] transition-colors duration-300">
+            <div class="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll">
+                    <h1 class="text-5xl font-extrabold text-[var(--text-primary)] mb-4">
+                        {% if page.hero_highlight %}
+                            {{ page.title | remove: ' | The Loan Phone' | replace: page.hero_highlight, '<span class="brand-red">' | append: page.hero_highlight | append: '</span>' }}
+                        {% else %}
+                            {{ page.title | remove: ' | The Loan Phone' }}
+                        {% endif %}
+                    </h1>
+                    
+                    {% if page.subtitle %}
+                    <p class="text-xl text-[var(--text-secondary)] mb-6">{{ page.subtitle }}</p>
                     {% endif %}
-                </h1>
-                
-                {% if page.subtitle %}
-                <p class="text-xl md:text-2xl mb-8 text-white/90">{{ page.subtitle }}</p>
-                {% endif %}
-                
-                {% if page.excerpt %}
-                <p class="text-lg mb-8 text-white/80 max-w-2xl mx-auto">{{ page.excerpt }}</p>
-                {% endif %}
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="tel:{{ site.contact.phone }}" class="bg-white text-red-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300 inline-flex items-center justify-center">
-                        <i class="fas fa-phone mr-2"></i>
-                        Call {{ site.contact.phone_display }}
+                    
+                    {% if page.excerpt %}
+                    <p class="text-xl text-[var(--text-secondary)] mb-6">{{ page.excerpt }}</p>
+                    {% endif %}
+                    
+                    <a href="{{ site.baseurl }}/#loan-selector" class="inline-block bg-brand-red text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:bg-brand-red-dark transition-transform duration-300 transform hover:scale-105">
+                        Start Your Comparison
                     </a>
-                    <button onclick="openSupportModal()" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition duration-300 inline-flex items-center justify-center">
-                        <i class="fas fa-comment mr-2"></i>
-                        Get Free Quote
-                    </button>
+                </div>
+                <div class="animate-on-scroll delay-1">
+                    {% if page.hero_image %}
+                    <img src="{{ site.baseurl }}/assets/images/{{ page.hero_image }}" alt="{{ page.title | remove: ' | The Loan Phone' }} illustration" class="rounded-lg shadow-2xl w-full h-auto aspect-square object-cover">
+                    {% else %}
+                    <div class="rounded-lg shadow-2xl w-full h-auto aspect-square bg-gray-200 flex items-center justify-center">
+                        <i class="fas fa-{{ page.icon | default: 'handshake' }} text-6xl text-gray-400"></i>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
-        </div>
-    </div>
-    {% endif %}
-    
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-        {% if page.layout == 'services' and page.service_type %}
-            <!-- Individual Service Page Layout -->
-            <div class="flex flex-col lg:flex-row gap-8">
-                <!-- Main Content -->
-                <div class="lg:w-2/3">
-                    <div class="bg-white rounded-lg shadow-lg p-8 content-area">
-                        {{ content }}
-                    </div>
+        </section>
+
+        <!-- Features & Benefits Section -->
+        <section class="py-20 bg-[var(--bg-primary)] transition-colors duration-300 features-benefits-section">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 animate-on-scroll">
+                    <h2 class="text-3xl font-bold features-heading">
+                        {% if page.features_title %}
+                            {{ page.features_title }}
+                        {% else %}
+                            The Smarter Way to {{ page.service_type | default: "Get Your Loan" }}
+                        {% endif %}
+                    </h2>
+                    <p class="mt-2 text-lg text-[var(--text-secondary)]">Discover the features and benefits of using Loan Phone.</p>
                 </div>
                 
-                <!-- Sidebar -->
-                <div class="lg:w-1/3">
-                    <!-- Quick Facts -->
-                    {% if page.quick_facts %}
-                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6 quick-facts">
-                        <h3 class="text-xl font-heading font-bold mb-4 text-primary">
-                            <i class="fas fa-info-circle mr-2"></i>
-                            Quick Facts
-                        </h3>
-                        <ul class="space-y-2">
-                            {% for fact in page.quick_facts %}
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-primary mr-2 mt-1 text-sm"></i>
-                                <span>{{ fact }}</span>
-                            </li>
-                            {% endfor %}
-                        </ul>
+                {% if page.key_benefits %}
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {% for benefit in page.key_benefits %}
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-{{ forloop.index | modulo: 3 | plus: 1 }}">
+                        {% if benefit.icon %}
+                        <i class="{{ benefit.icon }} text-4xl brand-red mb-4"></i>
+                        {% endif %}
+                        <h3 class="text-xl font-semibold mb-2">{{ benefit.title }}</h3>
+                        <p class="text-[var(--text-secondary)]">{{ benefit.description }}</p>
                     </div>
-                    {% endif %}
-                    
-                    <!-- Key Benefits -->
-                    {% if page.key_benefits %}
-                    <div class="bg-white rounded-lg shadow-lg p-6 mb-6 key-benefits">
-                        <h3 class="text-xl font-heading font-bold mb-4 text-primary">
-                            <i class="fas fa-star mr-2"></i>
-                            Key Benefits
-                        </h3>
-                        <ul class="space-y-2">
-                            {% for benefit in page.key_benefits %}
-                            <li class="flex items-start">
-                                <i class="fas fa-thumbs-up text-primary mr-2 mt-1 text-sm"></i>
-                                <span>{{ benefit }}</span>
-                            </li>
-                            {% endfor %}
-                        </ul>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <!-- Default benefits if none specified -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-1">
+                        <i class="fas fa-search text-4xl brand-red mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Compare Multiple Lenders</h3>
+                        <p class="text-[var(--text-secondary)]">We give you access to a wide range of lenders to ensure you get a competitive rate and term.</p>
                     </div>
-                    {% endif %}
-                    
-                    <!-- Contact Card -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 cta-section text-white">
-                        <h3 class="text-xl font-heading font-bold mb-4">
-                            <i class="fas fa-headset mr-2"></i>
-                            Need Help?
-                        </h3>
-                        <p class="mb-4">Speak to our loan specialists today for personalized advice.</p>
-                        <div class="space-y-3">
-                            <a href="tel:{{ site.contact.phone }}" class="block w-full bg-white text-red-600 text-center py-3 rounded-lg font-semibold hover:bg-gray-100 transition duration-300">
-                                <i class="fas fa-phone mr-2"></i>
-                                {{ site.contact.phone_display }}
-                            </a>
-                            <button onclick="openSupportModal()" class="block w-full bg-transparent border-2 border-white text-white text-center py-3 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition duration-300">
-                                <i class="fas fa-envelope mr-2"></i>
-                                Email Us
-                            </button>
-                        </div>
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-2">
+                        <i class="fas fa-tachometer-alt text-4xl brand-red mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Fast Approvals</h3>
+                        <p class="text-[var(--text-secondary)]">Our streamlined process is designed to get you a fast pre-approval so you can secure your loan quickly.</p>
                     </div>
-                    
-                    <!-- Related Services -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 mt-6">
-                        <h3 class="text-xl font-heading font-bold mb-4 text-primary">
-                            <i class="fas fa-link mr-2"></i>
-                            Related Services
-                        </h3>
-                        <div class="space-y-2">
-                            {% assign related_services = site.services | where: "category", page.category | limit: 5 %}
-                            {% for service in related_services %}
-                                {% unless service.url == page.url %}
-                                <a href="{{ site.baseurl }}{{ service.url }}" class="block p-3 rounded hover:bg-red-50 hover:text-primary transition duration-300">
-                                    {% if service.icon %}<i class="{{ service.icon }} mr-2"></i>{% endif %}
-                                    {{ service.title | remove: ' | The Loan Phone' }}
-                                </a>
-                                {% endunless %}
-                            {% endfor %}
-                            
-                            <!-- Fallback to data file if no collection services -->
-                            {% if related_services.size < 2 %}
-                                {% for loan_type in site.data.loan_types.all_types limit: 5 %}
-                                <a href="{{ site.baseurl }}{{ loan_type.url }}" class="block p-3 rounded hover:bg-red-50 hover:text-primary transition duration-300">
-                                    <i class="fas fa-arrow-right mr-2"></i>
-                                    {{ loan_type.name }}
-                                </a>
-                                {% endfor %}
-                            {% endif %}
-                        </div>
-                        
-                        <div class="mt-4 pt-4 border-t">
-                            <a href="{{ site.baseurl }}/services/" class="text-primary hover:text-dark-red font-semibold">
-                                <i class="fas fa-th-large mr-2"></i>
-                                View All Services
-                            </a>
-                        </div>
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-3">
+                        <i class="fas fa-shield-alt text-4xl brand-red mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Protect Your Credit File</h3>
+                        <p class="text-[var(--text-secondary)]">See your genuine finance options without lodging a formal application that impacts your credit score.</p>
+                    </div>
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-1">
+                        <i class="fas fa-user-tie text-4xl brand-red mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Expert Guidance</h3>
+                        <p class="text-[var(--text-secondary)]">Get paired with a specialist broker who knows the market and can structure a deal that suits your needs.</p>
+                    </div>
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-2">
+                        <i class="fas fa-file-invoice text-4xl brand-red mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Flexible Options</h3>
+                        <p class="text-[var(--text-secondary)]">We work with lenders who offer flexible documentation and approval options for various situations.</p>
+                    </div>
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-3">
+                        <i class="fas fa-handshake text-4xl brand-red mb-4"></i>
+                        <h3 class="text-xl font-semibold mb-2">Personalized Service</h3>
+                        <p class="text-[var(--text-secondary)]">Our team provides personalized service to ensure you get the best loan solution for your specific circumstances.</p>
                     </div>
                 </div>
+                {% endif %}
             </div>
+        </section>
+
+        <!-- Main Content Section -->
+        {% if content != "" %}
+        <section class="py-16 bg-[var(--bg-secondary)] transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <div class="bg-[var(--bg-primary)] rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
+                    {{ content }}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
         {% else %}
-            <!-- Services Index Page Layout -->
-            <div class="content-area">
-                {{ content }}
-            </div>
+        <!-- Services Index Page Layout -->
+        <div class="bg-[var(--bg-primary)] transition-colors duration-300">
+            {{ content }}
+        </div>
         {% endif %}
     </main>
     
@@ -311,48 +236,65 @@
     {% include footer.html %}
     
     <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop">
+    <button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center">
         <i class="fas fa-arrow-up"></i>
-    </div>
+    </button>
+    
+    <!-- Support Modal (from footer) -->
     
     <!-- JavaScript -->
     <script>
-        // Back to top functionality
-        window.addEventListener('scroll', function() {
-            const backToTop = document.getElementById('backToTop');
-            if (window.pageYOffset > 300) {
-                backToTop.style.display = 'flex';
-            } else {
-                backToTop.style.display = 'none';
+        document.addEventListener('DOMContentLoaded', () => {
+            // Back to top functionality
+            const backToTopButton = document.getElementById('back-to-top');
+            if(backToTopButton){
+                window.addEventListener('scroll', () => { 
+                    if (window.scrollY > 300) { 
+                        backToTopButton.classList.add('active'); 
+                    } else { 
+                        backToTopButton.classList.remove('active'); 
+                    } 
+                });
+                backToTopButton.addEventListener('click', () => { 
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                });
             }
-        });
-        
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Support modal function (to be defined in footer include)
-        function openSupportModal() {
-            const modal = document.getElementById('support-modal');
-            if (modal) {
-                modal.style.display = 'flex';
-            }
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+            
+            // Scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { 
+                    if (entry.isIntersecting) { 
+                        entry.target.classList.add('is-visible'); 
+                    } 
+                });
+            }, { threshold: 0.1 });
+            
+            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+            elementsToAnimate.forEach(el => observer.observe(el));
+            
+            // Support modal functionality (if modal exists in footer)
+            function openSupportModal() {
+                const modal = document.getElementById('support-modal');
+                if (modal) {
+                    modal.style.display = 'flex';
                 }
+            }
+            
+            // Make function available globally
+            window.openSupportModal = openSupportModal;
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
         });
     </script>
