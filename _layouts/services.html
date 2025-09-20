@@ -113,15 +113,17 @@
     
     <main>
         {% if page.service_type %}
-        <!-- Hero Section for Individual Service Pages -->
+        <!-- Hero Section - Two Column Layout (Text Left, Image Right) -->
         <section class="bg-[var(--bg-accent)] transition-colors duration-300">
             <div class="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-on-scroll">
                     <h1 class="text-5xl font-extrabold text-[var(--text-primary)] mb-4">
+                        {% assign title_clean = page.title | remove: ' | The Loan Phone' %}
                         {% if page.hero_highlight %}
-                            {{ page.title | remove: ' | The Loan Phone' | replace: page.hero_highlight, '<span class="brand-red">' | append: page.hero_highlight | append: '</span>' }}
+                            {% assign highlighted_title = title_clean | replace: page.hero_highlight, '<span class="brand-red">' | append: page.hero_highlight | append: '</span>' %}
+                            {{ highlighted_title }}
                         {% else %}
-                            {{ page.title | remove: ' | The Loan Phone' }}
+                            {{ title_clean }}
                         {% endif %}
                     </h1>
                     
@@ -141,7 +143,7 @@
                     {% if page.hero_image %}
                     <img src="{{ site.baseurl }}/assets/images/{{ page.hero_image }}" alt="{{ page.title | remove: ' | The Loan Phone' }} illustration" class="rounded-lg shadow-2xl w-full h-auto aspect-square object-cover">
                     {% else %}
-                    <div class="rounded-lg shadow-2xl w-full h-auto aspect-square bg-gray-200 flex items-center justify-center">
+                    <div class="rounded-lg shadow-2xl w-full aspect-square bg-gray-200 flex items-center justify-center">
                         <i class="fas fa-{{ page.icon | default: 'handshake' }} text-6xl text-gray-400"></i>
                     </div>
                     {% endif %}
@@ -163,21 +165,19 @@
                     <p class="mt-2 text-lg text-[var(--text-secondary)]">Discover the features and benefits of using Loan Phone.</p>
                 </div>
                 
-                {% if page.key_benefits %}
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {% for benefit in page.key_benefits %}
-                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-{{ forloop.index | modulo: 3 | plus: 1 }}">
-                        {% if benefit.icon %}
-                        <i class="{{ benefit.icon }} text-4xl brand-red mb-4"></i>
-                        {% endif %}
-                        <h3 class="text-xl font-semibold mb-2">{{ benefit.title }}</h3>
-                        <p class="text-[var(--text-secondary)]">{{ benefit.description }}</p>
-                    </div>
-                    {% endfor %}
-                </div>
-                {% else %}
-                <!-- Default benefits if none specified -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {% if page.key_benefits %}
+                        {% for benefit in page.key_benefits %}
+                        <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-{{ forloop.index | modulo: 3 | plus: 1 }}">
+                            {% if benefit.icon %}
+                            <i class="{{ benefit.icon }} text-4xl brand-red mb-4"></i>
+                            {% endif %}
+                            <h3 class="text-xl font-semibold mb-2">{{ benefit.title }}</h3>
+                            <p class="text-[var(--text-secondary)]">{{ benefit.description }}</p>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                    <!-- Default benefits if none specified -->
                     <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-1">
                         <i class="fas fa-search text-4xl brand-red mb-4"></i>
                         <h3 class="text-xl font-semibold mb-2">Compare Multiple Lenders</h3>
@@ -208,21 +208,10 @@
                         <h3 class="text-xl font-semibold mb-2">Personalized Service</h3>
                         <p class="text-[var(--text-secondary)]">Our team provides personalized service to ensure you get the best loan solution for your specific circumstances.</p>
                     </div>
-                </div>
-                {% endif %}
-            </div>
-        </section>
-
-        <!-- Main Content Section -->
-        {% if content != "" %}
-        <section class="py-16 bg-[var(--bg-secondary)] transition-colors duration-300">
-            <div class="container mx-auto px-6">
-                <div class="bg-[var(--bg-primary)] rounded-lg shadow-lg p-8 max-w-4xl mx-auto">
-                    {{ content }}
+                    {% endif %}
                 </div>
             </div>
         </section>
-        {% endif %}
 
         {% else %}
         <!-- Services Index Page Layout -->
@@ -239,8 +228,6 @@
     <button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center">
         <i class="fas fa-arrow-up"></i>
     </button>
-    
-    <!-- Support Modal (from footer) -->
     
     <!-- JavaScript -->
     <script>
