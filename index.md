@@ -1,17 +1,4 @@
-<a href="#loan-selector" class="inline-block bg-brand-red text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:bg-brand-red-dark transition-transform duration-300 transform hover:scale-105 animate-on-scroll delay-2">
-        Select a Loan to Start
-      </a>
-    </div>
-    <div id="loan-selector" class="bg-[var(--bg-primary)] p-4 sm:p-8 rounded-2xl shadow-2xl animate-on-scroll delay-3">
-      <h3 class="text-xl font-bold text-center mb-4 text-[var(--text-primary)]">What type of loan do you need?</h3>
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        <a href="{{ site.baseurl }}/home-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-home text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Home</p></a>
-        <a href="{{ site.baseurl }}/new-car-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-car text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Car</p></a>
-        <a href="{{ site.baseurl }}/equipment-finance/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-tractor text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Equipment</p></a>
-        <a href="{{ site.baseurl }}/personal-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-umbrella-beach text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Personal</p></a>
-        <a href="{{ site.baseurl }}/business-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-store text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Business</p></a>
-        <a href="{{ site.baseurl }}/other-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-money-bill-wave text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Other Money</p></a>
-      </div>---
+---
 layout: default
 title: "Compare Loans FAST with No Impact | The Loan Phone"
 meta_description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Best personalised rates from 100+ lenders."
@@ -42,12 +29,30 @@ twitter_image: "/assets/images/loan-twitter.jpg"
     <div id="loan-selector" class="bg-[var(--bg-primary)] p-4 sm:p-8 rounded-2xl shadow-2xl animate-on-scroll delay-3">
       <h3 class="text-xl font-bold text-center mb-4 text-[var(--text-primary)]">What type of loan do you need?</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-        <a href="/home-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-home text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Home</p></a>
-        <a href="/new-car-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-car text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Car</p></a>
-        <a href="/equipment-finance/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-tractor text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Equipment</p></a>
-        <a href="/personal-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-umbrella-beach text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Personal</p></a>
-        <a href="/business-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-store text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Business</p></a>
-        <a href="/other-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow"><i class="fas fa-money-bill-wave text-3xl brand-red mb-2"></i><p class="font-semibold text-sm text-[var(--text-secondary)]">Other Money</p></a>
+        <a href="{{ site.baseurl }}/home-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow">
+          <i class="fas fa-home text-3xl brand-red mb-2"></i>
+          <p class="font-semibold text-sm text-[var(--text-secondary)]">Home</p>
+        </a>
+        <a href="{{ site.baseurl }}/new-car-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow">
+          <i class="fas fa-car text-3xl brand-red mb-2"></i>
+          <p class="font-semibold text-sm text-[var(--text-secondary)]">Car</p>
+        </a>
+        <a href="{{ site.baseurl }}/equipment-finance/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow">
+          <i class="fas fa-tractor text-3xl brand-red mb-2"></i>
+          <p class="font-semibold text-sm text-[var(--text-secondary)]">Equipment</p>
+        </a>
+        <a href="{{ site.baseurl }}/personal-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow">
+          <i class="fas fa-umbrella-beach text-3xl brand-red mb-2"></i>
+          <p class="font-semibold text-sm text-[var(--text-secondary)]">Personal</p>
+        </a>
+        <a href="{{ site.baseurl }}/business-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow">
+          <i class="fas fa-store text-3xl brand-red mb-2"></i>
+          <p class="font-semibold text-sm text-[var(--text-secondary)]">Business</p>
+        </a>
+        <a href="{{ site.baseurl }}/other-loans/" class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg cursor-pointer hover:shadow-md transition-shadow">
+          <i class="fas fa-money-bill-wave text-3xl brand-red mb-2"></i>
+          <p class="font-semibold text-sm text-[var(--text-secondary)]">Other Money</p>
+        </a>
       </div>
     </div>
   </div>
@@ -58,17 +63,23 @@ twitter_image: "/assets/images/loan-twitter.jpg"
     <h2 class="text-3xl font-bold mb-4 animate-on-scroll">Only 3 Quick & Easy Steps</h2>
     <div class="grid md:grid-cols-3 gap-10 mt-12">
       <div class="flex flex-col items-center animate-on-scroll delay-1">
-        <div class="bg-red-100 p-6 rounded-full mb-4"><i class="fa-solid fa-hand-pointer text-4xl brand-red"></i></div>
+        <div class="bg-red-100 p-6 rounded-full mb-4">
+          <i class="fa-solid fa-hand-pointer text-4xl brand-red"></i>
+        </div>
         <h3 class="text-xl font-bold mb-2">1. Click & Share</h3>
         <p class="text-[var(--text-secondary)]">Click to Pick a Loan Type - Share some info about You.</p>
       </div>
       <div class="flex flex-col items-center animate-on-scroll delay-2">
-        <div class="bg-red-100 p-6 rounded-full mb-4"><i class="fa-solid fa-right-left text-4xl brand-red"></i></div>
+        <div class="bg-red-100 p-6 rounded-full mb-4">
+          <i class="fa-solid fa-right-left text-4xl brand-red"></i>
+        </div>
         <h3 class="text-xl font-bold mb-2">2. Compare</h3>
         <p class="text-[var(--text-secondary)]">We provide personalised options based on real data matching.</p>
       </div>
       <div class="flex flex-col items-center animate-on-scroll delay-3">
-        <div class="bg-red-100 p-6 rounded-full mb-4"><i class="fa-solid fa-trophy text-4xl brand-red"></i></div>
+        <div class="bg-red-100 p-6 rounded-full mb-4">
+          <i class="fa-solid fa-trophy text-4xl brand-red"></i>
+        </div>
         <h3 class="text-xl font-bold mb-2">3. Pick Your Winner</h3>
         <p class="text-[var(--text-secondary)]">Choose the option that works best for you. Zero pressure.</p>
       </div>
@@ -108,14 +119,25 @@ twitter_image: "/assets/images/loan-twitter.jpg"
   </div>
 </section>
 
-<button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center"><i class="fas fa-arrow-up"></i></button>
+<button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
 <div id="support-modal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 z-[1000] justify-center items-center">
   <div class="bg-[var(--bg-primary)] p-8 rounded-lg shadow-lg w-11/12 max-w-md text-center relative text-[var(--text-primary)]">
-    <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 dark:hover:text-white"><i class="fas fa-times text-2xl"></i></button>
+    <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 dark:hover:text-white">
+      <i class="fas fa-times text-2xl"></i>
+    </button>
     <h3 class="text-2xl font-bold mb-4">Contact Support</h3>
     <div class="flex flex-col space-y-4 mt-6">
-      <a href="mailto:loans@loanphone.com.au" class="w-full inline-flex justify-center items-center space-x-2 bg-brand-red text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-brand-red-dark"><i class="fas fa-envelope"></i><span>Email Us</span></a>
-      <a href="tel:+61440135626" class="w-full inline-flex justify-center items-center space-x-2 bg-gray-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-gray-700"><i class="fas fa-phone"></i><span>Call Us</span></a>
+      <a href="mailto:loans@loanphone.com.au" class="w-full inline-flex justify-center items-center space-x-2 bg-brand-red text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-brand-red-dark">
+        <i class="fas fa-envelope"></i>
+        <span>Email Us</span>
+      </a>
+      <a href="tel:+61440135626" class="w-full inline-flex justify-center items-center space-x-2 bg-gray-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-gray-700">
+        <i class="fas fa-phone"></i>
+        <span>Call Us</span>
+      </a>
     </div>
   </div>
 </div>
