@@ -9,7 +9,7 @@ permalink: /services/
 <!-- Services Index Content with proper spacing -->
 <div class="container mx-auto px-6 py-8">
 
-# Our Loan Services
+<h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Our Loan Services</h1>
 
 <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
     <div class="text-center mb-8">
@@ -52,7 +52,7 @@ permalink: /services/
     </div>
 </div>
 
-## Featured Services
+<h2 class="text-2xl font-bold text-gray-800 mb-6">Featured Services</h2>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
     <div class="bg-white border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
@@ -89,9 +89,9 @@ permalink: /services/
     </div>
 </div>
 
-## All Services by Category
+<h2 class="text-2xl font-bold text-gray-800 mb-6">All Services by Category</h2>
 
-### <i class="fas fa-home mr-2" style="color: #DC2626;"></i> Home & Property Finance
+<h3 class="text-xl font-bold mb-4"><i class="fas fa-home mr-2" style="color: #DC2626;"></i> Home & Property Finance</h3>
 <div class="bg-red-50 p-6 rounded-lg mb-6 border-l-4" style="border-color: #DC2626;">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <a href="{{ site.baseurl }}/home-loans/" class="flex items-center font-medium hover:bg-red-100 p-3 rounded transition duration-300" style="color: #DC2626;">
@@ -109,7 +109,7 @@ permalink: /services/
     </div>
 </div>
 
-### <i class="fas fa-car mr-2" style="color: #DC2626;"></i> Vehicle Finance
+<h3 class="text-xl font-bold mb-4"><i class="fas fa-car mr-2" style="color: #DC2626;"></i> Vehicle Finance</h3>
 <div class="bg-red-50 p-6 rounded-lg mb-6 border-l-4" style="border-color: #DC2626;">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <a href="{{ site.baseurl }}/new-car-loans/" class="flex items-center font-medium hover:bg-red-100 p-3 rounded transition duration-300" style="color: #DC2626;">
@@ -131,7 +131,7 @@ permalink: /services/
     </div>
 </div>
 
-### <i class="fas fa-briefcase mr-2" style="color: #DC2626;"></i> Business Finance
+<h3 class="text-xl font-bold mb-4"><i class="fas fa-briefcase mr-2" style="color: #DC2626;"></i> Business Finance</h3>
 <div class="bg-red-50 p-6 rounded-lg mb-6 border-l-4" style="border-color: #DC2626;">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <a href="{{ site.baseurl }}/business-loans/" class="flex items-center font-medium hover:bg-red-100 p-3 rounded transition duration-300" style="color: #DC2626;">
@@ -153,7 +153,7 @@ permalink: /services/
     </div>
 </div>
 
-### <i class="fas fa-user mr-2" style="color: #DC2626;"></i> Personal Finance
+<h3 class="text-xl font-bold mb-4"><i class="fas fa-user mr-2" style="color: #DC2626;"></i> Personal Finance</h3>
 <div class="bg-red-50 p-6 rounded-lg mb-6 border-l-4" style="border-color: #DC2626;">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <a href="{{ site.baseurl }}/personal-loans/" class="flex items-center font-medium hover:bg-red-100 p-3 rounded transition duration-300" style="color: #DC2626;">
@@ -167,7 +167,7 @@ permalink: /services/
     </div>
 </div>
 
-### <i class="fas fa-leaf mr-2" style="color: #DC2626;"></i> Specialty Finance
+<h3 class="text-xl font-bold mb-4"><i class="fas fa-leaf mr-2" style="color: #DC2626;"></i> Specialty Finance</h3>
 <div class="bg-red-50 p-6 rounded-lg mb-6 border-l-4" style="border-color: #DC2626;">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <a href="{{ site.baseurl }}/green-loans/" class="flex items-center font-medium hover:bg-red-100 p-3 rounded transition duration-300" style="color: #DC2626;">
@@ -177,7 +177,7 @@ permalink: /services/
     </div>
 </div>
 
-## Complete Service Directory
+<h2 class="text-2xl font-bold text-gray-800 mb-6">Complete Service Directory</h2>
 
 <div class="bg-white rounded-lg shadow p-6 mb-8">
     <h3 class="text-xl font-bold mb-4">All Available Services</h3>
@@ -191,7 +191,7 @@ permalink: /services/
     </div>
 </div>
 
-## Ready to Get Started?
+<h2 class="text-2xl font-bold text-gray-800 mb-6">Ready to Get Started?</h2>
 
 <div class="bg-white rounded-lg shadow p-8 text-center">
     <h3 class="text-2xl font-bold mb-4" style="color: #DC2626;">Ready to Compare Loans?</h3>
