@@ -3,14 +3,6 @@ layout: default
 title: "Compare Loans FAST with No Impact | The Loan Phone"
 meta_description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Best personalised rates from 100+ lenders."
 meta_keywords: "car loans, personal loans, home loans, investment loans, business loans, refinance, best loan rates"
-meta_author: "The Loan Phone Team"
-og_title: "Compare Loans FAST | The Loan Phone"
-og_description: "Get personalised best loan rates from 100+ lenders with no credit score impact."
-og_type: "website"
-og_image: "/assets/images/loan-hero.jpg"
-twitter_title: "Compare Loans FAST | The Loan Phone"
-twitter_description: "Find the best loans personalised for you with zero impact on credit score."
-twitter_image: "/assets/images/loan-twitter.jpg"
 ---
 
 <section class="bg-[var(--bg-accent)] py-20 md:py-32 transition-colors duration-300">
@@ -27,7 +19,46 @@ twitter_image: "/assets/images/loan-twitter.jpg"
       </a>
     </div>
     <div id="loan-selector">
-      {% include loan-widget.html %}
+      {% if site.features.loan_widget_live %}
+        <!-- Live Widget -->
+        <div id="repaymentWidget"></div>
+        <script>
+        (function () {
+          const params = new Proxy(new URLSearchParams(window.location.search), {
+            get: (searchParams, prop) => searchParams.get(prop),
+          });
+          if (params.partnerId) {
+            localStorage.setItem("externalPartnerId", params.partnerId);
+          } else {
+            localStorage.setItem("externalPartnerId", "{{ site.features.partner_id }}");
+          }
+          localStorage.setItem("sourceUrl", "{{ site.features.source_url }}");
+          localStorage.setItem("source", "{{ site.company.name }}");
+          localStorage.setItem("targetSystem", "SKYNET");
+          localStorage.setItem("countryCode", "AU");
+        })();
+        </script>
+        <script src="{{ site.features.widget_js }}"></script>
+        <link href="{{ site.features.widget_css }}" rel="stylesheet" />
+      {% else %}
+        <!-- Visual Placeholder -->
+        <div class="bg-[var(--bg-primary)] p-4 sm:p-8 rounded-2xl shadow-2xl animate-on-scroll delay-3">
+          <h3 class="text-xl font-bold text-center mb-4 text-[var(--text-primary)]">What type of loan do you need?</h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+            {% for loan in site.data.loan_types.main_categories %}
+              <div class="text-center p-4 bg-[var(--bg-secondary)] rounded-lg hover:shadow-md transition-shadow cursor-default">
+                <i class="{{ loan.icon }} text-3xl brand-red mb-2"></i>
+                <p class="font-semibold text-sm text-[var(--text-secondary)]">{{ loan.name }}</p>
+              </div>
+            {% endfor %}
+          </div>
+          <div class="mt-4 text-center">
+            <p class="text-xs text-[var(--text-secondary)] opacity-75">
+              <i class="fas fa-eye"></i> Preview Mode - Interactive widget will replace this when live
+            </p>
+          </div>
+        </div>
+      {% endif %}
     </div>
   </div>
 </section>
@@ -75,7 +106,7 @@ twitter_image: "/assets/images/loan-twitter.jpg"
   <div class="container mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12 animate-on-scroll">Covering All Your Loan Needs</h2>
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 text-center text-[var(--text-secondary)] animate-on-scroll delay-1">
-      {% for loan in site.data.loan-types.all_types %}
+      {% for loan in site.data.loan_types.all_types %}
         <a href="{{ site.baseurl }}{{ loan.url }}" class="hover:brand-red font-semibold">{{ loan.name }}</a>
       {% endfor %}
     </div>
