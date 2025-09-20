@@ -24,30 +24,6 @@
     <meta property="twitter:description" content="{{ page.meta_description | default: site.seo.default_description }}">
     <meta property="twitter:image" content="{{ site.url }}{{ site.baseurl }}{{ page.og_image | default: site.seo.fallback_image }}">
     
-    <!-- Service-specific Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "{{ page.title | strip_html }}",
-      "description": "{{ page.meta_description | default: site.seo.default_description }}",
-      "provider": {
-        "@type": "Organization",
-        "name": "{{ site.company.name }}",
-        "url": "{{ site.url }}{{ site.baseurl }}",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "telephone": "{{ site.contact.phone }}",
-          "contactType": "Customer Service",
-          "email": "{{ site.contact.email }}"
-        }
-      },
-      "serviceType": "{{ page.service_type | default: 'Financial Services' }}",
-      "areaServed": "Australia",
-      "url": "{{ site.url }}{{ site.baseurl }}{{ page.url }}"
-    }
-    </script>
-    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -100,165 +76,16 @@
             color: white;
             text-decoration: none;
         }
-        
-        .service-highlight {
-            background: linear-gradient(135deg, var(--bg-light), #e0e7ff);
-            border-left: 4px solid var(--primary-blue);
-        }
-        
-        .breadcrumb {
-            background-color: var(--bg-light);
-            padding: 1rem 0;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        .related-services {
-            background: linear-gradient(135deg, #f8fafc, #e0e7ff);
-        }
     </style>
 </head>
 <body>
     {% include header.html %}
     
-    <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb">
-        <div class="container mx-auto px-6">
-            <ol class="flex items-center space-x-2 text-sm text-gray-600">
-                <li><a href="{{ site.baseurl }}/" class="hover:text-blue-600">Home</a></li>
-                <li><i class="fas fa-chevron-right text-xs"></i></li>
-                <li><a href="{{ site.baseurl }}/services/" class="hover:text-blue-600">Services</a></li>
-                <li><i class="fas fa-chevron-right text-xs"></i></li>
-                <li class="text-gray-900 font-medium">{{ page.title | strip_html | remove: ' | The Loan Phone' }}</li>
-            </ol>
-        </div>
-    </nav>
-    
     <!-- Main Content -->
     <main class="min-h-screen">
         <div class="container mx-auto px-6 py-8">
-            
-            <!-- Service Header -->
-            <div class="service-highlight p-8 rounded-lg mb-8">
-                <div class="flex flex-col lg:flex-row items-start justify-between">
-                    <div class="lg:w-2/3">
-                        <h1 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                            {{ page.title | strip_html | remove: ' | The Loan Phone' }}
-                        </h1>
-                        {% if page.subtitle %}
-                        <p class="text-xl text-gray-700 mb-6">{{ page.subtitle }}</p>
-                        {% endif %}
-                        <p class="text-lg text-gray-600">{{ page.meta_description }}</p>
-                    </div>
-                    <div class="lg:w-1/3 lg:pl-8 mt-6 lg:mt-0">
-                        <div class="bg-white p-6 rounded-lg shadow-lg">
-                            <h3 class="text-lg font-semibold mb-4">Get Started Today</h3>
-                            <div class="space-y-3">
-                                <a href="tel:{{ site.contact.phone }}" class="btn-primary w-full text-center block">
-                                    <i class="fas fa-phone mr-2"></i>Call {{ site.contact.phone_display }}
-                                </a>
-                                <button onclick="openSupportModal()" class="w-full px-4 py-3 border border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition duration-300">
-                                    <i class="fas fa-envelope mr-2"></i>Get Free Quote
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Service Content -->
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                
-                <!-- Main Content Area -->
-                <div class="lg:col-span-2">
-                    <div class="prose prose-lg max-w-none">
-                        {{ content }}
-                    </div>
-                </div>
-                
-                <!-- Sidebar -->
-                <div class="lg:col-span-1">
-                    
-                    <!-- Quick Facts -->
-                    {% if page.quick_facts %}
-                    <div class="bg-blue-50 p-6 rounded-lg mb-8">
-                        <h3 class="text-lg font-semibold mb-4 text-blue-800">Quick Facts</h3>
-                        <ul class="space-y-2">
-                            {% for fact in page.quick_facts %}
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
-                                <span>{{ fact }}</span>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-                    
-                    <!-- Key Benefits -->
-                    {% if page.key_benefits %}
-                    <div class="bg-green-50 p-6 rounded-lg mb-8">
-                        <h3 class="text-lg font-semibold mb-4 text-green-800">Key Benefits</h3>
-                        <ul class="space-y-2">
-                            {% for benefit in page.key_benefits %}
-                            <li class="flex items-start">
-                                <i class="fas fa-star text-green-600 mt-1 mr-2"></i>
-                                <span>{{ benefit }}</span>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    {% endif %}
-                    
-                    <!-- Contact Info -->
-                    <div class="bg-gray-50 p-6 rounded-lg">
-                        <h3 class="text-lg font-semibold mb-4">Need Help?</h3>
-                        <p class="text-gray-600 mb-4">Speak with one of our loan specialists today.</p>
-                        <div class="space-y-3">
-                            <div class="flex items-center">
-                                <i class="fas fa-phone text-blue-600 mr-3"></i>
-                                <a href="tel:{{ site.contact.phone }}" class="text-blue-600 font-semibold">{{ site.contact.phone_display }}</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-blue-600 mr-3"></i>
-                                <a href="mailto:{{ site.contact.email }}" class="text-blue-600">{{ site.contact.email }}</a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
+            {{ content }}
         </div>
-        
-        <!-- Related Services Section -->
-        {% if page.category %}
-            {% assign related_services = site.services | where: "category", page.category | where_exp: "item", "item.url != page.url" %}
-        {% else %}
-            {% assign related_services = site.services | where_exp: "item", "item.url != page.url" %}
-        {% endif %}
-        
-        {% if related_services.size > 0 %}
-        <section class="related-services py-12 mt-16">
-            <div class="container mx-auto px-6">
-                <h2 class="text-2xl font-bold text-center mb-8">
-                    {% if page.category %}Related {{ page.category | capitalize }} Services{% else %}Related Loan Services{% endif %}
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {% for service in related_services limit: 6 %}
-                    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300">
-                        {% if service.icon %}
-                        <i class="{{ service.icon }} text-2xl text-blue-600 mb-3"></i>
-                        {% endif %}
-                        <h3 class="text-lg font-semibold mb-2">{{ service.title | remove: ' | The Loan Phone' }}</h3>
-                        <p class="text-gray-600 mb-4">{{ service.excerpt | default: 'Find competitive rates and expert guidance.' }}</p>
-                        <a href="{{ service.url }}" class="text-blue-600 font-semibold hover:text-blue-800">
-                            Learn More <i class="fas fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="text-center mt-8">
-                    
-        
     </main>
     
     {% include footer.html %}
