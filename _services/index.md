@@ -19,108 +19,179 @@ At The Loan Phone, we specialize in helping Australians find the perfect loan so
 
 ---
 
-## Our Loan Services
+## Featured Services
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 my-12">
+{% assign featured_services = site.services | where: "featured", true | sort: "order" %}
+{% if featured_services.size > 0 %}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+{% for service in featured_services limit: 6 %}
+<div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+  <div class="flex items-center mb-4">
+    {% if service.icon %}
+    <i class="{{ service.icon }} text-3xl text-blue-600 mr-4"></i>
+    {% endif %}
+    <h3 class="text-xl font-bold text-blue-800">{{ service.title | remove: ' | The Loan Phone' }}</h3>
+  </div>
+  <p class="text-gray-700 mb-4">{{ service.excerpt | default: service.meta_description }}</p>
+  <a href="{{ service.url }}" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-800">
+    Learn More <i class="fas fa-arrow-right ml-2"></i>
+  </a>
+</div>
+{% endfor %}
+</div>
+{% endif %}
 
-<!-- Home & Property -->
-<div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-<div class="flex items-center mb-4">
+## All Services by Category
+
+{% assign home_services = site.services | where: "category", "home" | sort: "order" %}
+{% assign vehicle_services = site.services | where: "category", "vehicle" | sort: "order" %}
+{% assign business_services = site.services | where: "category", "business" | sort: "order" %}
+{% assign personal_services = site.services | where: "category", "personal" | sort: "order" %}
+{% assign specialty_services = site.services | where: "category", "specialty" | sort: "order" %}
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 my-12">
+
+{% if home_services.size > 0 %}
+<!-- Home & Property Services -->
+<div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-lg shadow-lg">
+<div class="flex items-center mb-6">
 <i class="fas fa-home text-3xl text-blue-600 mr-4"></i>
 <h3 class="text-2xl font-bold text-blue-800">Home & Property</h3>
 </div>
 <p class="text-gray-700 mb-6">Perfect for first-time buyers, upgraders, investors, or home improvers.</p>
 <ul class="space-y-3">
-<li><a href="{{ site.baseurl }}/home-loans/" class="flex items-center text-blue-700 hover:text-blue-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Home Loans</a></li>
-<li><a href="{{ site.baseurl }}/home-renovation-loans/" class="flex items-center text-blue-700 hover:text-blue-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Home Renovation Loans</a></li>
-<li><a href="{{ site.baseurl }}/refinance/" class="flex items-center text-blue-700 hover:text-blue-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Refinance</a></li>
+{% for service in home_services %}
+<li>
+  <a href="{{ service.url }}" class="flex items-center text-blue-700 hover:text-blue-900 font-medium group">
+    <i class="fas fa-chevron-right mr-2 group-hover:transform group-hover:translate-x-1 transition duration-200"></i>
+    {{ service.title | remove: ' | The Loan Phone' }}
+  </a>
+</li>
+{% endfor %}
 </ul>
-<div class="mt-6 pt-4 border-t border-blue-200">
-<span class="text-sm text-blue-600 font-medium">From competitive rates | Fast approval</span>
 </div>
-</div>
+{% endif %}
 
-<!-- Vehicle Finance -->
-<div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-<div class="flex items-center mb-4">
+{% if vehicle_services.size > 0 %}
+<!-- Vehicle Finance Services -->
+<div class="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-lg shadow-lg">
+<div class="flex items-center mb-6">
 <i class="fas fa-car text-3xl text-green-600 mr-4"></i>
 <h3 class="text-2xl font-bold text-green-800">Vehicle Finance</h3>
 </div>
 <p class="text-gray-700 mb-6">Get behind the wheel with competitive car and truck finance options.</p>
 <ul class="space-y-3">
-<li><a href="{{ site.baseurl }}/new-car-loans/" class="flex items-center text-green-700 hover:text-green-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>New Car Loans</a></li>
-<li><a href="{{ site.baseurl }}/used-car-loans/" class="flex items-center text-green-700 hover:text-green-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Used Car Loans</a></li>
-<li><a href="{{ site.baseurl }}/luxury-car-loans/" class="flex items-center text-green-700 hover:text-green-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Luxury Car Loans</a></li>
-<li><a href="{{ site.baseurl }}/truck-loans/" class="flex items-center text-green-700 hover:text-green-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Truck Loans</a></li>
+{% for service in vehicle_services %}
+<li>
+  <a href="{{ service.url }}" class="flex items-center text-green-700 hover:text-green-900 font-medium group">
+    <i class="fas fa-chevron-right mr-2 group-hover:transform group-hover:translate-x-1 transition duration-200"></i>
+    {{ service.title | remove: ' | The Loan Phone' }}
+  </a>
+</li>
+{% endfor %}
 </ul>
-<div class="mt-6 pt-4 border-t border-green-200">
-<span class="text-sm text-green-600 font-medium">Flexible terms | Quick decisions</span>
 </div>
-</div>
+{% endif %}
 
-<!-- Business Finance -->
-<div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-<div class="flex items-center mb-4">
+{% if business_services.size > 0 %}
+<!-- Business Finance Services -->
+<div class="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-lg shadow-lg">
+<div class="flex items-center mb-6">
 <i class="fas fa-briefcase text-3xl text-purple-600 mr-4"></i>
 <h3 class="text-2xl font-bold text-purple-800">Business Finance</h3>
 </div>
 <p class="text-gray-700 mb-6">Grow your business with tailored finance solutions.</p>
 <ul class="space-y-3">
-<li><a href="{{ site.baseurl }}/business-loans/" class="flex items-center text-purple-700 hover:text-purple-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Business Loans</a></li>
-<li><a href="{{ site.baseurl }}/equipment-finance/" class="flex items-center text-purple-700 hover:text-purple-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Equipment Finance</a></li>
-<li><a href="{{ site.baseurl }}/asset-finance/" class="flex items-center text-purple-700 hover:text-purple-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Asset Finance</a></li>
-<li><a href="{{ site.baseurl }}/abn-holder-loans/" class="flex items-center text-purple-700 hover:text-purple-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>ABN Holder Loans</a></li>
+{% for service in business_services %}
+<li>
+  <a href="{{ service.url }}" class="flex items-center text-purple-700 hover:text-purple-900 font-medium group">
+    <i class="fas fa-chevron-right mr-2 group-hover:transform group-hover:translate-x-1 transition duration-200"></i>
+    {{ service.title | remove: ' | The Loan Phone' }}
+  </a>
+</li>
+{% endfor %}
 </ul>
-<div class="mt-6 pt-4 border-t border-purple-200">
-<span class="text-sm text-purple-600 font-medium">Growth focused | Expert advice</span>
 </div>
-</div>
+{% endif %}
 
-<!-- Personal Finance -->
-<div class="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-<div class="flex items-center mb-4">
+{% if personal_services.size > 0 %}
+<!-- Personal Finance Services -->
+<div class="bg-gradient-to-br from-orange-50 to-orange-100 p-8 rounded-lg shadow-lg">
+<div class="flex items-center mb-6">
 <i class="fas fa-user text-3xl text-orange-600 mr-4"></i>
 <h3 class="text-2xl font-bold text-orange-800">Personal Finance</h3>
 </div>
 <p class="text-gray-700 mb-6">Life happens - we're here to help with personal loan solutions.</p>
 <ul class="space-y-3">
-<li><a href="{{ site.baseurl }}/personal-loans/" class="flex items-center text-orange-700 hover:text-orange-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Personal Loans</a></li>
-<li><a href="{{ site.baseurl }}/short-term-loans/" class="flex items-center text-orange-700 hover:text-orange-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Short-Term Loans</a></li>
+{% for service in personal_services %}
+<li>
+  <a href="{{ service.url }}" class="flex items-center text-orange-700 hover:text-orange-900 font-medium group">
+    <i class="fas fa-chevron-right mr-2 group-hover:transform group-hover:translate-x-1 transition duration-200"></i>
+    {{ service.title | remove: ' | The Loan Phone' }}
+  </a>
+</li>
+{% endfor %}
 </ul>
-<div class="mt-6 pt-4 border-t border-orange-200">
-<span class="text-sm text-orange-600 font-medium">Quick approval | Flexible terms</span>
 </div>
+{% endif %}
+
 </div>
 
-<!-- Specialty Finance -->
-<div class="bg-gradient-to-br from-teal-50 to-teal-100 p-8 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
-<div class="flex items-center mb-4">
+{% if specialty_services.size > 0 %}
+<!-- Specialty Services -->
+<div class="bg-gradient-to-br from-teal-50 to-teal-100 p-8 rounded-lg shadow-lg my-8">
+<div class="flex items-center mb-6">
 <i class="fas fa-leaf text-3xl text-teal-600 mr-4"></i>
 <h3 class="text-2xl font-bold text-teal-800">Specialty Finance</h3>
 </div>
 <p class="text-gray-700 mb-6">Unique loan solutions for modern Australians and specific needs.</p>
 <ul class="space-y-3">
-<li><a href="{{ site.baseurl }}/green-loans/" class="flex items-center text-teal-700 hover:text-teal-900 font-medium"><i class="fas fa-chevron-right mr-2"></i>Green Loans (Eco)</a></li>
+{% for service in specialty_services %}
+<li>
+  <a href="{{ service.url }}" class="flex items-center text-teal-700 hover:text-teal-900 font-medium group">
+    <i class="fas fa-chevron-right mr-2 group-hover:transform group-hover:translate-x-1 transition duration-200"></i>
+    {{ service.title | remove: ' | The Loan Phone' }}
+  </a>
+</li>
+{% endfor %}
 </ul>
-<div class="mt-6 pt-4 border-t border-teal-200">
-<span class="text-sm text-teal-600 font-medium">Environmentally focused | Future-ready</span>
 </div>
-</div>
+{% endif %}
 
-<!-- Complete Service List (Spanning 2 columns on larger screens) -->
-<div class="lg:col-span-3 bg-gray-50 p-8 rounded-lg shadow-lg mt-8">
-<h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Complete Service Directory</h3>
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-{% for loan_type in site.data.loan_types.all_types %}
-<a href="{{ site.baseurl }}{{ loan_type.url }}" class="flex items-center p-3 bg-white rounded-lg hover:bg-blue-50 hover:text-blue-700 transition duration-200 shadow-sm hover:shadow-md">
-<i class="fas fa-arrow-right text-blue-500 mr-2"></i>
-<span class="font-medium">{{ loan_type.name }}</span>
+## Complete Service Directory
+
+{% assign all_services = site.services | sort: "title" %}
+{% if all_services.size > 0 %}
+<div class="bg-gray-50 p-8 rounded-lg shadow-lg my-8">
+<h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">All Available Services</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+{% for service in all_services %}
+<a href="{{ service.url }}" class="flex items-center p-4 bg-white rounded-lg hover:bg-blue-50 hover:text-blue-700 transition duration-200 shadow-sm hover:shadow-md group">
+  {% if service.icon %}
+  <i class="{{ service.icon }} text-blue-500 mr-3"></i>
+  {% else %}
+  <i class="fas fa-arrow-right text-blue-500 mr-3"></i>
+  {% endif %}
+  <span class="font-medium">{{ service.title | remove: ' | The Loan Phone' }}</span>
+  <i class="fas fa-external-link-alt ml-auto text-gray-400 group-hover:text-blue-500 text-sm"></i>
 </a>
 {% endfor %}
 </div>
 </div>
-
+{% else %}
+<!-- Fallback to data file if no services collection exists yet -->
+<div class="bg-gray-50 p-8 rounded-lg shadow-lg my-8">
+<h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">All Available Services</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+{% for loan_type in site.data.loan_types.all_types %}
+<a href="{{ site.baseurl }}{{ loan_type.url }}" class="flex items-center p-4 bg-white rounded-lg hover:bg-blue-50 hover:text-blue-700 transition duration-200 shadow-sm hover:shadow-md">
+  <i class="fas fa-arrow-right text-blue-500 mr-3"></i>
+  <span class="font-medium">{{ loan_type.name }}</span>
+</a>
+{% endfor %}
 </div>
+</div>
+{% endif %}
 
 ---
 
@@ -166,22 +237,6 @@ From initial consultation through to settlement, our team is here to support you
   </div>
 </div>
 {% endif %}
-
----
-
-## Frequently Asked Questions
-
-### How much does your service cost?
-Our loan comparison service is completely free. We're paid by lenders when you successfully obtain a loan, so there's no cost to you for our expert guidance.
-
-### How long does the process take?
-Most loan comparisons can be completed within 24-48 hours. Some loans may require additional documentation, but we'll keep you informed throughout the process.
-
-### Do you work with all lenders?
-We work with a wide network of reputable lenders including major banks, credit unions, and specialist finance providers to ensure you get competitive options.
-
-### What information do I need to provide?
-We'll need basic information about your financial situation, employment, and the type of loan you're seeking. Our team will guide you through exactly what's required.
 
 ---
 
