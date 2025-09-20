@@ -1,19 +1,177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ page.title }} - The Loan Phone</title>
+  <title>{{ page.title | default: "The Loan Phone" }}</title>
+
+  <meta name="description" content="Need a Car Loan? | Find the Best Rate with AI Powered Car Loan Calculator. Easily compare personal loan, car loan, business loan, home loan options." />
+  <meta name="keywords" content="Car Loans, Auto Loans, Best Car Loan Rates" />
+
+  <!-- Google Fonts: Poppins & Open Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  {% seo %}
+
+  <!-- Internal CSS -->
+  <style>
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #f9fafb;
+      --bg-accent: #fce8e8;
+      --text-primary: #1f2937;
+      --text-secondary: #4b5563;
+      --brand-red: #DC2626;
+      --brand-red-dark: #B91C1C;
+    }
+    html.dark {
+      --bg-primary: #1f2937;
+      --bg-secondary: #374151;
+      --bg-accent: #374151;
+      --text-primary: #f9fafb;
+      --text-secondary: #d1d5db;
+    }
+    html.dark .features-heading,
+    html.dark .features-benefits-section h3 {
+      color: #ffffff;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Poppins', sans-serif;
+    }
+    .brand-red {
+      color: var(--brand-red);
+    }
+    .bg-brand-red {
+      background-color: var(--brand-red);
+    }
+    .hover\:bg-brand-red-dark:hover {
+      background-color: var(--brand-red-dark);
+    }
+    #back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      z-index: 100;
+    }
+    #back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .animate-on-scroll.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 {
+      transition-delay: 0.1s;
+    }
+    .delay-2 {
+      transition-delay: 0.2s;
+    }
+    .delay-3 {
+      transition-delay: 0.3s;
+    }
+    .mobile-nav {
+      display: none;
+    }
+    .mobile-nav.active {
+      display: flex;
+    }
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+    }
+  </style>
 </head>
-<body class="bg-white">
+
+<body class="bg-white text-gray-800">
+
   {% include header.html %}
-  
-  <main class="container mx-auto px-6 py-8">
-    {{ content }}
-  </main>
-  
+
+  {{ content }}
+
   {% include footer.html %}
-</body>
-</html>
+
+  <script>
+    // Start of embedded JavaScript from original home.html for toggles, animations, modals, theme switching...
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
+      const htmlEl = document.documentElement;
+      const currentTheme = localStorage.getItem('theme') || 'light';
+      const updateIcon = (theme) => {
+        themeToggles.forEach(toggle => {
+          toggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+        });
+      };
+      htmlEl.classList.add(currentTheme);
+      updateIcon(currentTheme);
+      themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          if (htmlEl.classList.contains('dark')) {
+            htmlEl.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            updateIcon('light');
+          } else {
+            htmlEl.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            updateIcon('dark');
+          }
+        });
+      });
+      const mobileMenuButton = document.getElementById('mobile-menu-button');
+      const mobileMenu = document.getElementById('mobile-menu');
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+          mobileMenu.classList.toggle('active');
+        });
+      }
+      const backToTopButton = document.getElementById('back-to-top');
+      if (backToTopButton) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 300) {
+            backToTopButton.classList.add('active');
+          } else {
+            backToTopButton.classList.remove('active');
+          }
+        });
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+      elementsToAnimate.forEach(el => observer.observe(el));
+      const supportLink = document.get
