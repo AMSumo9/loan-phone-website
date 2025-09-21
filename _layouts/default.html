@@ -143,10 +143,28 @@
         color: #374151 !important;
     }
 
-    /* FIXED: Services page headings visible in dark mode */
-    html.dark .services-page h2,
-    html.dark .services-page h3 {
+    /* FIXED: Content headings white in dark mode (only when on dark backgrounds) */
+    html.dark .bg-\\[var\\(--bg-primary\\)\\] h2,
+    html.dark .bg-\\[var\\(--bg-primary\\)\\] h3,
+    html.dark section h2,
+    html.dark section h3 {
         color: #ffffff !important;
+    }
+    
+    /* FIXED: Pink sections and their content always stay light with dark text */
+    html.dark .blog-header,
+    html.dark .service-header,
+    html.dark [style*="background-color: #fce8e8"],
+    html.dark .bg-red-50 {
+        background-color: #fce8e8 !important;
+        color: #374151 !important;
+    }
+    
+    html.dark .blog-header *,
+    html.dark .service-header *,
+    html.dark [style*="background-color: #fce8e8"] *,
+    html.dark .bg-red-50 * {
+        color: #374151 !important;
     }
     
     /* FIXED: Red button to pink with grey text in dark mode */
