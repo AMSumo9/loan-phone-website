@@ -1,22 +1,20 @@
-<!-- Footer - ALL ISSUES FIXED -->
+<!-- Footer - ALL ISSUES COMPREHENSIVELY FIXED -->
 <footer class="bg-gray-900 text-white py-12">
   <div class="container mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       
       <!-- Company Info -->
       <div>
-        <h3 class="text-xl font-bold mb-4 text-red-600">{{ site.company.name }}</h3>
+        <h3 class="text-xl font-bold mb-4 text-pink-400">{{ site.company.name }}</h3>
         <p class="text-gray-300 mb-4">{{ site.company.tagline }}</p>
         <div class="space-y-2">
+          <!-- REMOVED PHONE NUMBER DISPLAY - CONSISTENT WORDING -->
           <div class="flex items-center">
-            <i class="fas fa-phone text-red-400 mr-3"></i>
-            <a href="tel:{{ site.contact.phone }}" class="text-gray-300 hover:text-white">
-              {{ site.contact.phone_display }}
-            </a>
+            <i class="fas fa-phone text-pink-400 mr-3"></i>
+            <span class="text-gray-300">Speak to an Expert</span>
           </div>
-          <!-- REMOVED EMAIL ADDRESS - KEEP CONSISTENT -->
           <div class="mt-4">
-            <button onclick="openSupportModal()" class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-200">
+            <button onclick="openSupportModal()" class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition duration-200">
               <i class="fas fa-envelope mr-2"></i>
               Get in Contact
             </button>
@@ -24,52 +22,50 @@
         </div>
       </div>
 
-      <!-- Popular Services -->
+      <!-- Connect - MOVED TO 2ND POSITION -->
       <div>
-        <h4 class="text-lg font-semibold mb-4 text-red-600">Popular Services</h4>
-        <ul class="space-y-2">
-          {% for loan_type in site.data.loan_types.all_types limit:6 %}
-            <li>
-              <a href="{{ site.baseurl }}{{ loan_type.url }}" class="text-gray-300 hover:text-red-300 transition duration-200">
-                {{ loan_type.name }}
-              </a>
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-
-      <!-- Connect - MOVED TO 3RD POSITION -->
-      <div>
-        <h4 class="text-lg font-semibold mb-4 text-red-600">Connect</h4>
+        <h4 class="text-lg font-semibold mb-4 text-pink-400">Connect</h4>
         <div class="space-y-4">
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-300 hover:text-red-300 text-2xl">
+            <a href="#" class="text-gray-300 hover:text-pink-300 text-2xl">
               <i class="fab fa-facebook-f"></i>
             </a>
-            <a href="#" class="text-gray-300 hover:text-red-300 text-2xl">
+            <a href="#" class="text-gray-300 hover:text-pink-300 text-2xl">
               <i class="fab fa-linkedin-in"></i>
             </a>
-            <a href="#" class="text-gray-300 hover:text-red-300 text-2xl">
+            <a href="#" class="text-gray-300 hover:text-pink-300 text-2xl">
               <i class="fab fa-twitter"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- Company Links - MOVED TO 4TH POSITION (RIGHT SIDE) -->
+      <!-- All Services - MOVED TO 3RD POSITION, TWO COLUMNS -->
       <div>
-        <h4 class="text-lg font-semibold mb-4 text-red-600">Company</h4>
+        <h4 class="text-lg font-semibold mb-4 text-pink-400">All Services</h4>
+        <div class="grid grid-cols-1 gap-1">
+          {% for loan_type in site.data.loan_types.all_types %}
+            <a href="{{ site.baseurl }}{{ loan_type.url }}" class="text-gray-300 hover:text-pink-300 transition duration-200 text-sm py-1">
+              {{ loan_type.name }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Company Links - 4TH POSITION (RIGHT SIDE) -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4 text-pink-400">Company</h4>
         <ul class="space-y-2">
           {% for item in site.data.navigation.footer.company %}
             {% if item.action == "modal" %}
               <li>
-                <a href="#" onclick="openSupportModal(); return false;" class="text-gray-300 hover:text-red-300 transition duration-200">
+                <a href="#" onclick="openSupportModal(); return false;" class="text-gray-300 hover:text-pink-300 transition duration-200">
                   {{ item.name }}
                 </a>
               </li>
             {% else %}
               <li>
-                <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-300 hover:text-red-300 transition duration-200">
+                <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-300 hover:text-pink-300 transition duration-200">
                   {{ item.name }}
                 </a>
               </li>
