@@ -1,4 +1,4 @@
-<!-- Support Modal - PROPERLY CENTERED -->
+<!-- Support Modal - ASAP + Preferred Time Field -->
 <div id="support-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" style="display: none;">
     <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
         <!-- Modal Header -->
@@ -31,7 +31,7 @@
                     <i class="fas fa-arrow-right text-red-500 group-hover:translate-x-1 transition-transform duration-200"></i>
                 </button>
                 
-                <!-- Request Callback Button -->
+                <!-- Request Callback Button - CHANGED TO ASAP -->
                 <button onclick="showCallbackForm()" 
                    class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200 group border border-gray-200 w-full">
                     <div class="bg-gray-500 text-white p-3 rounded-full mr-4 group-hover:bg-gray-600 transition duration-200">
@@ -39,12 +39,12 @@
                     </div>
                     <div class="flex-1 text-left">
                         <div class="font-semibold text-gray-900 mb-1">Request a Callback</div>
-                        <div class="text-gray-500 text-sm">We'll call you back within 30 minutes</div>
+                        <div class="text-gray-500 text-sm">We'll call you back ASAP</div>
                     </div>
                     <i class="fas fa-arrow-right text-gray-500 group-hover:translate-x-1 transition-transform duration-200"></i>
                 </button>
 
-                <!-- Callback Form -->
+                <!-- Callback Form - ADDED PREFERRED TIME FIELD -->
                 <div id="callback-form" class="bg-gray-50 rounded-lg p-4 border border-gray-200" style="display: none;">
                     <div class="flex items-center mb-3">
                         <div class="bg-gray-500 text-white p-2 rounded-full mr-3">
@@ -64,6 +64,14 @@
                             <option value="personal">Personal Loan</option>
                             <option value="business">Business Loan</option>
                             <option value="other">Other</option>
+                        </select>
+                        <!-- NEW: Preferred Callback Time Field -->
+                        <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            <option value="">Preferred callback time (optional)</option>
+                            <option value="morning">Morning (9am - 12pm)</option>
+                            <option value="afternoon">Afternoon (12pm - 5pm)</option>
+                            <option value="evening">Evening (5pm - 8pm)</option>
+                            <option value="anytime">Anytime today</option>
                         </select>
                         <div class="flex gap-2">
                             <button type="submit"
@@ -134,7 +142,7 @@ window.hideCallbackForm = function() {
 
 window.handleCallbackRequest = function(event) {
     event.preventDefault();
-    alert('Thank you! We\'ll call you back within 30 minutes.');
+    alert('Thank you! We\'ll call you back ASAP.');
     event.target.reset();
     closeSupportModal();
 };
