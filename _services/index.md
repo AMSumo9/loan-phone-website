@@ -6,18 +6,27 @@ meta_keywords: "loan services, car loans, home loans, personal loans, business l
 permalink: /services/
 ---
 
+<!-- PINK HERO SECTION - ADDED ABOVE PROCESS STEPS -->
+<section class="py-16" style="background-color: #fce8e8;">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">Our Loan Services</h1>
+            <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-4">Find the Perfect Loan Solution</h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                At The Loan Phone, we specialize in helping Australians find the perfect loan solution. 
+                Whether you're buying a car, purchasing a home, or growing your business, we've got you covered.
+            </p>
+        </div>
+    </div>
+</section>
+
 <!-- Services Index Content with proper spacing -->
 <div class="container mx-auto px-6 py-8">
 
-<h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Our Loan Services</h1>
-
+<!-- HOW IT WORKS PROCESS - MOVED BELOW PINK HERO -->
 <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
     <div class="text-center mb-8">
-        <h2 class="text-3xl font-bold text-gray-800 mb-4">Find the Perfect Loan Solution</h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-            At The Loan Phone, we specialize in helping Australians find the perfect loan solution. 
-            Whether you're buying a car, purchasing a home, or growing your business, we've got you covered.
-        </p>
+        <h2 class="text-3xl font-bold text-gray-800 mb-4">How Our Service Works</h2>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -193,17 +202,25 @@ permalink: /services/
 
 <h2 class="text-2xl font-bold text-gray-800 mb-6">Ready to Get Started?</h2>
 
+<!-- UPDATED CTA SECTION - FIXED BUTTON TEXT -->
 <div class="bg-white rounded-lg shadow p-8 text-center">
     <h3 class="text-2xl font-bold mb-4" style="color: #DC2626;">Ready to Compare Loans?</h3>
     <p class="text-lg text-gray-600 mb-6">Get personalized loan options in minutes from Australia's trusted loan specialists</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <!-- CHANGED: Just "Call" -->
         <a href="tel:{{ site.contact.phone }}" class="inline-block px-6 py-3 rounded-lg font-semibold transition duration-300" style="background-color: #DC2626; color: white;">
             <i class="fas fa-phone mr-2"></i>
-            Call {{ site.contact.phone_display }}
+            Call
         </a>
-        <button onclick="openSupportModal()" class="inline-block border-2 px-6 py-3 rounded-lg font-semibold transition duration-300" style="border-color: #DC2626; color: #DC2626;">
-            <i class="fas fa-comment mr-2"></i>
-            Get Free Quote
+        <!-- CHANGED: "Compare Now" + Link to Homepage Widget -->
+        <a href="{{ site.baseurl }}/#loan-selector" class="inline-block border-2 px-6 py-3 rounded-lg font-semibold transition duration-300" style="border-color: #DC2626; color: #DC2626;">
+            <i class="fas fa-chart-bar mr-2"></i>
+            Compare Now
+        </a>
+        <!-- NEW: Contact Button -->
+        <button onclick="openSupportModal()" class="inline-block border-2 px-6 py-3 rounded-lg font-semibold transition duration-300" style="border-color: #fce8e8; color: #374151; background-color: #fce8e8;">
+            <i class="fas fa-envelope mr-2"></i>
+            Contact
         </button>
     </div>
 </div>
