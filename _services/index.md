@@ -6,12 +6,12 @@ meta_keywords: "loan services, car loans, home loans, personal loans, business l
 permalink: /services/
 ---
 
-<!-- PINK HERO SECTION - CONSISTENT WITH ABOUT PAGE -->
-<section style="background-color: #fce8e8;">
+<!-- PINK HERO SECTION - FIXED: Consistent with blog page pattern -->
+<section class="bg-[var(--bg-accent)] transition-colors duration-300">
     <div class="container mx-auto px-6 py-16 text-center animate-on-scroll">
-        <h1 class="text-5xl font-extrabold text-gray-800 mb-4">Our Loan <span class="brand-red">Services</span></h1>
+        <h1 class="text-5xl font-extrabold text-[var(--text-primary)] mb-4">Our Loan <span class="brand-red">Services</span></h1>
         <div class="text-center mb-8">
-            <div class="space-y-4 text-lg text-gray-600 max-w-3xl mx-auto">
+            <div class="space-y-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
                 <p><strong>Find the perfect loan solution.</strong></p>
                 <p>At The Loan Phone, we specialize in helping Australians find the perfect loan solution. Whether you're buying a car, purchasing a home, or growing your business, we've got you covered.</p>
             </div>
