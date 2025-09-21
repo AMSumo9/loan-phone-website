@@ -195,14 +195,14 @@
     {% include header.html %}
     
     <main>
-        <!-- Blog Post Header (Pink Section) - FIXED LAYOUT -->
-        <section class="bg-[var(--bg-accent)] py-16 transition-colors duration-300">
+        <!-- Blog Post Header (Pink Section) - CONSISTENT: Always light pink -->
+        <section class="py-16" style="background-color: #fce8e8;">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-6">{{ page.title }}</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">{{ page.title }}</h1>
                     
                     <!-- LINE 1: Date, Author, Time to Read -->
-                    <div class="flex flex-wrap justify-center items-center gap-4 text-[var(--text-secondary)] mb-4">
+                    <div class="flex flex-wrap justify-center items-center gap-4 text-gray-600 mb-4">
                         <span class="flex items-center">
                             <i class="fas fa-calendar mr-2"></i>
                             {{ page.date | date: "%B %d, %Y" }}
@@ -240,12 +240,12 @@
                     {% endif %}
                     
                     <!-- LINE 3: Breadcrumbs -->
-                    <nav class="text-[var(--text-secondary)] text-sm">
+                    <nav class="text-gray-600 text-sm">
                         <a href="{{ site.baseurl }}/" class="hover:text-red-600">Home</a>
                         <span class="mx-2">></span>
                         <a href="{{ site.baseurl }}/blog/" class="hover:text-red-600">Blog</a>
                         <span class="mx-2">></span>
-                        <span class="text-[var(--text-primary)]">{{ page.title }}</span>
+                        <span class="text-gray-800">{{ page.title }}</span>
                     </nav>
                 </div>
             </div>
@@ -279,24 +279,27 @@
                             <!-- Clear floats -->
                             <div style="clear: both;"></div>
                             
-                            <!-- Share Section - Pink Theme with Grey/Red Text -->
+                            <!-- Share Section - FIXED: Pink buttons with dark text, correct social icons -->
                             <div class="mt-8 pt-8 border-t border-gray-200">
                                 <h4 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">Share this article:</h4>
                                 <div class="flex gap-4">
-                                    <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" 
-                                       class="bg-pink-100 text-gray-700 px-4 py-2 rounded hover:bg-pink-200 transition duration-300 border border-pink-200"
-                                       target="_blank">
-                                        <i class="fab fa-twitter mr-2 text-red-600"></i>Twitter
-                                    </a>
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}" 
-                                       class="bg-pink-100 text-gray-700 px-4 py-2 rounded hover:bg-pink-200 transition duration-300 border border-pink-200"
+                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800" 
+                                       style="background-color: #fce8e8;"
                                        target="_blank">
-                                        <i class="fab fa-facebook mr-2 text-red-600"></i>Facebook
+                                        <i class="fab fa-facebook-f mr-2" style="color: #DC2626;"></i>Facebook
                                     </a>
-                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ site.baseurl }}{{ page.url }}" 
-                                       class="bg-pink-100 text-gray-700 px-4 py-2 rounded hover:bg-pink-200 transition duration-300 border border-pink-200"
+                                    <a href="https://www.instagram.com/" 
+                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800" 
+                                       style="background-color: #fce8e8;"
                                        target="_blank">
-                                        <i class="fab fa-linkedin mr-2 text-red-600"></i>LinkedIn
+                                        <i class="fab fa-instagram mr-2" style="color: #DC2626;"></i>Instagram
+                                    </a>
+                                    <a href="https://www.tiktok.com/" 
+                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800" 
+                                       style="background-color: #fce8e8;"
+                                       target="_blank">
+                                        <i class="fab fa-tiktok mr-2" style="color: #DC2626;"></i>TikTok
                                     </a>
                                 </div>
                             </div>
