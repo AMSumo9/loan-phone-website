@@ -20,10 +20,10 @@ permalink: /services/
 </section>
 
 <!-- Services Index Content with proper spacing and FIXED dark mode -->
-<div class="container mx-auto px-6 py-8 bg-[var(--bg-primary)] transition-colors duration-300">
+<div class="container mx-auto px-6 py-8 transition-colors duration-300">
 
 <!-- HOW IT WORKS PROCESS - FIXED: Dark mode backgrounds and text -->
-<div class="bg-[var(--bg-primary)] rounded-lg shadow-lg p-8 mb-8 border border-gray-200 transition-colors duration-300">
+<div class="rounded-lg shadow-lg p-8 mb-8 border border-gray-200 transition-colors duration-300" style="background-color: var(--bg-primary);">
     <div class="text-center mb-8">
         <h2 class="text-3xl font-bold text-[var(--text-primary)] mb-4">How Our Service Works</h2>
     </div>
@@ -63,7 +63,7 @@ permalink: /services/
 <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Featured Services</h2>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+    <div class="border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300" style="background-color: var(--bg-primary);">
         <div class="flex items-center mb-4">
             <i class="fas fa-car text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">New Car Loans</h3>
@@ -74,7 +74,7 @@ permalink: /services/
         </a>
     </div>
     
-    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+    <div class="border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300" style="background-color: var(--bg-primary);">
         <div class="flex items-center mb-4">
             <i class="fas fa-home text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">Home Loans</h3>
@@ -85,7 +85,7 @@ permalink: /services/
         </a>
     </div>
     
-    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+    <div class="border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300" style="background-color: var(--bg-primary);">
         <div class="flex items-center mb-4">
             <i class="fas fa-briefcase text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">Business Loans</h3>
@@ -191,7 +191,7 @@ permalink: /services/
     <h3 class="text-xl font-bold mb-4 text-[var(--text-primary)]">All Available Services</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {% for loan_type in site.data.loan_types.all_types %}
-        <a href="{{ site.baseurl }}{{ loan_type.url }}" class="block p-3 bg-[var(--bg-secondary)] rounded hover:bg-red-50 transition duration-300 brand-red border border-gray-100">
+        <a href="{{ site.baseurl }}{{ loan_type.url }}" class="block p-3 rounded transition duration-300 text-gray-800 border border-gray-300" style="background-color: #fce8e8;">
             <i class="fas fa-arrow-right mr-2"></i>
             {{ loan_type.name }}
         </a>
