@@ -1,20 +1,20 @@
-<!-- Footer - ALL ISSUES COMPREHENSIVELY FIXED -->
+<!-- Footer - TWO COLUMN SERVICES + CONSISTENT COLORS -->
 <footer class="bg-gray-900 text-white py-12">
   <div class="container mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
       
       <!-- Company Info -->
       <div>
-        <h3 class="text-xl font-bold mb-4 text-pink-400">{{ site.company.name }}</h3>
+        <h3 class="text-xl font-bold mb-4" style="color: #fce8e8;">{{ site.company.name }}</h3>
         <p class="text-gray-300 mb-4">{{ site.company.tagline }}</p>
         <div class="space-y-2">
-          <!-- REMOVED PHONE NUMBER DISPLAY - CONSISTENT WORDING -->
+          <!-- CONSISTENT WORDING -->
           <div class="flex items-center">
-            <i class="fas fa-phone text-pink-400 mr-3"></i>
+            <i class="fas fa-phone mr-3" style="color: #fce8e8;"></i>
             <span class="text-gray-300">Speak to an Expert</span>
           </div>
           <div class="mt-4">
-            <button onclick="openSupportModal()" class="bg-pink-500 text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition duration-200">
+            <button onclick="openSupportModal()" class="text-white px-4 py-2 rounded-lg hover:opacity-80 transition duration-200" style="background-color: #fce8e8; color: #374151;">
               <i class="fas fa-envelope mr-2"></i>
               Get in Contact
             </button>
@@ -22,50 +22,50 @@
         </div>
       </div>
 
-      <!-- Connect - MOVED TO 2ND POSITION -->
+      <!-- Connect -->
       <div>
-        <h4 class="text-lg font-semibold mb-4 text-pink-400">Connect</h4>
+        <h4 class="text-lg font-semibold mb-4" style="color: #fce8e8;">Connect</h4>
         <div class="space-y-4">
           <div class="flex space-x-4">
-            <a href="#" class="text-gray-300 hover:text-pink-300 text-2xl">
-              <i class="fab fa-facebook-f"></i>
+            <a href="#" class="text-gray-300 hover:text-2xl transition-colors duration-200" style="hover: color: #fce8e8;">
+              <i class="fab fa-facebook-f text-2xl"></i>
             </a>
-            <a href="#" class="text-gray-300 hover:text-pink-300 text-2xl">
-              <i class="fab fa-linkedin-in"></i>
+            <a href="#" class="text-gray-300 hover:text-2xl transition-colors duration-200" style="hover: color: #fce8e8;">
+              <i class="fab fa-linkedin-in text-2xl"></i>
             </a>
-            <a href="#" class="text-gray-300 hover:text-pink-300 text-2xl">
-              <i class="fab fa-twitter"></i>
+            <a href="#" class="text-gray-300 hover:text-2xl transition-colors duration-200" style="hover: color: #fce8e8;">
+              <i class="fab fa-twitter text-2xl"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <!-- All Services - MOVED TO 3RD POSITION, TWO COLUMNS -->
+      <!-- All Services - TWO COLUMNS -->
       <div>
-        <h4 class="text-lg font-semibold mb-4 text-pink-400">All Services</h4>
-        <div class="grid grid-cols-1 gap-1">
+        <h4 class="text-lg font-semibold mb-4" style="color: #fce8e8;">All Services</h4>
+        <div class="grid grid-cols-2 gap-1 text-sm">
           {% for loan_type in site.data.loan_types.all_types %}
-            <a href="{{ site.baseurl }}{{ loan_type.url }}" class="text-gray-300 hover:text-pink-300 transition duration-200 text-sm py-1">
+            <a href="{{ site.baseurl }}{{ loan_type.url }}" class="text-gray-300 transition duration-200 py-1 hover:underline" style="color: #d1d5db;">
               {{ loan_type.name }}
             </a>
           {% endfor %}
         </div>
       </div>
 
-      <!-- Company Links - 4TH POSITION (RIGHT SIDE) -->
+      <!-- Company Links -->
       <div>
-        <h4 class="text-lg font-semibold mb-4 text-pink-400">Company</h4>
+        <h4 class="text-lg font-semibold mb-4" style="color: #fce8e8;">Company</h4>
         <ul class="space-y-2">
           {% for item in site.data.navigation.footer.company %}
             {% if item.action == "modal" %}
               <li>
-                <a href="#" onclick="openSupportModal(); return false;" class="text-gray-300 hover:text-pink-300 transition duration-200">
+                <a href="#" onclick="openSupportModal(); return false;" class="text-gray-300 transition duration-200 hover:underline">
                   {{ item.name }}
                 </a>
               </li>
             {% else %}
               <li>
-                <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-300 hover:text-pink-300 transition duration-200">
+                <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-300 transition duration-200 hover:underline">
                   {{ item.name }}
                 </a>
               </li>
