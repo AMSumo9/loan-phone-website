@@ -22,8 +22,8 @@ permalink: /services/
 <!-- Services Index Content with proper spacing and FIXED dark mode -->
 <div class="container mx-auto px-6 py-8 transition-colors duration-300">
 
-<!-- HOW IT WORKS PROCESS - FIXED: Dark mode backgrounds and text -->
-<div class="rounded-lg shadow-lg p-8 mb-8 border border-gray-200 transition-colors duration-300" style="background-color: var(--bg-primary);">
+<!-- HOW IT WORKS PROCESS - FIXED: Proper dark mode backgrounds -->
+<div class="bg-[var(--bg-primary)] rounded-lg shadow-lg p-8 mb-8 border border-gray-200 transition-colors duration-300">
     <div class="text-center mb-8">
         <h2 class="text-3xl font-bold text-[var(--text-primary)] mb-4">How Our Service Works</h2>
     </div>
@@ -63,7 +63,7 @@ permalink: /services/
 <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Featured Services</h2>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-    <div class="border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300" style="background-color: var(--bg-primary);">
+    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
         <div class="flex items-center mb-4">
             <i class="fas fa-car text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">New Car Loans</h3>
@@ -74,7 +74,7 @@ permalink: /services/
         </a>
     </div>
     
-    <div class="border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300" style="background-color: var(--bg-primary);">
+    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
         <div class="flex items-center mb-4">
             <i class="fas fa-home text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">Home Loans</h3>
@@ -85,7 +85,7 @@ permalink: /services/
         </a>
     </div>
     
-    <div class="border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300" style="background-color: var(--bg-primary);">
+    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
         <div class="flex items-center mb-4">
             <i class="fas fa-briefcase text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">Business Loans</h3>
@@ -202,7 +202,7 @@ permalink: /services/
 <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Ready to Get Started?</h2>
 
 <!-- FIXED: All buttons now pink with gray text -->
-<div class="rounded-lg shadow p-8 text-center border border-gray-200 transition-colors duration-300" style="background-color: var(--bg-primary);">
+<div class="bg-[var(--bg-primary)] rounded-lg shadow p-8 text-center border border-gray-200 transition-colors duration-300">
     <h3 class="text-2xl font-bold mb-4 brand-red">Ready to Compare Loans?</h3>
     <p class="text-lg text-[var(--text-secondary)] mb-6">Get personalized loan options in minutes from Australia's trusted loan specialists</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
