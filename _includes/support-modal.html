@@ -1,162 +1,105 @@
-<!-- Support Modal - NATIVE EMAIL FORM -->
-<div id="support-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" style="display: none;">
-    <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
-        <!-- Modal Header -->
-        <div class="flex justify-between items-center p-6 border-b border-gray-200">
-            <div>
-                <h3 class="text-xl font-bold text-gray-900">Contact Our Experts</h3>
-                <p class="text-sm text-gray-600 mt-1">Get personalized loan assistance</p>
-            </div>
-            <button onclick="closeSupportModal()" 
-                    class="text-gray-400 hover:text-gray-600 transition-colors duration-200 p-1 rounded-full hover:bg-gray-100">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-        </div>
+<!-- Support Modal - FIXED: Unified design without gaps -->
+<div id="support-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg max-w-md w-full mx-4 relative">
+        <!-- Close Button -->
+        <button id="modal-close" onclick="closeSupportModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
         
-        <!-- Modal Body -->
+        <!-- Modal Content - UNIFIED: No gaps between sections -->
         <div class="p-6">
-            <p class="text-gray-700 mb-6">Choose how you'd like to get in touch with our loan specialists.</p>
+            <div class="text-center mb-6">
+                <i class="fas fa-headset text-4xl text-red-600 mb-3"></i>
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Get Expert Help</h3>
+                <p class="text-gray-600">Choose how you'd like to connect with our loan specialists</p>
+            </div>
             
-            <div class="space-y-4">
-                <!-- Speak to Expert Button - NO PHONE NUMBER SHOWN -->
-                <button onclick="window.location.href='tel:{{ site.contact.phone }}'; closeSupportModal();" 
-                   class="flex items-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition duration-200 group border border-red-200 w-full">
-                    <div class="bg-red-500 text-white p-3 rounded-full mr-4 group-hover:bg-red-600 transition duration-200">
-                        <i class="fas fa-phone text-lg"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <div class="font-semibold text-gray-900 mb-1">Speak to an Expert</div>
-                        <div class="text-gray-500 text-sm">Call us now for immediate assistance</div>
-                    </div>
-                    <i class="fas fa-arrow-right text-red-500 group-hover:translate-x-1 transition-transform duration-200"></i>
-                </button>
+            <!-- Contact Options -->
+            <div class="space-y-4 mb-6">
+                <!-- Call Now Button -->
+                <a href="tel:{{ site.contact.phone }}" class="flex items-center justify-center w-full py-3 px-4 font-semibold rounded-lg transition duration-200 text-gray-800" style="background-color: #fce8e8;">
+                    <i class="fas fa-phone mr-3 text-red-600"></i>
+                    <span>Call {{ site.contact.phone_display }} Now</span>
+                </a>
                 
-                <!-- Request Callback Button - ASAP -->
-                <button onclick="showCallbackForm()" 
-                   class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition duration-200 group border border-gray-200 w-full">
-                    <div class="bg-gray-500 text-white p-3 rounded-full mr-4 group-hover:bg-gray-600 transition duration-200">
-                        <i class="fas fa-phone-alt text-lg"></i>
-                    </div>
-                    <div class="flex-1 text-left">
-                        <div class="font-semibold text-gray-900 mb-1">Request a Callback</div>
-                        <div class="text-gray-500 text-sm">We'll call you back ASAP</div>
-                    </div>
-                    <i class="fas fa-arrow-right text-gray-500 group-hover:translate-x-1 transition-transform duration-200"></i>
-                </button>
-
-                <!-- Callback Form - WITH EMAIL INTEGRATION -->
-                <div id="callback-form" class="bg-gray-50 rounded-lg p-4 border border-gray-200" style="display: none;">
-                    <div class="flex items-center mb-3">
-                        <div class="bg-gray-500 text-white p-2 rounded-full mr-3">
-                            <i class="fas fa-comment text-sm"></i>
+                <!-- Request Callback Section - UNIFIED: No gap between header and form -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <!-- Callback Header - Part of the form container -->
+                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
+                        <div class="flex items-center justify-center">
+                            <i class="fas fa-calendar-check mr-2 text-red-600"></i>
+                            <span class="font-semibold text-gray-800">Request a Callback</span>
                         </div>
-                        <div class="font-semibold text-gray-900">Quick Callback Request</div>
                     </div>
-                    <!-- NATIVE FORM - EMAILS TO loans@loanphone.com.au -->
-                    <form action="https://formsubmit.co/loans@loanphone.com.au" method="POST" class="space-y-3">
-                        <!-- Hidden fields for FormSubmit configuration -->
-                        <input type="hidden" name="_subject" value="New Callback Request - The Loan Phone">
-                        <input type="hidden" name="_next" value="{{ site.url }}{{ site.baseurl }}/thank-you/">
-                        <input type="hidden" name="_captcha" value="false">
-                        
-                        <input type="text" name="name" placeholder="Your name" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                        <input type="tel" name="phone" placeholder="Your phone number" required
-                               class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                        <select name="loan_type" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                            <option value="">What loan are you interested in?</option>
-                            <option value="car">Car Loan</option>
-                            <option value="home">Home Loan</option>
-                            <option value="personal">Personal Loan</option>
-                            <option value="business">Business Loan</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <!-- Preferred Callback Time Field -->
-                        <select name="callback_time" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
-                            <option value="">Preferred callback time (optional)</option>
-                            <option value="morning">Morning (9am - 12pm)</option>
-                            <option value="afternoon">Afternoon (12pm - 5pm)</option>
-                            <option value="evening">Evening (5pm - 8pm)</option>
-                            <option value="anytime">Anytime today</option>
-                        </select>
-                        <div class="flex gap-2">
-                            <button type="submit"
-                                    class="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-200 font-medium">
+                    
+                    <!-- Callback Form - Directly connected to header -->
+                    <div class="p-4 bg-white">
+                        <form action="https://formsubmit.co/loans@loanphone.com.au" method="POST" class="space-y-4">
+                            <!-- Hidden Fields for FormSubmit -->
+                            <input type="hidden" name="_next" value="{{ site.url }}{{ site.baseurl }}/thank-you/">
+                            <input type="hidden" name="_subject" value="New Callback Request - The Loan Phone">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
+                            
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" required 
+                                       class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email (Optional)</label>
+                                <input type="email" id="email" name="email" 
+                                       class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                            </div>
+                            
+                            <div>
+                                <label for="loan-type" class="block text-sm font-medium text-gray-700 mb-1">Loan Type</label>
+                                <select id="loan-type" name="loan_type" required 
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                                    <option value="">Select a loan type</option>
+                                    <option value="New Car Loan">New Car Loan</option>
+                                    <option value="Used Car Loan">Used Car Loan</option>
+                                    <option value="Home Loan">Home Loan</option>
+                                    <option value="Refinance">Refinance</option>
+                                    <option value="Personal Loan">Personal Loan</option>
+                                    <option value="Business Loan">Business Loan</option>
+                                    <option value="Equipment Finance">Equipment Finance</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="preferred-time" class="block text-sm font-medium text-gray-700 mb-1">Preferred Callback Time</label>
+                                <select id="preferred-time" name="preferred_time" required 
+                                        class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-red-500">
+                                    <option value="">Select preferred time</option>
+                                    <option value="Morning (9am-12pm)">Morning (9am-12pm)</option>
+                                    <option value="Afternoon (12pm-5pm)">Afternoon (12pm-5pm)</option>
+                                    <option value="Evening (5pm-7pm)">Evening (5pm-7pm)</option>
+                                    <option value="Anytime">Anytime</option>
+                                </select>
+                            </div>
+                            
+                            <button type="submit" class="w-full py-3 px-4 font-semibold rounded-lg transition duration-200 text-gray-800" style="background-color: #fce8e8;">
+                                <i class="fas fa-paper-plane mr-2 text-red-600"></i>
                                 Request Callback
                             </button>
-                            <button type="button" onclick="hideCallbackForm()"
-                                    class="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition duration-200">
-                                Cancel
-                            </button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Modal Footer -->
-        <div class="px-6 py-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
-            <div class="flex items-center justify-between">
-                <div class="text-sm text-gray-500">
-                    <i class="fas fa-shield-alt text-red-500 mr-1"></i>
-                    Your information is secure
-                </div>
-                <button onclick="closeSupportModal()" 
-                        class="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition duration-200 text-sm font-medium">
-                    Close
-                </button>
+            
+            <!-- Footer Text -->
+            <div class="text-center">
+                <p class="text-sm text-gray-500">
+                    We'll connect you with a qualified loan specialist who can help find the best solution for your needs.
+                </p>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-// MODAL FUNCTIONS
-window.openSupportModal = function() {
-    const modal = document.getElementById('support-modal');
-    if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-};
-
-window.closeSupportModal = function() {
-    const modal = document.getElementById('support-modal');
-    const form = document.getElementById('callback-form');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-    if (form) {
-        form.style.display = 'none';
-    }
-};
-
-window.showCallbackForm = function() {
-    const form = document.getElementById('callback-form');
-    if (form) {
-        form.style.display = 'block';
-    }
-};
-
-window.hideCallbackForm = function() {
-    const form = document.getElementById('callback-form');
-    if (form) {
-        form.style.display = 'none';
-    }
-};
-
-// Close modal functionality
-document.addEventListener('click', function(event) {
-    const modal = document.getElementById('support-modal');
-    if (event.target === modal) {
-        closeSupportModal();
-    }
-});
-
-document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-        closeSupportModal();
-    }
-});
-</script>
