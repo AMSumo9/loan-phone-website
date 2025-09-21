@@ -1,13 +1,13 @@
-<!-- Header - CONSISTENT LIGHT PINK COLORS -->
+<!-- Header - CAPITALIZED LOGO + DARK MODE TOGGLE -->
 <header class="bg-white shadow-lg sticky top-0 z-40">
     <div class="container mx-auto px-6">
         <div class="flex items-center justify-between h-24">
-            <!-- Logo with Phone Icon - 50% BIGGER -->
+            <!-- Logo with Phone Icon - CAPITALIZED -->
             <div class="flex items-center">
                 <a href="{{ site.baseurl }}/" class="flex items-center space-x-4">
                     <i class="fas fa-phone-alt text-5xl text-red-600"></i>
                     <div class="text-5xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
-                        The Loan Phone
+                        THE LOAN PHONE
                     </div>
                 </a>
             </div>
@@ -34,8 +34,14 @@
                 {% endfor %}
             </nav>
 
-            <!-- CTA Buttons - LIGHT PINK BACKGROUND COLOR -->
+            <!-- Right Side: Dark Mode + CTA Buttons -->
             <div class="hidden md:flex items-center space-x-3">
+                <!-- ADDED BACK: Dark Mode Toggle -->
+                <button id="theme-toggle-desktop" class="p-2 text-gray-600 hover:text-red-600 transition duration-200">
+                    <i class="fas fa-moon text-xl"></i>
+                </button>
+                
+                <!-- CTA Buttons - LIGHT PINK BACKGROUND COLOR -->
                 <a href="tel:{{ site.contact.phone }}" 
                    class="inline-flex items-center px-5 py-3 text-gray-800 font-semibold rounded-lg transition duration-200 hover:opacity-80 text-lg"
                    style="background-color: #fce8e8;">
@@ -51,8 +57,13 @@
                 </button>
             </div>
 
-            <!-- Mobile menu button -->
-            <div class="md:hidden">
+            <!-- Mobile menu button + dark mode -->
+            <div class="md:hidden flex items-center space-x-2">
+                <!-- Mobile Dark Mode Toggle -->
+                <button id="theme-toggle-mobile" class="p-2 text-gray-600 hover:text-red-600 transition duration-200">
+                    <i class="fas fa-moon text-xl"></i>
+                </button>
+                
                 <button onclick="toggleMobileMenu()" class="text-red-600 hover:text-red-700 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
