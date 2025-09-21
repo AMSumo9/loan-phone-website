@@ -152,14 +152,14 @@
     
     <main>
         {% if page.service_type %}
-        <!-- Hero Section - CONSISTENT: Always light pink like other pages -->
+        <!-- Hero Section - CONSISTENT: Always light pink with dark text -->
         <section class="py-16" style="background-color: #fce8e8;">
             <div class="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-on-scroll">
                     <h1 class="text-5xl font-extrabold text-gray-800 mb-4">
                         {% assign title_clean = page.title | remove: ' | The Loan Phone' %}
                         {% if page.hero_highlight %}
-                            {% assign highlighted_title = title_clean | replace: page.hero_highlight, '<span class="brand-red">' | append: page.hero_highlight | append: '</span>' %}
+                            {% assign highlighted_title = title_clean | replace: page.hero_highlight, '<span style="color: #DC2626;">' | append: page.hero_highlight | append: '</span>' %}
                             {{ highlighted_title }}
                         {% else %}
                             {{ title_clean }}
@@ -167,11 +167,11 @@
                     </h1>
                     
                     {% if page.subtitle %}
-                    <p class="text-xl text-[var(--text-secondary)] mb-6">{{ page.subtitle }}</p>
+                    <p class="text-xl text-gray-600 mb-6">{{ page.subtitle }}</p>
                     {% endif %}
                     
                     {% if page.excerpt %}
-                    <p class="text-xl text-[var(--text-secondary)] mb-6">{{ page.excerpt }}</p>
+                    <p class="text-xl text-gray-600 mb-6">{{ page.excerpt }}</p>
                     {% endif %}
                     
                     <a href="{{ site.baseurl }}/#loan-selector" class="inline-block bg-brand-red text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:bg-brand-red-dark transition-transform duration-300 transform hover:scale-105">
