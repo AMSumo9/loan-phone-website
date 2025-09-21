@@ -1,14 +1,16 @@
 <!-- Header -->
 <header class="bg-white shadow-lg sticky top-0 z-40">
-    <!-- Logo with Phone Icon - Replace the logo section in header.html -->
-    <div class="flex items-center">
-    <a href="{{ site.baseurl }}/" class="flex items-center space-x-3">
-        <i class="fas fa-phone-alt text-2xl text-red-600"></i>
-        <div class="text-2xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif !important; color: #DC2626 !important;">
-            The Loan Phone
-        </div>
-    </a>
-    </div>
+    <div class="container mx-auto px-6">
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo with Phone Icon -->
+            <div class="flex items-center">
+                <a href="{{ site.baseurl }}/" class="flex items-center space-x-2">
+                    <i class="fas fa-phone-alt text-2xl text-red-600"></i>
+                    <div class="text-2xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
+                        The Loan Phone
+                    </div>
+                </a>
+            </div>
 
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-8">
@@ -26,15 +28,16 @@
             </nav>
 
             <!-- CTA Buttons -->
-            <div class="hidden md:flex items-center space-x-4">
+            <div class="hidden md:flex items-center space-x-3">
                 <a href="tel:{{ site.contact.phone }}" 
-                   class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg transition duration-200 hover:bg-red-700">
+                   class="inline-flex items-center px-4 py-2 bg-red-600 text-white font-semibold rounded-lg transition duration-200 hover:bg-red-700">
                     <i class="fas fa-phone mr-2"></i>
                     Speak to an Expert
                 </a>
                 
                 <button onclick="openSupportModal()" 
-                        class="px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg hover:bg-red-600 hover:text-white transition duration-200">
+                        class="inline-flex items-center px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg hover:bg-red-600 hover:text-white transition duration-200">
+                    <i class="fas fa-edit mr-2"></i>
                     Submit Inquiry
                 </button>
             </div>
@@ -73,6 +76,7 @@
                 
                 <button onclick="openSupportModal(); toggleMobileMenu();" 
                         class="block w-full px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg">
+                    <i class="fas fa-edit mr-2"></i>
                     Submit Inquiry
                 </button>
             </div>
