@@ -20,7 +20,7 @@ permalink: /services/
 </section>
 
 <!-- Services Index Content with proper spacing and FIXED dark mode -->
-<div class="container mx-auto px-6 py-8 transition-colors duration-300">
+<div class="container mx-auto px-6 py-8 bg-[var(--bg-primary)] transition-colors duration-300">
 
 <!-- HOW IT WORKS PROCESS - FIXED: Proper dark mode backgrounds -->
 <div class="bg-[var(--bg-primary)] rounded-lg shadow-lg p-8 mb-8 border border-gray-200 transition-colors duration-300">
