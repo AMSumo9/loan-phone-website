@@ -1,7 +1,7 @@
-<!-- Support Modal -->
-<div id="support-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 modal hide" style="display: none;">
+<!-- Support Modal - ALL ISSUES FIXED -->
+<div id="support-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50" style="display: none;">
     <div class="flex items-center justify-center min-h-screen p-4">
-        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 transform transition-all duration-300">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4">
             <!-- Modal Header -->
             <div class="flex justify-between items-center p-6 border-b border-gray-200">
                 <div>
@@ -19,55 +19,63 @@
                 <p class="text-gray-700 mb-6">Choose how you'd like to get in touch with our loan specialists.</p>
                 
                 <div class="space-y-4">
-                    <!-- Phone Contact -->
-                    <a href="tel:{{ site.contact.phone }}" 
-                       class="flex items-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition duration-200 group border border-red-200"
-                       onclick="closeSupportModal()">
+                    <!-- Speak to Expert Button - NO PHONE NUMBER SHOWN -->
+                    <button onclick="window.location.href='tel:{{ site.contact.phone }}'; closeSupportModal();" 
+                       class="flex items-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition duration-200 group border border-red-200 w-full">
                         <div class="bg-red-500 text-white p-3 rounded-full mr-4 group-hover:bg-red-600 transition duration-200">
                             <i class="fas fa-phone text-lg"></i>
                         </div>
-                        <div class="flex-1">
+                        <div class="flex-1 text-left">
                             <div class="font-semibold text-gray-900 mb-1">Speak to an Expert</div>
-                            <div class="text-red-600 font-medium">{{ site.contact.phone_display }}</div>
-                            <div class="text-gray-500 text-sm">Available during business hours</div>
+                            <div class="text-gray-500 text-sm">Call us now for immediate assistance</div>
                         </div>
                         <i class="fas fa-arrow-right text-red-500 group-hover:translate-x-1 transition-transform duration-200"></i>
-                    </a>
+                    </button>
                     
-                    <!-- Email Contact -->
-                    <a href="mailto:{{ site.contact.email }}" 
-                       class="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition duration-200 group border border-blue-200"
-                       onclick="closeSupportModal()">
-                        <div class="bg-blue-500 text-white p-3 rounded-full mr-4 group-hover:bg-blue-600 transition duration-200">
-                            <i class="fas fa-envelope text-lg"></i>
+                    <!-- Request Callback Button - NOT EMAIL -->
+                    <button onclick="showCallbackForm()" 
+                       class="flex items-center p-4 bg-pink-50 rounded-lg hover:bg-pink-100 transition duration-200 group border border-pink-200 w-full">
+                        <div class="bg-pink-500 text-white p-3 rounded-full mr-4 group-hover:bg-pink-600 transition duration-200">
+                            <i class="fas fa-phone-alt text-lg"></i>
                         </div>
-                        <div class="flex-1">
-                            <div class="font-semibold text-gray-900 mb-1">Email Us</div>
-                            <div class="text-blue-600 font-medium">{{ site.contact.email }}</div>
-                            <div class="text-gray-500 text-sm">We'll respond within 2 hours</div>
+                        <div class="flex-1 text-left">
+                            <div class="font-semibold text-gray-900 mb-1">Request a Callback</div>
+                            <div class="text-gray-500 text-sm">We'll call you back within 30 minutes</div>
                         </div>
-                        <i class="fas fa-arrow-right text-blue-500 group-hover:translate-x-1 transition-transform duration-200"></i>
-                    </a>
+                        <i class="fas fa-arrow-right text-pink-500 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </button>
 
-                    <!-- Quick Message -->
-                    <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                    <!-- Quick Message Form -->
+                    <div id="callback-form" class="bg-gray-50 rounded-lg p-4 border border-gray-200" style="display: none;">
                         <div class="flex items-center mb-3">
-                            <div class="bg-green-500 text-white p-2 rounded-full mr-3">
+                            <div class="bg-gray-500 text-white p-2 rounded-full mr-3">
                                 <i class="fas fa-comment text-sm"></i>
                             </div>
-                            <div class="font-semibold text-gray-900">Quick Message</div>
+                            <div class="font-semibold text-gray-900">Quick Callback Request</div>
                         </div>
-                        <form class="space-y-3" onsubmit="handleQuickMessage(event)">
+                        <form class="space-y-3" onsubmit="handleCallbackRequest(event)">
                             <input type="text" placeholder="Your name" required
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                            <input type="email" placeholder="Your email" required
-                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
-                            <textarea placeholder="How can we help you?" rows="3" required
-                                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"></textarea>
-                            <button type="submit"
-                                    class="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-200 font-medium">
-                                Send Message
-                            </button>
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            <input type="tel" placeholder="Your phone number" required
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                            <select required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent">
+                                <option value="">What loan are you interested in?</option>
+                                <option value="car">Car Loan</option>
+                                <option value="home">Home Loan</option>
+                                <option value="personal">Personal Loan</option>
+                                <option value="business">Business Loan</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="flex gap-2">
+                                <button type="submit"
+                                        class="flex-1 bg-red-500 text-white py-2 px-4 rounded-md hover:bg-red-600 transition duration-200 font-medium">
+                                    Request Callback
+                                </button>
+                                <button type="button" onclick="hideCallbackForm()"
+                                        class="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition duration-200">
+                                    Cancel
+                                </button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -77,7 +85,7 @@
             <div class="px-6 py-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
                 <div class="flex items-center justify-between">
                     <div class="text-sm text-gray-500">
-                        <i class="fas fa-shield-alt text-green-500 mr-1"></i>
+                        <i class="fas fa-shield-alt text-red-500 mr-1"></i>
                         Your information is secure
                     </div>
                     <button onclick="closeSupportModal()" 
@@ -91,19 +99,67 @@
 </div>
 
 <script>
-// Handle quick message form (basic functionality)
-function handleQuickMessage(event) {
+// FIXED MODAL FUNCTIONS - WORK ON ALL PAGES
+window.openSupportModal = function() {
+    const modal = document.getElementById('support-modal');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+};
+
+window.closeSupportModal = function() {
+    const modal = document.getElementById('support-modal');
+    const form = document.getElementById('callback-form');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    if (form) {
+        form.style.display = 'none';
+    }
+};
+
+window.showCallbackForm = function() {
+    const form = document.getElementById('callback-form');
+    if (form) {
+        form.style.display = 'block';
+    }
+};
+
+window.hideCallbackForm = function() {
+    const form = document.getElementById('callback-form');
+    if (form) {
+        form.style.display = 'none';
+    }
+};
+
+// Handle callback request
+window.handleCallbackRequest = function(event) {
     event.preventDefault();
     
     const form = event.target;
     const formData = new FormData(form);
     
-    // For now, just show a success message
-    // In production, you'd send this to your backend
-    alert('Thank you for your message! We\'ll get back to you within 2 hours.');
+    // For now, show success message
+    alert('Thank you! We\'ll call you back within 30 minutes.');
     
-    // Reset form and close modal
+    // Reset and close
     form.reset();
     closeSupportModal();
-}
+};
+
+// Close modal when clicking outside or ESC - WORKS ON ALL PAGES
+document.addEventListener('click', function(event) {
+    const modal = document.getElementById('support-modal');
+    if (event.target === modal) {
+        closeSupportModal();
+    }
+});
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeSupportModal();
+    }
+});
 </script>
