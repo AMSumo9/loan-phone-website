@@ -1,196 +1,318 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.seo.default_title }}{% endif %}</title>
+    <meta name="description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ site.seo.default_description }}{% endif %}">
+    <meta name="keywords" content="{% if page.meta_keywords %}{{ page.meta_keywords }}{% else %}{{ site.seo.default_keywords }}{% endif %}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="{% if page.og_type %}{{ page.og_type }}{% else %}website{% endif %}">
+    <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.seo.default_title }}{% endif %}">
+    <meta property="og:description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ site.seo.default_description }}{% endif %}">
+    <meta property="og:image" content="{% if page.featured_image %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ page.featured_image }}{% else %}{{ site.url }}{{ site.baseurl }}{{ site.seo.fallback_image }}{% endif %}">
 
-  <title>{{ page.title | default: site.seo.default_title }}</title>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+    <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.seo.default_title }}{% endif %}">
+    <meta property="twitter:description" content="{% if page.meta_description %}{{ page.meta_description }}{% else %}{{ site.seo.default_description }}{% endif %}">
+    <meta property="twitter:image" content="{% if page.featured_image %}{{ site.url }}{{ site.baseurl }}/assets/images/{{ page.featured_image }}{% else %}{{ site.url }}{{ site.baseurl }}{{ site.seo.fallback_image }}{% endif %}">
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="{{ page.meta_description | default: site.seo.default_description }}" />
-  <meta name="keywords" content="{{ page.meta_keywords | default: site.seo.default_keywords }}" />
-  <meta name="author" content="{{ page.meta_author | default: site.author | default: 'The Loan Phone Team' }}" />
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ site.baseurl }}/assets/images/favicon.ico">
+    
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Widget CSS (if live) -->
+    {% if site.features.loan_widget_live %}
+        <link rel="stylesheet" href="{{ site.features.widget_css }}">
+    {% endif %}
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="{{ page.og_title | default: page.title | default: site.seo.default_title }}" />
-  <meta property="og:description" content="{{ page.og_description | default: page.meta_description | default: site.seo.default_description }}" />
-  <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:image" content="{{ page.og_image | default: site.seo.fallback_image | absolute_url }}" />
+    <style>
+        :root {
+            --primary-red: #DC2626 !important;
+            --dark-red: #B91C1C !important;
+            --light-red: #FEE2E2 !important;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+        }
+        
+        .text-primary-red {
+            color: var(--primary-red) !important;
+        }
+        
+        .bg-primary-red {
+            background-color: var(--primary-red) !important;
+        }
+        
+        .border-primary-red {
+            border-color: var(--primary-red) !important;
+        }
+        
+        .hover\:bg-primary-red:hover {
+            background-color: var(--primary-red) !important;
+        }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ page.twitter_title | default: page.title | default: site.seo.default_title }}" />
-  <meta name="twitter:description" content="{{ page.twitter_description | default: page.meta_description | default: site.seo.default_description }}" />
-  <meta name="twitter:image" content="{{ page.twitter_image | default: page.og_image | default: site.seo.fallback_image | absolute_url }}" />
+        /* Dark mode styles */
+        .dark {
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+        }
+        
+        .dark .bg-white {
+            background-color: #2d2d2d !important;
+        }
+        
+        .dark .text-gray-900 {
+            color: #e5e5e5 !important;
+        }
+        
+        .dark .text-gray-700 {
+            color: #d1d5db !important;
+        }
+        
+        .dark .text-gray-600 {
+            color: #9ca3af !important;
+        }
+        
+        .dark .border-gray-200 {
+            border-color: #4b5563 !important;
+        }
+        
+        .dark .bg-gray-50 {
+            background-color: #374151 !important;
+        }
+        
+        .dark .bg-gray-100 {
+            background-color: #4b5563 !important;
+        }
 
-  <!-- Fonts and External Resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.tailwindcss.com"></script>
+        /* Animation utilities */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-  <style>
-    :root { 
-      --bg-primary: #ffffff; 
-      --bg-secondary: #f9fafb; 
-      --bg-accent: #fce8e8; 
-      --text-primary: #1f2937; 
-      --text-secondary: #4b5563; 
-      --brand-red: #DC2626; 
-      --brand-red-dark: #B91C1C; 
-    }
-    html.dark { 
-      --bg-primary: #1f2937; 
-      --bg-secondary: #374151; 
-      --bg-accent: #374151; 
-      --text-primary: #f9fafb; 
-      --text-secondary: #d1d5db; 
-    }
-    html.dark .features-heading, 
-    html.dark .features-benefits-section h3,
-    html.dark .privacy-content h2,
-    html.dark .privacy-content h3 { 
-      color: #ffffff; 
-    }
-    body { 
-      font-family: 'Open Sans', sans-serif; 
-      background-color: var(--bg-primary); 
-      color: var(--text-primary); 
-      transition: background-color 0.3s, color 0.3s; 
-    }
-    h1, h2, h3, h4, h5, h6 { 
-      font-family: 'Poppins', sans-serif; 
-    }
-    .brand-red { 
-      color: var(--brand-red) !important; 
-    }
-    .bg-brand-red { 
-      background-color: var(--brand-red) !important; 
-    }
-    .hover\:bg-brand-red-dark:hover { 
-      background-color: var(--brand-red-dark) !important; 
-    }
-    #back-to-top { 
-      position: fixed; 
-      bottom: 20px; 
-      right: 20px; 
-      opacity: 0; 
-      visibility: hidden; 
-      transform: translateY(20px); 
-      transition: all 0.3s; 
-      z-index: 100; 
-    }
-    #back-to-top.active { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0); 
-    }
-    .animate-on-scroll { 
-      opacity: 0; 
-      transform: translateY(20px); 
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
-    }
-    .animate-on-scroll.is-visible { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-    .delay-1 { transition-delay: 0.1s; } 
-    .delay-2 { transition-delay: 0.2s; } 
-    .delay-3 { transition-delay: 0.3s; }
-    .mobile-nav { display: none; } 
-    .mobile-nav.active { display: flex; }
-    @media (max-width: 768px) { 
-      .desktop-nav { display: none; } 
-    }
-  </style>
+        /* Modal specific styles */
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .modal.show {
+            opacity: 1;
+        }
+        
+        .modal.hide {
+            opacity: 0;
+        }
+    </style>
 </head>
+<body class="min-h-screen bg-gray-50">
+    <!-- Header -->
+    {% include header.html %}
+    
+    <!-- Main Content -->
+    <main>
+        {{ content }}
+    </main>
+    
+    <!-- Footer -->
+    {% include footer.html %}
 
-<body>
-  {% include content-validation.html %}
-  {% include header.html %}
-  
-  <main>
-    {{ content }}
-  </main>
-  
-  {% include footer.html %}
-  
-  {% include site-health.html %}
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
-      const htmlEl = document.documentElement;
-      const currentTheme = localStorage.getItem('theme') || 'light';
-      const updateIcon = (theme) => { 
-        themeToggles.forEach(toggle => { 
-          toggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'; 
-        }); 
-      }
-      htmlEl.classList.add(currentTheme);
-      updateIcon(currentTheme);
-      themeToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          if (htmlEl.classList.contains('dark')) {
-            htmlEl.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            updateIcon('light');
-          } else {
-            htmlEl.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            updateIcon('dark');
-          }
+    <!-- JavaScript -->
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const body = document.body;
+            const isDark = body.classList.contains('dark');
+            
+            if (isDark) {
+                body.classList.remove('dark');
+                localStorage.setItem('darkMode', 'false');
+            } else {
+                body.classList.add('dark');
+                localStorage.setItem('darkMode', 'true');
+            }
+        }
+
+        // Initialize dark mode from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const darkMode = localStorage.getItem('darkMode');
+            if (darkMode === 'true') {
+                document.body.classList.add('dark');
+            }
         });
-      });
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if(mobileMenuButton && mobileMenu) { 
-        mobileMenuButton.addEventListener('click', () => { 
-          mobileMenu.classList.toggle('active'); 
-        }); 
-      }
-      const backToTopButton = document.getElementById('back-to-top');
-      if(backToTopButton){
-        window.addEventListener('scroll', () => { 
-          if (window.scrollY > 300) { 
-            backToTopButton.classList.add('active'); 
-          } else { 
-            backToTopButton.classList.remove('active'); 
-          } 
+
+        // *** MODAL FUNCTIONS - FIXED ***
+        function openSupportModal() {
+            const modal = document.getElementById('support-modal');
+            if (modal) {
+                modal.style.display = 'block';
+                modal.classList.add('show');
+                modal.classList.remove('hide');
+                document.body.style.overflow = 'hidden'; // Prevent background scroll
+                
+                // Focus trap for accessibility
+                const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                if (focusableElements.length > 0) {
+                    focusableElements[0].focus();
+                }
+            }
+        }
+
+        function closeSupportModal() {
+            const modal = document.getElementById('support-modal');
+            if (modal) {
+                modal.classList.add('hide');
+                modal.classList.remove('show');
+                document.body.style.overflow = 'auto'; // Restore scroll
+                
+                // Hide after animation
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('support-modal');
+            if (event.target === modal) {
+                closeSupportModal();
+            }
+        }
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeSupportModal();
+            }
         });
-        backToTopButton.addEventListener('click', () => { 
-          window.scrollTo({ top: 0, behavior: 'smooth' }); 
+
+        // Smooth scroll for anchor links
+        document.addEventListener('DOMContentLoaded', function() {
+            const anchorLinks = document.querySelectorAll('a[href^="#"]');
+            
+            anchorLinks.forEach(function(link) {
+                link.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    
+                    // Don't interfere with modal triggers
+                    if (targetId === '#' || this.onclick) {
+                        return;
+                    }
+                    
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
         });
-      }
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { 
-          if (entry.isIntersecting) { 
-            entry.target.classList.add('is-visible'); 
-          } 
+
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.display = 'block';
+                } else {
+                    backToTop.style.display = 'none';
+                }
+            }
         });
-      }, { threshold: 0.1 });
-      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-      elementsToAnimate.forEach(el => observer.observe(el));
-      const supportLink = document.getElementById('support-link');
-      const supportModal = document.getElementById('support-modal');
-      const modalCloseBtn = document.getElementById('modal-close');
-      if(supportLink && supportModal && modalCloseBtn){
-        supportLink.addEventListener('click', (e) => { 
-          e.preventDefault(); 
-          supportModal.style.display = 'flex'; 
+
+        // Intersection Observer for animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('[data-animate]');
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        const element = entry.target;
+                        const animation = element.getAttribute('data-animate');
+                        element.classList.add(animation);
+                        observer.unobserve(element);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            animatedElements.forEach(function(element) {
+                observer.observe(element);
+            });
         });
-        modalCloseBtn.addEventListener('click', () => { 
-          supportModal.style.display = 'none'; 
-        });
-        supportModal.addEventListener('click', (e) => { 
-          if (e.target === supportModal) { 
-            supportModal.style.display = 'none'; 
-          } 
-        });
-      }
-    });
-  </script>
+    </script>
+
+    <!-- Widget JavaScript (if live) -->
+    {% if site.features.loan_widget_live %}
+        <script src="{{ site.features.widget_js }}"></script>
+        <script>
+            // Initialize widget when DOM is ready
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof LoanOptionsWidget !== 'undefined') {
+                    LoanOptionsWidget.init({
+                        partnerId: '{{ site.features.partner_id }}',
+                        sourceUrl: '{{ site.features.source_url }}',
+                        container: '#loan-widget-container'
+                    });
+                }
+            });
+        </script>
+    {% endif %}
+
+    <!-- Development only validation -->
+    {% unless jekyll.environment == "production" %}
+        {% include content-validation.html %}
+        {% include site-health.html %}
+    {% endunless %}
 </body>
 </html>
