@@ -51,47 +51,6 @@
             --text-secondary: #d1d5db; 
         }
         
-        /* FIXED: Dark mode contrast issues */
-        html.dark .features-heading, 
-        html.dark .features-benefits-section h3,
-        html.dark .privacy-content h2,
-        html.dark .privacy-content h3,
-        html.dark h1,
-        html.dark h2, 
-        html.dark h3,
-        html.dark h4,
-        html.dark h5,
-        html.dark h6 { 
-            color: #ffffff !important; 
-        }
-        
-        /* FIXED: Dark mode text colors */
-        html.dark .text-gray-800 {
-            color: #f9fafb !important;
-        }
-        
-        html.dark .text-gray-700 {
-            color: #d1d5db !important;
-        }
-        
-        html.dark .text-gray-600 {
-            color: #9ca3af !important;
-        }
-        
-        /* FIXED: Dark mode backgrounds */
-        html.dark .bg-white {
-            background-color: #374151 !important;
-        }
-        
-        html.dark .bg-gray-50 {
-            background-color: #4b5563 !important;
-        }
-        
-        /* Keep brand red visible in dark mode */
-        html.dark .brand-red {
-            color: #ef4444 !important;
-        }
-        
         body { 
             font-family: 'Open Sans', sans-serif; 
             background-color: var(--bg-primary); 
@@ -143,6 +102,102 @@
         @media (max-width: 768px) { 
             .desktop-nav { display: none; } 
         }
+
+        /* FIXED: Dark Mode Text Contrast - Same as default.html */
+        html.dark h2.loan-needs-title,
+        html.dark .loan-needs-section h2,
+        html.dark section h2 {
+            color: #ffffff !important;
+        }
+
+        html.dark .text-gray-800 {
+            color: #f9fafb !important;
+        }
+
+        html.dark .text-gray-700 {
+            color: #d1d5db !important;
+        }
+
+        html.dark .text-gray-600 {
+            color: #9ca3af !important;
+        }
+
+        html.dark .loan-categories h2,
+        html.dark .covering-loan-needs h2 {
+            color: #ffffff !important;
+        }
+
+        html.dark footer button {
+            color: #374151 !important;
+            background-color: #fce8e8 !important;
+        }
+
+        html.dark [style*="background-color: #fce8e8"] {
+            color: #374151 !important;
+        }
+
+        /* FIXED: Content headings white in dark mode (only when on dark backgrounds) */
+        html.dark .bg-\\[var\\(--bg-primary\\)\\] h2,
+        html.dark .bg-\\[var\\(--bg-primary\\)\\] h3,
+        html.dark section h2,
+        html.dark section h3,
+        html.dark .features-heading, 
+        html.dark .features-benefits-section h3,
+        html.dark .privacy-content h2,
+        html.dark .privacy-content h3 {
+            color: #ffffff !important;
+        }
+        
+        /* FIXED: Pink sections and their content always stay light with dark text */
+        html.dark .service-header,
+        html.dark [style*="background-color: #fce8e8"],
+        html.dark .bg-red-50,
+        html.dark .bg-\\[var\\(--bg-accent\\)\\] {
+            background-color: #fce8e8 !important;
+            color: #374151 !important;
+        }
+        
+        html.dark .service-header *,
+        html.dark [style*="background-color: #fce8e8"] *,
+        html.dark .bg-red-50 *,
+        html.dark .bg-\\[var\\(--bg-accent\\)\\] * {
+            color: #374151 !important;
+        }
+        
+        /* FIXED: Red button to pink with grey text in dark mode */
+        html.dark .bg-red-600,
+        html.dark [style*="background-color: red"],
+        html.dark .bg-brand-red {
+            background-color: #fce8e8 !important;
+            color: #374151 !important;
+        }
+
+        /* FIXED: Header stays same in both light and dark mode */
+        html.dark header {
+            background-color: white !important;
+        }
+        
+        html.dark header nav a {
+            color: #4b5563 !important;
+        }
+        
+        html.dark header .text-gray-700 {
+            color: #4b5563 !important;
+        }
+        
+        html.dark header button[style*="border-color: #fce8e8"] {
+            border-color: #fce8e8 !important;
+            color: #4b5563 !important;
+        }
+
+        /* FIXED: Backgrounds in dark mode */
+        html.dark .bg-white {
+            background-color: #374151 !important;
+        }
+        
+        html.dark .bg-gray-50 {
+            background-color: #4b5563 !important;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -152,14 +207,16 @@
     
     <main>
         {% if page.service_type %}
-        <!-- Hero Section - FIXED: Dark background with white text like homepage -->
-        <section class="py-16" style="background-color: #374151;">
+        <!-- Individual Service Page Layout -->
+        
+        <!-- Hero Section - FIXED: Pink background that stays light in dark mode -->
+        <section class="bg-[var(--bg-accent)] transition-colors duration-300 service-header">
             <div class="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-on-scroll">
-                    <h1 class="text-5xl font-extrabold text-white mb-4">
+                    <h1 class="text-5xl font-extrabold text-[var(--text-primary)] mb-4">
                         {% assign title_clean = page.title | remove: ' | The Loan Phone' %}
                         {% if page.hero_highlight %}
-                            {% assign highlighted_title = title_clean | replace: page.hero_highlight, '<span style="color: #DC2626;">' | append: page.hero_highlight | append: '</span>' %}
+                            {% assign highlighted_title = title_clean | replace: page.hero_highlight, '<span class="brand-red">' | append: page.hero_highlight | append: '</span>' %}
                             {{ highlighted_title }}
                         {% else %}
                             {{ title_clean }}
@@ -167,14 +224,15 @@
                     </h1>
                     
                     {% if page.subtitle %}
-                    <p class="text-xl text-gray-300 mb-6">{{ page.subtitle }}</p>
+                    <p class="text-xl text-[var(--text-secondary)] mb-6">{{ page.subtitle }}</p>
                     {% endif %}
                     
                     {% if page.excerpt %}
-                    <p class="text-xl text-gray-300 mb-6">{{ page.excerpt }}</p>
+                    <p class="text-xl text-[var(--text-secondary)] mb-6">{{ page.excerpt }}</p>
                     {% endif %}
                     
-                    <a href="{{ site.baseurl }}/#loan-selector" class="inline-block bg-brand-red text-white font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:bg-brand-red-dark transition-transform duration-300 transform hover:scale-105">
+                    <a href="{{ site.baseurl }}/#loan-selector" class="inline-block px-6 py-3 rounded-lg font-semibold transition duration-300 text-gray-800" style="background-color: #fce8e8;">
+                        <i class="fas fa-chart-bar mr-2"></i>
                         Start Your Comparison
                     </a>
                 </div>
@@ -207,47 +265,56 @@
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {% if page.key_benefits %}
                         {% for benefit in page.key_benefits %}
-                        <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-{{ forloop.index | modulo: 3 | plus: 1 }}">
+                        <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-{{ forloop.index | modulo: 3 | plus: 1 }} transition-colors duration-300">
                             {% if benefit.icon %}
                             <i class="{{ benefit.icon }} text-4xl brand-red mb-4"></i>
                             {% endif %}
-                            <h3 class="text-xl font-semibold mb-2">{{ benefit.title }}</h3>
+                            <h3 class="text-xl font-semibold mb-2 text-[var(--text-primary)]">{{ benefit.title }}</h3>
                             <p class="text-[var(--text-secondary)]">{{ benefit.description }}</p>
                         </div>
                         {% endfor %}
                     {% else %}
                     <!-- Default benefits if none specified -->
-                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-1">
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-1 transition-colors duration-300">
                         <i class="fas fa-search text-4xl brand-red mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Compare Multiple Lenders</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--text-primary)]">Compare Multiple Lenders</h3>
                         <p class="text-[var(--text-secondary)]">We give you access to a wide range of lenders to ensure you get a competitive rate and term.</p>
                     </div>
-                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-2">
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-2 transition-colors duration-300">
                         <i class="fas fa-tachometer-alt text-4xl brand-red mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Fast Approvals</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--text-primary)]">Fast Approvals</h3>
                         <p class="text-[var(--text-secondary)]">Our streamlined process is designed to get you a fast pre-approval so you can secure your loan quickly.</p>
                     </div>
-                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-3">
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-3 transition-colors duration-300">
                         <i class="fas fa-shield-alt text-4xl brand-red mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Protect Your Credit File</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--text-primary)]">Protect Your Credit File</h3>
                         <p class="text-[var(--text-secondary)]">See your genuine finance options without lodging a formal application that impacts your credit score.</p>
                     </div>
-                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-1">
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-1 transition-colors duration-300">
                         <i class="fas fa-user-tie text-4xl brand-red mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Expert Guidance</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--text-primary)]">Expert Guidance</h3>
                         <p class="text-[var(--text-secondary)]">Get paired with a specialist broker who knows the market and can structure a deal that suits your needs.</p>
                     </div>
-                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-2">
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-2 transition-colors duration-300">
                         <i class="fas fa-file-invoice text-4xl brand-red mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Flexible Options</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--text-primary)]">Flexible Options</h3>
                         <p class="text-[var(--text-secondary)]">We work with lenders who offer flexible documentation and approval options for various situations.</p>
                     </div>
-                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-3">
+                    <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md animate-on-scroll delay-3 transition-colors duration-300">
                         <i class="fas fa-handshake text-4xl brand-red mb-4"></i>
-                        <h3 class="text-xl font-semibold mb-2">Personalized Service</h3>
+                        <h3 class="text-xl font-semibold mb-2 text-[var(--text-primary)]">Personalized Service</h3>
                         <p class="text-[var(--text-secondary)]">Our team provides personalized service to ensure you get the best loan solution for your specific circumstances.</p>
                     </div>
                     {% endif %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <section class="py-16 bg-[var(--bg-primary)] transition-colors duration-300">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto prose prose-lg text-[var(--text-primary)]">
+                    {{ content }}
                 </div>
             </div>
         </section>
@@ -268,10 +335,10 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- FIXED: Complete JavaScript with dark mode support -->
+    <!-- JavaScript - Same as default.html -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Dark mode functionality (copied from working default.html)
+            // Dark mode functionality
             const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
             const htmlEl = document.documentElement;
             const currentTheme = localStorage.getItem('theme') || 'light';
@@ -298,6 +365,15 @@
                     }
                 });
             });
+            
+            // Mobile menu
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenuButton && mobileMenu) { 
+                mobileMenuButton.addEventListener('click', () => { 
+                    mobileMenu.classList.toggle('active'); 
+                }); 
+            }
             
             // Back to top functionality
             const backToTopButton = document.getElementById('back-to-top');
