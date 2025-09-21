@@ -175,21 +175,24 @@
         color: #374151 !important;
     }
 
-    /* ONLY ADDITION: Navigation stays white in dark mode */
-    html.dark header {
-        background-color: white !important;
+    /* STRONGER NAVIGATION FIX: Force header to stay white with maximum specificity */
+    html.dark header,
+    html.dark header.bg-white,
+    html.dark nav,
+    html.dark nav.bg-white,
+    html.dark body header,
+    html.dark body nav {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
     }
     
-    html.dark header nav a {
-        color: #4b5563 !important;
-    }
-    
-    html.dark header .text-gray-700 {
-        color: #4b5563 !important;
-    }
-    
-    html.dark header button[style*="border-color: #fce8e8"] {
-        border-color: #fce8e8 !important;
+    html.dark header *,
+    html.dark header nav *,
+    html.dark header nav a,
+    html.dark header .text-gray-700,
+    html.dark header button,
+    html.dark nav *,
+    html.dark nav a {
         color: #4b5563 !important;
     }
 
