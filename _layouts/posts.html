@@ -175,7 +175,7 @@
         color: #374151 !important;
     }
 
-    /* FIXED: Header stays same in both light and dark mode */
+    /* ONLY CHANGE: Header navigation stays white and consistent across all pages */
     html.dark header {
         background-color: white !important;
     }
@@ -248,8 +248,8 @@
   {% include header.html %}
   
   <main>
-    <!-- Blog Header - Restored original formatting -->
-    <section class="bg-[var(--bg-accent)] transition-colors duration-300">
+    <!-- Blog Header - FIXED: Pink background that stays light in dark mode -->
+    <section class="bg-[var(--bg-accent)] transition-colors duration-300 blog-header">
         <div class="container mx-auto px-6 py-16 text-center animate-on-scroll">
             <h1 class="text-4xl font-extrabold text-[var(--text-primary)] mb-4">{{ page.title }}</h1>
             <div class="flex justify-center items-center space-x-6 text-[var(--text-secondary)]">
