@@ -1,504 +1,67 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+---
+layout: posts
+title: "5 Tips to Improve Your Credit Score"
+date: 2025-01-20
+author: "The Loan Phone Team"
+category: "Credit Tips"
+excerpt: "A healthy credit score is key to unlocking better loan rates. Here are five simple steps you can take today to boost your credit score and save money on future loans."
+featured_image: "credit-score-tips.png"
+meta_description: "Learn 5 proven strategies to improve your credit score quickly. Expert tips from The Loan Phone to help you qualify for better loan rates."
+meta_keywords: "credit score tips, improve credit rating, better loan rates, credit repair Australia"
+tags: ["credit score", "financial tips", "loan preparation"]
+read_time: 5
+icon: "chart-line"
+---
 
-  <title>{{ page.title | default: "The Loan Phone" }}</title>
+Your credit score is one of the most important factors lenders consider when evaluating your loan application. A higher score can mean the difference between getting approved at a great rate or being turned down altogether.
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="{{ page.meta_description | default: 'Need a Car Loan? Find the best rates personalized for you.' }}" />
-  <meta name="keywords" content="{{ page.meta_keywords | default: 'Car Loans, Auto Loans, Best Rates' }}" />
-  <meta name="author" content="{{ page.meta_author | default: 'The Loan Phone Team' }}" />
+## Why Your Credit Score Matters
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="{{ page.og_title | default: page.title | default: 'The Loan Phone' }}" />
-  <meta property="og:description" content="{{ page.og_description | default: page.meta_description | default: '' }}" />
-  <meta property="og:type" content="{{ page.og_type | default: 'article' }}" />
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:image" content="{{ page.og_image | default: '/assets/images/og-image.jpg' | absolute_url }}" />
+Lenders use your credit score to assess how likely you are to repay a loan. The higher your score, the lower the risk you represent, which typically translates to:
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ page.twitter_title | default: page.title }}" />
-  <meta name="twitter:description" content="{{ page.twitter_description | default: page.meta_description }}" />
-  <meta name="twitter:image" content="{{ page.twitter_image | default: page.og_image | default: '/assets/images/twitter-image.jpg' | absolute_url }}" />
+- **Better interest rates** - Save thousands over the life of your loan
+- **Higher loan amounts** - Qualify for the full amount you need
+- **Faster approvals** - Streamlined application process
+- **More loan options** - Access to premium loan products
 
-  <!-- Fonts and External Resources -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://cdn.tailwindcss.com"></script>
+## 5 Ways to Boost Your Credit Score
 
-  <style>
-    :root { 
-      --bg-primary: #ffffff; 
-      --bg-secondary: #f9fafb; 
-      --bg-accent: #fce8e8; 
-      --text-primary: #1f2937; 
-      --text-secondary: #4b5563; 
-      --brand-red: #DC2626; 
-      --brand-red-dark: #B91C1C; 
-    }
-    html.dark { 
-      --bg-primary: #1f2937; 
-      --bg-secondary: #374151; 
-      --bg-accent: #374151; 
-      --text-primary: #f9fafb; 
-      --text-secondary: #d1d5db; 
-    }
-    
-    body { 
-      font-family: 'Open Sans', sans-serif; 
-      background-color: var(--bg-primary); 
-      color: var(--text-primary); 
-      transition: background-color 0.3s, color 0.3s; 
-    }
-    h1, h2, h3, h4, h5, h6 { 
-      font-family: 'Poppins', sans-serif; 
-      color: var(--text-primary);
-    }
-    .brand-red { 
-      color: var(--brand-red) !important; 
-    }
-    .bg-brand-red { 
-      background-color: var(--brand-red) !important; 
-    }
-    .hover\:bg-brand-red-dark:hover { 
-      background-color: var(--brand-red-dark) !important; 
-    }
-    #back-to-top { 
-      position: fixed; 
-      bottom: 20px; 
-      right: 20px; 
-      opacity: 0; 
-      visibility: hidden; 
-      transform: translateY(20px); 
-      transition: all 0.3s; 
-      z-index: 100; 
-    }
-    #back-to-top.active { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0); 
-    }
-    .animate-on-scroll { 
-      opacity: 0; 
-      transform: translateY(20px); 
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
-    }
-    .animate-on-scroll.is-visible { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-    .delay-1 { transition-delay: 0.1s; } 
-    .delay-2 { transition-delay: 0.2s; } 
-    .delay-3 { transition-delay: 0.3s; }
-    .mobile-nav { display: none; } 
-    .mobile-nav.active { display: flex; }
-    @media (max-width: 768px) { 
-      .desktop-nav { display: none; } 
-    }
+### 1. Pay Your Bills on Time, Every Time
 
-    /* FIXED: Dark Mode Text Contrast - Same as default.html */
-    html.dark h2.loan-needs-title,
-    html.dark .loan-needs-section h2,
-    html.dark section h2 {
-        color: #ffffff !important;
-    }
+Payment history accounts for 35% of your credit score calculation. Even one late payment can negatively impact your score for years.
 
-    html.dark .text-gray-800 {
-        color: #f9fafb !important;
-    }
+**Action Steps:**
+- Set up automatic payments for at least the minimum amount
+- Use calendar reminders for due dates
+- Pay bills a few days early to account for processing time
 
-    html.dark .text-gray-700 {
-        color: #d1d5db !important;
-    }
+### 2. Keep Your Credit Utilization Low
 
-    html.dark .text-gray-600 {
-        color: #9ca3af !important;
-    }
+Try to use less than 30% of your available credit limit, but ideally keep it under 10% for the best impact on your score.
 
-    html.dark .loan-categories h2,
-    html.dark .covering-loan-needs h2 {
-        color: #ffffff !important;
-    }
+**Example:** If you have a $10,000 credit limit, keep your balance below $1,000.
 
-    html.dark footer button {
-        color: #374151 !important;
-        background-color: #fce8e8 !important;
-    }
+### 3. Don't Close Old Credit Cards
 
-    html.dark [style*="background-color: #fce8e8"] {
-        color: #374151 !important;
-    }
+The length of your credit history makes up 15% of your score. Keeping old accounts open (even if you don't use them) helps maintain a longer average account age.
 
-    /* FIXED: Content headings white in dark mode (only when on dark backgrounds) */
-    html.dark .bg-\\[var\\(--bg-primary\\)\\] h2,
-    html.dark .bg-\\[var\\(--bg-primary\\)\\] h3,
-    html.dark section h2,
-    html.dark section h3,
-    html.dark .features-heading, 
-    html.dark .features-benefits-section h3,
-    html.dark .privacy-content h2,
-    html.dark .privacy-content h3,
-    html.dark .blog-content h2,
-    html.dark .blog-content h3,
-    html.dark .blog-content h4,
-    html.dark .blog-content h5,
-    html.dark .blog-content h6 {
-        color: #ffffff !important;
-    }
-    
-    /* FIXED: Pink sections and their content always stay light with dark text */
-    html.dark .blog-header,
-    html.dark [style*="background-color: #fce8e8"],
-    html.dark .bg-red-50,
-    html.dark .bg-\\[var\\(--bg-accent\\)\\] {
-        background-color: #fce8e8 !important;
-        color: #374151 !important;
-    }
-    
-    html.dark .blog-header *,
-    html.dark [style*="background-color: #fce8e8"] *,
-    html.dark .bg-red-50 *,
-    html.dark .bg-\\[var\\(--bg-accent\\)\\] * {
-        color: #374151 !important;
-    }
-    
-    /* FIXED: Red button to pink with grey text in dark mode */
-    html.dark .bg-red-600,
-    html.dark [style*="background-color: red"],
-    html.dark .bg-brand-red {
-        background-color: #fce8e8 !important;
-        color: #374151 !important;
-    }
+### 4. Limit New Credit Applications
 
-    /* NAVIGATION FIX: Force header to stay white with maximum specificity */
-    html.dark header,
-    html.dark header.bg-white,
-    html.dark nav,
-    html.dark nav.bg-white,
-    html.dark body header,
-    html.dark body nav {
-        background-color: #ffffff !important;
-        background: #ffffff !important;
-    }
-    
-    html.dark header *,
-    html.dark header nav *,
-    html.dark header nav a,
-    html.dark header .text-gray-700,
-    html.dark header button,
-    html.dark nav *,
-    html.dark nav a {
-        color: #4b5563 !important;
-    }
+Each hard inquiry can temporarily lower your score by a few points. Only apply for credit when you truly need it.
 
-    /* LOGO FIX: Keep logo red in dark mode */
-    html.dark header .brand-red,
-    html.dark nav .brand-red {
-        color: #DC2626 !important;
-    }
+### 5. Check Your Credit Report Regularly
 
-    /* FIXED: Backgrounds in dark mode */
-    html.dark .bg-white {
-        background-color: #374151 !important;
-    }
-    
-    html.dark .bg-gray-50 {
-        background-color: #4b5563 !important;
-    }
+Look for errors and dispute any inaccuracies with the credit reporting agencies. You're entitled to one free credit report per year from each bureau.
 
-    /* Blog-specific styles */
-    .blog-content {
-        line-height: 1.8;
-    }
-    
-    .blog-content p {
-        margin-bottom: 1.5rem;
-    }
-    
-    .blog-content h2 {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        font-size: 1.75rem;
-        font-weight: 700;
-    }
-    
-    .blog-content h3 {
-        margin-top: 1.5rem;
-        margin-bottom: 0.75rem;
-        font-size: 1.5rem;
-        font-weight: 600;
-    }
-    
-    .featured-image {
-        float: left;
-        margin: 0 2rem 1rem 0;
-        max-width: 300px;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-    
-    @media (max-width: 768px) {
-        .featured-image {
-            float: none;
-            margin: 0 0 1.5rem 0;
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-  </style>
-</head>
+## How Long Does It Take to See Results?
 
-<body class="bg-white text-gray-800">
-  {% include header.html %}
-  
-  <main>
-    <!-- Blog Header - SIMPLIFIED: Title + Date/Author/Read Time only -->
-    <section class="bg-[var(--bg-accent)] transition-colors duration-300 blog-header">
-        <div class="container mx-auto px-6 py-16 text-center animate-on-scroll">
-            <h1 class="text-4xl font-extrabold text-[var(--text-primary)] mb-4">{{ page.title }}</h1>
-            <div class="flex justify-center items-center space-x-6 text-[var(--text-secondary)]">
-                <span class="flex items-center">
-                    <i class="fas fa-calendar mr-2"></i>
-                    {{ page.date | date: "%B %d, %Y" }}
-                </span>
-                {% if page.author %}
-                <span class="flex items-center">
-                    <i class="fas fa-user mr-2"></i>
-                    {{ page.author }}
-                </span>
-                {% endif %}
-                {% if page.read_time %}
-                <span class="flex items-center">
-                    <i class="fas fa-clock mr-2"></i>
-                    {{ page.read_time }} min read
-                </span>
-                {% endif %}
-            </div>
-        </div>
-    </section>
+- **Payment history improvements**: 1-2 months
+- **Credit utilization changes**: 1-2 billing cycles  
+- **New accounts/inquiries**: 3-6 months to see positive impact
+- **Major improvements**: 6-12 months with consistent effort
 
-    <!-- Blog Content Section -->
-    <section class="py-16 bg-[var(--bg-primary)] transition-colors duration-300">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <!-- Main Content -->
-                    <div class="md:col-span-2">
-                        <article class="blog-content text-[var(--text-primary)]">
-                            {% if page.featured_image %}
-                            <img src="{{ site.baseurl }}/assets/images/blog/{{ page.featured_image }}" 
-                                 alt="{{ page.title }}" 
-                                 class="featured-image">
-                            {% endif %}
-                            
-                            {{ content }}
-                        </article>
-                        
-                        <!-- Tags -->
-                        {% if page.tags %}
-                        <div class="mt-8 pt-6 border-t border-gray-200">
-                            <h3 class="text-lg font-semibold mb-3 text-[var(--text-primary)]">Tags</h3>
-                            <div class="flex flex-wrap gap-2">
-                                {% for tag in page.tags %}
-                                <span class="px-3 py-1 rounded-full text-sm" style="background-color: #fce8e8; color: #374151;">
-                                    {{ tag }}
-                                </span>
-                                {% endfor %}
-                            </div>
-                        </div>
-                        {% endif %}
-                        
-                        <!-- Social Sharing -->
-                        <div class="mt-8 pt-6 border-t border-gray-200">
-                            <h3 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">Share this article</h3>
-                            <div class="flex space-x-4">
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | absolute_url }}" 
-                                   target="_blank" 
-                                   class="flex items-center px-4 py-2 rounded-lg text-gray-800 hover:opacity-80 transition duration-200" 
-                                   style="background-color: #fce8e8;">
-                                    <i class="fab fa-facebook-f mr-2 brand-red"></i>
-                                    Facebook
-                                </a>
-                                <a href="https://twitter.com/intent/tweet?url={{ page.url | absolute_url }}&text={{ page.title }}" 
-                                   target="_blank" 
-                                   class="flex items-center px-4 py-2 rounded-lg text-gray-800 hover:opacity-80 transition duration-200" 
-                                   style="background-color: #fce8e8;">
-                                    <i class="fab fa-twitter mr-2 brand-red"></i>
-                                    Twitter
-                                </a>
-                                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ page.url | absolute_url }}" 
-                                   target="_blank" 
-                                   class="flex items-center px-4 py-2 rounded-lg text-gray-800 hover:opacity-80 transition duration-200" 
-                                   style="background-color: #fce8e8;">
-                                    <i class="fab fa-linkedin mr-2 brand-red"></i>
-                                    LinkedIn
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Sidebar -->
-                    <div class="md:col-span-1">
-                        <!-- Need Help - TOP -->
-                        <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md transition-colors duration-300">
-                            <h3 class="text-xl font-bold mb-4 text-[var(--text-primary)]">Need Help?</h3>
-                            <p class="text-[var(--text-secondary)] mb-4">
-                                Have questions about loans? Our expert team is here to help you find the perfect solution.
-                            </p>
-                            <div class="space-y-3">
-                                <a href="tel:{{ site.contact.phone }}" 
-                                   class="block w-full text-center px-4 py-2 rounded-lg font-semibold transition duration-300 text-gray-800" 
-                                   style="background-color: #fce8e8;">
-                                    <i class="fas fa-phone mr-2"></i>
-                                    Call {{ site.contact.phone_display }}
-                                </a>
-                                <button onclick="openSupportModal()" 
-                                        class="block w-full text-center px-4 py-2 rounded-lg font-semibold transition duration-300 text-gray-800" 
-                                        style="background-color: #fce8e8;">
-                                    <i class="fas fa-envelope mr-2"></i>
-                                    Get in Touch
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <!-- Recent Articles - BOTTOM -->
-                        <div class="bg-[var(--bg-secondary)] p-6 rounded-lg shadow-md mt-6 transition-colors duration-300">
-                            <h3 class="text-xl font-bold mb-4 text-[var(--text-primary)]">Recent Articles</h3>
-                            <div class="space-y-4">
-                                {% for post in site.posts limit: 3 %}
-                                    {% unless post.url == page.url %}
-                                    <a href="{{ site.baseurl }}{{ post.url }}" class="block group">
-                                        <h4 class="font-semibold text-[var(--text-primary)] group-hover:text-red-600 transition duration-200">
-                                            {{ post.title }}
-                                        </h4>
-                                        <p class="text-sm text-[var(--text-secondary)] mt-1">
-                                            {{ post.date | date: "%B %d, %Y" }}
-                                        </p>
-                                    </a>
-                                    {% endunless %}
-                                {% endfor %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-  </main>
-  
-  {% include footer.html %}
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
-      const htmlEl = document.documentElement;
-      const currentTheme = localStorage.getItem('theme') || 'light';
-      const updateIcon = (theme) => { 
-        themeToggles.forEach(toggle => { 
-          toggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'; 
-        }); 
-      }
-      htmlEl.classList.add(currentTheme);
-      updateIcon(currentTheme);
-      themeToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          if (htmlEl.classList.contains('dark')) {
-            htmlEl.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            updateIcon('light');
-          } else {
-            htmlEl.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            updateIcon('dark');
-          }
-        });
-      });
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if(mobileMenuButton && mobileMenu) { 
-        mobileMenuButton.addEventListener('click', () => { 
-          mobileMenu.classList.toggle('active'); 
-        }); 
-      }
-      const backToTopButton = document.getElementById('back-to-top');
-      if(backToTopButton){
-        window.addEventListener('scroll', () => { 
-          if (window.scrollY > 300) { 
-            backToTopButton.classList.add('active'); 
-          } else { 
-            backToTopButton.classList.remove('active'); 
-          } 
-        });
-        backToTopButton.addEventListener('click', () => { 
-          window.scrollTo({ top: 0, behavior: 'smooth' }); 
-        });
-      }
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { 
-          if (entry.isIntersecting) { 
-            entry.target.classList.add('is-visible'); 
-          } 
-        });
-      }, { threshold: 0.1 });
-      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-      elementsToAnimate.forEach(el => observer.observe(el));
-      
-      // MODAL FUNCTIONALITY - ENHANCED TO WORK WITH BOTH ID AND ONCLICK
-      const supportLink = document.getElementById('support-link');
-      const supportModal = document.getElementById('support-modal');
-      const modalCloseBtn = document.getElementById('modal-close');
-      
-      if(supportLink && supportModal && modalCloseBtn){
-        supportLink.addEventListener('click', (e) => { 
-          e.preventDefault(); 
-          supportModal.style.display = 'flex'; 
-        });
-        modalCloseBtn.addEventListener('click', () => { 
-          supportModal.style.display = 'none'; 
-        });
-        supportModal.addEventListener('click', (e) => { 
-          if (e.target === supportModal) { 
-            supportModal.style.display = 'none'; 
-          } 
-        });
-      }
-    });
+## Ready to Apply for a Loan?
 
-    // GLOBAL MODAL FUNCTIONS - FOR ONCLICK HANDLERS
-    window.openSupportModal = function() {
-      const modal = document.getElementById('support-modal');
-      if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-      }
-    };
+Once you've improved your credit score, you'll be in a better position to secure competitive loan rates. Whether you're looking for a car loan, home loan, or personal loan, The Loan Phone can help you compare options from multiple lenders.
 
-    window.closeSupportModal = function() {
-      const modal = document.getElementById('support-modal');
-      if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    };
-
-    // Close modal when clicking outside or ESC
-    window.addEventListener('click', function(event) {
-      const modal = document.getElementById('support-modal');
-      if (event.target === modal) {
-        closeSupportModal();
-      }
-    });
-
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        closeSupportModal();
-      }
-    });
-</script>
-</body>
-</html>
+**Contact us today** to see what rates you qualify for with your improved credit score.
