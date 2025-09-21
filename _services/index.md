@@ -7,11 +7,11 @@ permalink: /services/
 ---
 
 <!-- PINK HERO SECTION - CONSISTENT WITH ABOUT PAGE -->
-<section class="bg-[var(--bg-accent)] transition-colors duration-300">
+<section style="background-color: #fce8e8;">
     <div class="container mx-auto px-6 py-16 text-center animate-on-scroll">
-        <h1 class="text-5xl font-extrabold text-[var(--text-primary)] mb-4">Our Loan <span class="brand-red">Services</span></h1>
+        <h1 class="text-5xl font-extrabold text-gray-800 mb-4">Our Loan <span class="brand-red">Services</span></h1>
         <div class="text-center mb-8">
-            <div class="space-y-4 text-lg text-[var(--text-secondary)] max-w-3xl mx-auto">
+            <div class="space-y-4 text-lg text-gray-600 max-w-3xl mx-auto">
                 <p><strong>Find the perfect loan solution.</strong></p>
                 <p>At The Loan Phone, we specialize in helping Australians find the perfect loan solution. Whether you're buying a car, purchasing a home, or growing your business, we've got you covered.</p>
             </div>
@@ -19,11 +19,12 @@ permalink: /services/
     </div>
 </section>
 
-<!-- Services Index Content with proper spacing and FIXED dark mode -->
-<div class="container mx-auto px-6 py-8 bg-[var(--bg-primary)] transition-colors duration-300">
+<!-- Services Index Content - FIXED: Remove separate container background -->
+<div class="py-8" style="background-color: var(--bg-primary);">
+<div class="container mx-auto px-6">
 
 <!-- HOW IT WORKS PROCESS - FIXED: Proper dark mode backgrounds -->
-<div class="bg-[var(--bg-primary)] rounded-lg shadow-lg p-8 mb-8 border border-gray-200 transition-colors duration-300">
+<div class="bg-[var(--bg-secondary)] rounded-lg shadow-lg p-8 mb-8 border border-gray-200 transition-colors duration-300">
     <div class="text-center mb-8">
         <h2 class="text-3xl font-bold text-[var(--text-primary)] mb-4">How Our Service Works</h2>
     </div>
@@ -63,7 +64,7 @@ permalink: /services/
 <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Featured Services</h2>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+    <div class="bg-[var(--bg-secondary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
         <div class="flex items-center mb-4">
             <i class="fas fa-car text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">New Car Loans</h3>
@@ -74,7 +75,7 @@ permalink: /services/
         </a>
     </div>
     
-    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+    <div class="bg-[var(--bg-secondary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
         <div class="flex items-center mb-4">
             <i class="fas fa-home text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">Home Loans</h3>
@@ -85,7 +86,7 @@ permalink: /services/
         </a>
     </div>
     
-    <div class="bg-[var(--bg-primary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
+    <div class="bg-[var(--bg-secondary)] border border-gray-200 p-6 rounded-lg shadow hover:shadow-lg transition duration-300">
         <div class="flex items-center mb-4">
             <i class="fas fa-briefcase text-3xl mr-4 brand-red"></i>
             <h3 class="text-xl font-bold brand-red">Business Loans</h3>
@@ -187,7 +188,7 @@ permalink: /services/
 
 <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Complete Service Directory</h2>
 
-<div class="bg-[var(--bg-primary)] rounded-lg shadow p-6 mb-8 border border-gray-200 transition-colors duration-300">
+<div class="bg-[var(--bg-secondary)] rounded-lg shadow p-6 mb-8 border border-gray-200 transition-colors duration-300">
     <h3 class="text-xl font-bold mb-4 text-[var(--text-primary)]">All Available Services</h3>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
         {% for loan_type in site.data.loan_types.all_types %}
@@ -202,7 +203,7 @@ permalink: /services/
 <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Ready to Get Started?</h2>
 
 <!-- FIXED: All buttons now pink with gray text -->
-<div class="bg-[var(--bg-primary)] rounded-lg shadow p-8 text-center border border-gray-200 transition-colors duration-300">
+<div class="bg-[var(--bg-secondary)] rounded-lg shadow p-8 text-center border border-gray-200 transition-colors duration-300">
     <h3 class="text-2xl font-bold mb-4 brand-red">Ready to Compare Loans?</h3>
     <p class="text-lg text-[var(--text-secondary)] mb-6">Get personalized loan options in minutes from Australia's trusted loan specialists</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -222,5 +223,6 @@ permalink: /services/
     </div>
 </div>
 
+</div>
 </div>
 <!-- End container -->
