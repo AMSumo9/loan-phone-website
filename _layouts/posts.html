@@ -175,7 +175,7 @@
         color: #374151 !important;
     }
 
-    /* ONLY ADDITION: Header navigation stays white in both light and dark mode */
+    /* FIXED: Header stays same in both light and dark mode */
     html.dark header {
         background-color: white !important;
     }
@@ -188,7 +188,8 @@
         color: #4b5563 !important;
     }
     
-    html.dark header button {
+    html.dark header button[style*="border-color: #fce8e8"] {
+        border-color: #fce8e8 !important;
         color: #4b5563 !important;
     }
 
