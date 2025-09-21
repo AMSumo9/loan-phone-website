@@ -1,19 +1,109 @@
-<!-- Support Modal - Jekyll 3.x Compatible -->
-<div id="support-modal" class="hidden fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-60 z-[1000] justify-center items-center">
-  <div class="bg-[var(--bg-primary)] p-8 rounded-lg shadow-lg w-11/12 max-w-md text-center relative text-[var(--text-primary)]">
-    <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-gray-800 dark:hover:text-white">
-      <i class="fas fa-times text-2xl"></i>
-    </button>
-    <h3 class="text-2xl font-bold mb-4">Contact Support</h3>
-    <div class="flex flex-col space-y-4 mt-6">
-      <a href="mailto:{{ site.contact.email }}" class="w-full inline-flex justify-center items-center space-x-2 bg-brand-red text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-brand-red-dark">
-        <i class="fas fa-envelope"></i>
-        <span>Email Us</span>
-      </a>
-      <a href="tel:{{ site.contact.phone }}" class="w-full inline-flex justify-center items-center space-x-2 bg-gray-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-gray-700">
-        <i class="fas fa-phone"></i>
-        <span>Call {{ site.contact.phone_display }}</span>
-      </a>
+<!-- Support Modal -->
+<div id="support-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 modal hide" style="display: none;">
+    <div class="flex items-center justify-center min-h-screen p-4">
+        <div class="bg-white rounded-lg shadow-xl max-w-md w-full mx-4 transform transition-all duration-300">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 border-b border-gray-200">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900">Contact Our Experts</h3>
+                    <p class="text-sm text-gray-600 mt-1">Get personalized loan assistance</p>
+                </div>
+                <button onclick="closeSupportModal()" 
+                        class="text-gray-400 hover:text-gray-600 transition-colors duration-200 p-1 rounded-full hover:bg-gray-100">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body -->
+            <div class="p-6">
+                <p class="text-gray-700 mb-6">Choose how you'd like to get in touch with our loan specialists.</p>
+                
+                <div class="space-y-4">
+                    <!-- Phone Contact -->
+                    <a href="tel:{{ site.contact.phone }}" 
+                       class="flex items-center p-4 bg-red-50 rounded-lg hover:bg-red-100 transition duration-200 group border border-red-200"
+                       onclick="closeSupportModal()">
+                        <div class="bg-red-500 text-white p-3 rounded-full mr-4 group-hover:bg-red-600 transition duration-200">
+                            <i class="fas fa-phone text-lg"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-gray-900 mb-1">Speak to an Expert</div>
+                            <div class="text-red-600 font-medium">{{ site.contact.phone_display }}</div>
+                            <div class="text-gray-500 text-sm">Available during business hours</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-red-500 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+                    
+                    <!-- Email Contact -->
+                    <a href="mailto:{{ site.contact.email }}" 
+                       class="flex items-center p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition duration-200 group border border-blue-200"
+                       onclick="closeSupportModal()">
+                        <div class="bg-blue-500 text-white p-3 rounded-full mr-4 group-hover:bg-blue-600 transition duration-200">
+                            <i class="fas fa-envelope text-lg"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-gray-900 mb-1">Email Us</div>
+                            <div class="text-blue-600 font-medium">{{ site.contact.email }}</div>
+                            <div class="text-gray-500 text-sm">We'll respond within 2 hours</div>
+                        </div>
+                        <i class="fas fa-arrow-right text-blue-500 group-hover:translate-x-1 transition-transform duration-200"></i>
+                    </a>
+
+                    <!-- Quick Message -->
+                    <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                        <div class="flex items-center mb-3">
+                            <div class="bg-green-500 text-white p-2 rounded-full mr-3">
+                                <i class="fas fa-comment text-sm"></i>
+                            </div>
+                            <div class="font-semibold text-gray-900">Quick Message</div>
+                        </div>
+                        <form class="space-y-3" onsubmit="handleQuickMessage(event)">
+                            <input type="text" placeholder="Your name" required
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <input type="email" placeholder="Your email" required
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                            <textarea placeholder="How can we help you?" rows="3" required
+                                      class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent resize-none"></textarea>
+                            <button type="submit"
+                                    class="w-full bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 transition duration-200 font-medium">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Modal Footer -->
+            <div class="px-6 py-4 bg-gray-50 rounded-b-lg border-t border-gray-200">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm text-gray-500">
+                        <i class="fas fa-shield-alt text-green-500 mr-1"></i>
+                        Your information is secure
+                    </div>
+                    <button onclick="closeSupportModal()" 
+                            class="px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition duration-200 text-sm font-medium">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+
+<script>
+// Handle quick message form (basic functionality)
+function handleQuickMessage(event) {
+    event.preventDefault();
+    
+    const form = event.target;
+    const formData = new FormData(form);
+    
+    // For now, just show a success message
+    // In production, you'd send this to your backend
+    alert('Thank you for your message! We\'ll get back to you within 2 hours.');
+    
+    // Reset form and close modal
+    form.reset();
+    closeSupportModal();
+}
+</script>
