@@ -175,11 +175,19 @@
         color: #374151 !important;
     }
 
-    /* FIXED: Header stays same in both light and dark mode - STRENGTHENED */
+    /* FIXED: Header stays same in both light and dark mode - FULL WIDTH WHITE */
     html.dark header,
     html.dark header nav,
-    html.dark header .container {
+    html.dark header .container,
+    html.dark body > header {
         background-color: white !important;
+    }
+    
+    /* Ensure header extends full width */
+    html.dark header {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
     }
     
     html.dark header nav a,
