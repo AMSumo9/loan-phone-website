@@ -248,13 +248,27 @@
   {% include header.html %}
   
   <main>
-    <!-- Blog Header - FIXED: Consistent with homepage style -->
+    <!-- Blog Header - Restored original formatting -->
     <section class="bg-[var(--bg-accent)] transition-colors duration-300">
         <div class="container mx-auto px-6 py-16 text-center animate-on-scroll">
-            <h1 class="text-5xl font-extrabold text-[var(--text-primary)] mb-4">{{ page.title }}</h1>
-            {% if page.excerpt %}
-            <p class="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">{{ page.excerpt }}</p>
-            {% endif %}
+            <h1 class="text-4xl font-extrabold text-[var(--text-primary)] mb-4">{{ page.title }}</h1>
+            <div class="flex justify-center items-center space-x-6 text-[var(--text-secondary)]">
+                {% if page.category %}
+                <span class="px-3 py-1 rounded-full text-sm font-medium" style="background-color: rgba(220, 38, 38, 0.1); color: #DC2626;">
+                    {{ page.category }}
+                </span>
+                {% endif %}
+                <span class="flex items-center">
+                    <i class="fas fa-calendar mr-2"></i>
+                    {{ page.date | date: "%B %d, %Y" }}
+                </span>
+                {% if page.read_time %}
+                <span class="flex items-center">
+                    <i class="fas fa-clock mr-2"></i>
+                    {{ page.read_time }} min read
+                </span>
+                {% endif %}
+            </div>
         </div>
     </section>
 
