@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Internal CSS -->
+    <!-- FIXED: Dark Mode CSS - Copied from working default.html -->
     <style>
         :root { 
             --bg-primary: #ffffff; 
@@ -46,11 +46,61 @@
             --brand-red: #DC2626; 
             --brand-red-dark: #B91C1C; 
         }
+        html.dark { 
+            --bg-primary: #1f2937; 
+            --bg-secondary: #374151; 
+            --bg-accent: #374151; 
+            --text-primary: #f9fafb; 
+            --text-secondary: #d1d5db; 
+        }
+        
+        /* FIXED: Dark mode contrast issues */
+        html.dark .features-heading, 
+        html.dark .features-benefits-section h3,
+        html.dark .privacy-content h2,
+        html.dark .privacy-content h3,
+        html.dark h1,
+        html.dark h2, 
+        html.dark h3,
+        html.dark h4,
+        html.dark h5,
+        html.dark h6 { 
+            color: #ffffff !important; 
+        }
+        
+        /* FIXED: Dark mode text colors */
+        html.dark .text-gray-800 {
+            color: #f9fafb !important;
+        }
+        
+        html.dark .text-gray-700 {
+            color: #d1d5db !important;
+        }
+        
+        html.dark .text-gray-600 {
+            color: #9ca3af !important;
+        }
+        
+        /* FIXED: Dark mode backgrounds */
+        html.dark .bg-white {
+            background-color: #374151 !important;
+        }
+        
+        html.dark .bg-gray-50 {
+            background-color: #4b5563 !important;
+        }
+        
+        /* Keep brand red visible in dark mode */
+        html.dark .brand-red {
+            color: #ef4444 !important;
+        }
+        
         body { 
             font-family: 'Open Sans', sans-serif; 
             background-color: var(--bg-primary); 
             color: var(--text-primary); 
             line-height: 1.7;
+            transition: background-color 0.3s, color 0.3s; 
         }
         h1, h2, h3, h4, h5, h6 { 
             font-family: 'Poppins', sans-serif; 
@@ -58,13 +108,13 @@
             color: var(--text-primary);
         }
         .brand-red { 
-            color: var(--brand-red); 
+            color: var(--brand-red) !important; 
         }
         .bg-brand-red { 
-            background-color: var(--brand-red); 
+            background-color: var(--brand-red) !important; 
         }
         .hover\:bg-brand-red-dark:hover { 
-            background-color: var(--brand-red-dark); 
+            background-color: var(--brand-red-dark) !important; 
         }
         
         /* Blog content styling */
@@ -146,13 +196,13 @@
     
     <main>
         <!-- Blog Post Header (Pink Section) - FIXED LAYOUT -->
-        <section class="bg-[var(--bg-accent)] py-16">
+        <section class="bg-[var(--bg-accent)] py-16 transition-colors duration-300">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">{{ page.title }}</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold text-[var(--text-primary)] mb-6">{{ page.title }}</h1>
                     
                     <!-- LINE 1: Date, Author, Time to Read -->
-                    <div class="flex flex-wrap justify-center items-center gap-4 text-gray-600 mb-4">
+                    <div class="flex flex-wrap justify-center items-center gap-4 text-[var(--text-secondary)] mb-4">
                         <span class="flex items-center">
                             <i class="fas fa-calendar mr-2"></i>
                             {{ page.date | date: "%B %d, %Y" }}
@@ -190,30 +240,30 @@
                     {% endif %}
                     
                     <!-- LINE 3: Breadcrumbs -->
-                    <nav class="text-gray-600 text-sm">
+                    <nav class="text-[var(--text-secondary)] text-sm">
                         <a href="{{ site.baseurl }}/" class="hover:text-red-600">Home</a>
                         <span class="mx-2">></span>
                         <a href="{{ site.baseurl }}/blog/" class="hover:text-red-600">Blog</a>
                         <span class="mx-2">></span>
-                        <span class="text-gray-800">{{ page.title }}</span>
+                        <span class="text-[var(--text-primary)]">{{ page.title }}</span>
                     </nav>
                 </div>
             </div>
         </section>
         
         <!-- Blog Content with Sidebar Layout -->
-        <section class="py-8">
+        <section class="py-8 bg-[var(--bg-primary)] transition-colors duration-300">
             <div class="container mx-auto px-6">
                 <div class="max-w-6xl mx-auto">
                     <div class="flex flex-col lg:flex-row gap-8">
                         <!-- Main Content Area -->
                         <article class="lg:w-2/3 blog-content">
                             <!-- Opening Subheading -->
-                            <h2>{{ page.title | remove: "Tips to" | remove: "How to" | prepend: "Understanding " }}</h2>
+                            <h2 class="text-[var(--text-primary)]">{{ page.title | remove: "Tips to" | remove: "How to" | prepend: "Understanding " }}</h2>
                             
                             <!-- Introduction Text Above Image -->
                             <div class="mb-6">
-                                <p class="text-lg text-gray-700 leading-relaxed">{{ page.excerpt | default: "Your credit score is one of the most important factors lenders consider when evaluating your loan application. A higher score can mean the difference between getting approved at a great rate or being turned down altogether." }}</p>
+                                <p class="text-lg text-[var(--text-secondary)] leading-relaxed">{{ page.excerpt | default: "Your credit score is one of the most important factors lenders consider when evaluating your loan application. A higher score can mean the difference between getting approved at a great rate or being turned down altogether." }}</p>
                             </div>
                             
                             <!-- Featured Image (Float Left, Smaller) -->
@@ -231,7 +281,7 @@
                             
                             <!-- Share Section - Pink Theme with Grey/Red Text -->
                             <div class="mt-8 pt-8 border-t border-gray-200">
-                                <h4 class="text-lg font-semibold mb-4">Share this article:</h4>
+                                <h4 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">Share this article:</h4>
                                 <div class="flex gap-4">
                                     <a href="https://twitter.com/intent/tweet?text={{ page.title | url_encode }}&url={{ site.url }}{{ site.baseurl }}{{ page.url }}" 
                                        class="bg-pink-100 text-gray-700 px-4 py-2 rounded hover:bg-pink-200 transition duration-300 border border-pink-200"
@@ -280,18 +330,18 @@
                             </div>
                             
                             <!-- Related Posts - RANDOMIZED 4-5 POSTS -->
-                            <div class="bg-gray-50 p-6 rounded-lg mb-6">
-                                <h3 class="text-xl font-bold mb-4">You Might Also Like</h3>
+                            <div class="bg-[var(--bg-secondary)] p-6 rounded-lg mb-6 transition-colors duration-300">
+                                <h3 class="text-xl font-bold mb-4 text-[var(--text-primary)]">You Might Also Like</h3>
                                 {% assign shuffled_posts = site.posts | sample: 5 %}
                                 {% for post in shuffled_posts %}
                                     {% unless post.url == page.url %}
                                     <div class="mb-4 pb-4 {% unless forloop.last %}border-b border-gray-200{% endunless %}">
-                                        <h4 class="font-semibold text-gray-800 hover:text-red-600 transition duration-300">
+                                        <h4 class="font-semibold text-[var(--text-primary)] hover:text-red-600 transition duration-300">
                                             <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                                         </h4>
-                                        <p class="text-sm text-gray-600 mt-1">{{ post.date | date: "%B %d, %Y" }}</p>
+                                        <p class="text-sm text-[var(--text-secondary)] mt-1">{{ post.date | date: "%B %d, %Y" }}</p>
                                         {% if post.excerpt %}
-                                        <p class="text-sm text-gray-600 mt-1">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+                                        <p class="text-sm text-[var(--text-secondary)] mt-1">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
                                         {% endif %}
                                     </div>
                                     {% endunless %}
@@ -306,16 +356,16 @@
                             </div>
                             
                             <!-- Recent Posts -->
-                            <div class="bg-gray-50 p-6 rounded-lg">
-                                <h3 class="text-xl font-bold mb-4">Recent Posts</h3>
+                            <div class="bg-[var(--bg-secondary)] p-6 rounded-lg transition-colors duration-300">
+                                <h3 class="text-xl font-bold mb-4 text-[var(--text-primary)]">Recent Posts</h3>
                                 {% assign recent_posts = site.posts | limit: 5 %}
                                 {% for post in recent_posts %}
                                     {% unless post.url == page.url %}
                                     <div class="mb-4 pb-4 {% unless forloop.last %}border-b border-gray-200{% endunless %}">
-                                        <h4 class="font-semibold text-gray-800 hover:text-red-600 transition duration-300">
+                                        <h4 class="font-semibold text-[var(--text-primary)] hover:text-red-600 transition duration-300">
                                             <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                                         </h4>
-                                        <p class="text-sm text-gray-600 mt-1">{{ post.date | date: "%B %d, %Y" }}</p>
+                                        <p class="text-sm text-[var(--text-secondary)] mt-1">{{ post.date | date: "%B %d, %Y" }}</p>
                                     </div>
                                     {% endunless %}
                                 {% endfor %}
@@ -329,14 +379,14 @@
         <!-- Related Posts -->
         {% assign related_posts = site.posts | where: "category", page.category | limit: 3 %}
         {% if related_posts.size > 1 %}
-        <section class="py-16 bg-gray-50">
+        <section class="py-16 bg-[var(--bg-secondary)] transition-colors duration-300">
             <div class="container mx-auto px-6">
                 <div class="max-w-6xl mx-auto">
-                    <h2 class="text-3xl font-bold text-center mb-12">Related Articles</h2>
+                    <h2 class="text-3xl font-bold text-center mb-12 text-[var(--text-primary)]">Related Articles</h2>
                     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {% for post in related_posts %}
                             {% unless post.url == page.url %}
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="bg-[var(--bg-primary)] rounded-lg shadow-md overflow-hidden transition-colors duration-300">
                                 {% if post.featured_image %}
                                 <img src="{{ site.baseurl }}/assets/images/blog/{{ post.featured_image }}" alt="{{ post.title }}" class="w-full h-48 object-cover">
                                 {% else %}
@@ -345,8 +395,8 @@
                                 </div>
                                 {% endif %}
                                 <div class="p-6">
-                                    <h3 class="text-xl font-bold mb-2">{{ post.title }}</h3>
-                                    <p class="text-gray-600 mb-4">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+                                    <h3 class="text-xl font-bold mb-2 text-[var(--text-primary)]">{{ post.title }}</h3>
+                                    <p class="text-[var(--text-secondary)] mb-4">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
                                     <a href="{{ site.baseurl }}{{ post.url }}" class="font-semibold text-red-600 hover:text-red-800">
                                         Read More &rarr;
                                     </a>
@@ -369,9 +419,37 @@
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- JavaScript -->
+    <!-- FIXED: Complete JavaScript with dark mode support -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Dark mode functionality (copied from working default.html)
+            const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
+            const htmlEl = document.documentElement;
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            
+            const updateIcon = (theme) => { 
+                themeToggles.forEach(toggle => { 
+                    toggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'; 
+                }); 
+            }
+            
+            htmlEl.classList.add(currentTheme);
+            updateIcon(currentTheme);
+            
+            themeToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    if (htmlEl.classList.contains('dark')) {
+                        htmlEl.classList.remove('dark');
+                        localStorage.setItem('theme', 'light');
+                        updateIcon('light');
+                    } else {
+                        htmlEl.classList.add('dark');
+                        localStorage.setItem('theme', 'dark');
+                        updateIcon('dark');
+                    }
+                });
+            });
+            
             // Back to top functionality
             const backToTopButton = document.getElementById('back-to-top');
             if(backToTopButton){
@@ -387,16 +465,36 @@
                 });
             }
             
-            // Support modal functionality (if modal exists in footer)
-            function openSupportModal() {
+            // Support modal functionality
+            window.openSupportModal = function() {
                 const modal = document.getElementById('support-modal');
                 if (modal) {
                     modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
                 }
-            }
+            };
             
-            // Make function available globally
-            window.openSupportModal = openSupportModal;
+            window.closeSupportModal = function() {
+                const modal = document.getElementById('support-modal');
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            };
+            
+            // Close modal when clicking outside or ESC
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('support-modal');
+                if (event.target === modal) {
+                    closeSupportModal();
+                }
+            });
+
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeSupportModal();
+                }
+            });
         });
     </script>
 </body>
