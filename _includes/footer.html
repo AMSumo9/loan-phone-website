@@ -1,69 +1,99 @@
 <!-- Footer -->
-<footer class="bg-gray-800 text-white pt-16 pb-8">
-    <div class="container mx-auto px-6">
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-8">
-            <!-- Company Info -->
-            <div class="col-span-1 md:col-span-2">
-                <a href="{{ site.baseurl }}/" class="flex items-center space-x-2 mb-4">
-                    <i class="fa-solid fa-phone-volume text-3xl text-red-500"></i>
-                    <h3 class="text-2xl font-bold">{{ site.company.name | default: "THE LOAN PHONE" }}</h3>
+<footer class="bg-gray-900 text-white py-12">
+  <div class="container mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      
+      <!-- Company Info -->
+      <div>
+        <h3 class="text-xl font-bold mb-4 text-red-400">{{ site.company.name }}</h3>
+        <p class="text-gray-300 mb-4">{{ site.company.tagline }}</p>
+        <div class="space-y-2">
+          <div class="flex items-center">
+            <i class="fas fa-phone text-red-400 mr-3"></i>
+            <a href="tel:{{ site.contact.phone }}" class="text-gray-300 hover:text-white">
+              {{ site.contact.phone_display }}
+            </a>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-envelope text-red-400 mr-3"></i>
+            <a href="mailto:{{ site.contact.email }}" class="text-gray-300 hover:text-white">
+              {{ site.contact.email }}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company Links -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Company</h4>
+        <ul class="space-y-2">
+          {% for item in site.data.navigation.footer.company %}
+            {% if item.action == "modal" %}
+              <li>
+                <a href="#" onclick="openSupportModal(); return false;" class="text-gray-300 hover:text-red-300 transition duration-200">
+                  {{ item.name }}
                 </a>
-                <p class="text-gray-400">{{ site.company.tagline | default: "Your trusted partner in finding the perfect loan" }}</p>
-            </div>
-            
-            <!-- Loan Types -->
-            <div class="md:col-span-2">
-                <h4 class="font-semibold mb-4">Loan Types</h4>
-                <div class="grid grid-cols-2 gap-x-8">
-                    <ul class="text-gray-400 space-y-2">
-                        {% for loan_type in site.data.loan_types.all_types limit: 7 %}
-                        <li>
-                            <a href="{{ site.baseurl }}{{ loan_type.url }}" class="hover:text-white">{{ loan_type.name }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                    <ul class="text-gray-400 space-y-2">
-                        {% for loan_type in site.data.loan_types.all_types offset: 7 %}
-                        <li>
-                            <a href="{{ site.baseurl }}{{ loan_type.url }}" class="hover:text-white">{{ loan_type.name }}</a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-            
-            <!-- Company Links -->
-            <div>
-                <h4 class="font-semibold mb-4">Company</h4>
-                <ul class="text-gray-400 space-y-2">
-                    {% if site.data.navigation.footer.company %}
-                        {% for link in site.data.navigation.footer.company %}
-                            <li>
-                                {% if link.action == "modal" %}
-                                    <a href="#" onclick="openSupportModal()" class="hover:text-white">{{ link.name }}</a>
-                                {% else %}
-                                    <a href="{{ site.baseurl }}{{ link.url }}" class="hover:text-white">{{ link.name }}</a>
-                                {% endif %}
-                            </li>
-                        {% endfor %}
-                    {% else %}
-                        <!-- Fallback if navigation data not available -->
-                        <li><a href="{{ site.baseurl }}/about/" class="hover:text-white">About Us</a></li>
-                        <li><a href="{{ site.baseurl }}/services/" class="hover:text-white">Services</a></li>
-                        <li><a href="{{ site.baseurl }}/blog/" class="hover:text-white">Blog</a></li>
-                        <li><a href="{{ site.baseurl }}/privacy/" class="hover:text-white">Privacy Policy</a></li>
-                        <li><a href="#" onclick="openSupportModal()" class="hover:text-white">Support</a></li>
-                    {% endif %}
-                </ul>
-            </div>
+              </li>
+            {% else %}
+              <li>
+                <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-300 hover:text-red-300 transition duration-200">
+                  {{ item.name }}
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Loan Types -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Popular Services</h4>
+        <ul class="space-y-2">
+          {% for loan_type in site.data.loan_types.all_types limit:6 %}
+            <li>
+              <a href="{{ site.baseurl }}{{ loan_type.url }}" class="text-gray-300 hover:text-red-300 transition duration-200">
+                {{ loan_type.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Legal & Social -->
+      <div>
+        <h4 class="text-lg font-semibold mb-4">Connect</h4>
+        <div class="space-y-4">
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-300 hover:text-red-300 text-2xl">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-red-300 text-2xl">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="text-gray-300 hover:text-red-300 text-2xl">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
         </div>
-        
-        <!-- Footer Bottom -->
-        <div class="border-t border-gray-700 pt-6 mt-8 text-center text-gray-500 text-sm">
-            <p class="mb-4">{{ site.company.legal_notice | default: "It is important for you to know that any information provided to you by Loan Phone is not Financial or Credit Advice. You must read the" }} 
-                <a href="{{ site.baseurl }}/privacy/" class="underline hover:text-white">Privacy Policy</a>.
-            </p>
-            <p>Copyright {{ 'now' | date: "%Y" }}. {{ site.company.name | default: "Loan Phone" }}. All Rights Reserved.</p>
-        </div>
+      </div>
     </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+      <p class="text-gray-400 text-sm">
+        © {{ 'now' | date: "%Y" }} {{ site.company.name }}. All rights reserved.
+      </p>
+      {% if site.company.legal_notice %}
+        <p class="text-gray-500 text-xs mt-2 max-w-4xl mx-auto">
+          {{ site.company.legal_notice }}
+        </p>
+      {% endif %}
+    </div>
+  </div>
 </footer>
+
+<!-- Include the support modal -->
+{% include support-modal.html %}
+
+<!-- Include back to top button -->
+{% include back-to-top.html %}
