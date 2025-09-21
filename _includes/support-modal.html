@@ -20,18 +20,17 @@
                     <span>Call {{ site.contact.phone_display }} Now</span>
                 </a>
                 
-                <!-- Request Callback Section - UNIFIED: No gap between header and form -->
-                <div class="border border-gray-200 rounded-lg overflow-hidden">
-                    <!-- Callback Header - Part of the form container -->
-                    <div class="bg-gray-50 px-4 py-3 border-b border-gray-200">
-                        <div class="flex items-center justify-center">
-                            <i class="fas fa-calendar-check mr-2 text-red-600"></i>
-                            <span class="font-semibold text-gray-800">Request a Callback</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Callback Form - Directly connected to header -->
-                    <div class="p-4 bg-white">
+                <!-- Request Callback Button -->
+                <button onclick="toggleCallbackForm()" id="callback-toggle" class="flex items-center justify-center w-full py-3 px-4 font-semibold rounded-lg transition duration-200 text-gray-800" style="background-color: #fce8e8;">
+                    <i class="fas fa-calendar-check mr-3 text-red-600"></i>
+                    <span>Request a Callback</span>
+                    <i class="fas fa-chevron-down ml-2 transition-transform duration-200" id="callback-arrow"></i>
+                </button>
+            </div>
+            
+            <!-- Callback Form - FIXED: No gap when expanded -->
+            <div id="callback-form" class="hidden mb-6">
+                <div class="border border-gray-200 rounded-lg bg-white p-4">
                         <form action="https://formsubmit.co/loans@loanphone.com.au" method="POST" class="space-y-4">
                             <!-- Hidden Fields for FormSubmit -->
                             <input type="hidden" name="_next" value="{{ site.url }}{{ site.baseurl }}/thank-you/">
@@ -103,3 +102,18 @@
         </div>
     </div>
 </div>
+
+<script>
+function toggleCallbackForm() {
+    const form = document.getElementById('callback-form');
+    const arrow = document.getElementById('callback-arrow');
+    
+    if (form.classList.contains('hidden')) {
+        form.classList.remove('hidden');
+        arrow.style.transform = 'rotate(180deg)';
+    } else {
+        form.classList.add('hidden');
+        arrow.style.transform = 'rotate(0deg)';
+    }
+}
+</script>
