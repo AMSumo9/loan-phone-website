@@ -152,11 +152,11 @@
     
     <main>
         {% if page.service_type %}
-        <!-- Hero Section - Two Column Layout (Text Left, Image Right) -->
-        <section class="bg-[var(--bg-accent)] transition-colors duration-300">
+        <!-- Hero Section - CONSISTENT: Always light pink like other pages -->
+        <section class="py-16" style="background-color: #fce8e8;">
             <div class="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-on-scroll">
-                    <h1 class="text-5xl font-extrabold text-[var(--text-primary)] mb-4">
+                    <h1 class="text-5xl font-extrabold text-gray-800 mb-4">
                         {% assign title_clean = page.title | remove: ' | The Loan Phone' %}
                         {% if page.hero_highlight %}
                             {% assign highlighted_title = title_clean | replace: page.hero_highlight, '<span class="brand-red">' | append: page.hero_highlight | append: '</span>' %}
