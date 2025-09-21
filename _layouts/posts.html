@@ -151,19 +151,31 @@
         color: #ffffff !important;
     }
     
-    /* MINIMAL FIX 1: Pink header section stays light in dark mode */
+    /* FIXED: Pink sections and their content always stay light with dark text */
     html.dark .blog-header,
+    html.dark [style*="background-color: #fce8e8"],
+    html.dark .bg-red-50,
     html.dark .bg-\\[var\\(--bg-accent\\)\\] {
         background-color: #fce8e8 !important;
         color: #374151 !important;
     }
     
     html.dark .blog-header *,
+    html.dark [style*="background-color: #fce8e8"] *,
+    html.dark .bg-red-50 *,
     html.dark .bg-\\[var\\(--bg-accent\\)\\] * {
         color: #374151 !important;
     }
     
-    /* MINIMAL FIX 2: Header navigation stays white */
+    /* FIXED: Red button to pink with grey text in dark mode */
+    html.dark .bg-red-600,
+    html.dark [style*="background-color: red"],
+    html.dark .bg-brand-red {
+        background-color: #fce8e8 !important;
+        color: #374151 !important;
+    }
+
+    /* NAVIGATION FIX: Header stays white in both light and dark mode */
     html.dark header {
         background-color: white !important;
     }
@@ -179,26 +191,6 @@
     html.dark header button[style*="border-color: #fce8e8"] {
         border-color: #fce8e8 !important;
         color: #4b5563 !important;
-    }
-
-    /* FIXED: Pink sections and their content always stay light with dark text */
-    html.dark [style*="background-color: #fce8e8"],
-    html.dark .bg-red-50 {
-        background-color: #fce8e8 !important;
-        color: #374151 !important;
-    }
-    
-    html.dark [style*="background-color: #fce8e8"] *,
-    html.dark .bg-red-50 * {
-        color: #374151 !important;
-    }
-    
-    /* FIXED: Red button to pink with grey text in dark mode */
-    html.dark .bg-red-600,
-    html.dark [style*="background-color: red"],
-    html.dark .bg-brand-red {
-        background-color: #fce8e8 !important;
-        color: #374151 !important;
     }
 
     /* FIXED: Backgrounds in dark mode */
