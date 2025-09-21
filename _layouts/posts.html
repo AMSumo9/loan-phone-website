@@ -195,7 +195,7 @@
     {% include header.html %}
     
     <main>
-        <!-- Blog Post Header (Pink Section) - CONSISTENT: Always light pink -->
+        <!-- Blog Post Header (Pink Section) - CONSISTENT: Always light pink, dark text -->
         <section class="py-16" style="background-color: #fce8e8;">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center">
@@ -279,24 +279,24 @@
                             <!-- Clear floats -->
                             <div style="clear: both;"></div>
                             
-                            <!-- Share Section - FIXED: Pink buttons with dark text, correct social icons -->
+                            <!-- Share Section - FIXED: Better contrast in dark mode -->
                             <div class="mt-8 pt-8 border-t border-gray-200">
                                 <h4 class="text-lg font-semibold mb-4 text-[var(--text-primary)]">Share this article:</h4>
                                 <div class="flex gap-4">
                                     <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ site.baseurl }}{{ page.url }}" 
-                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800" 
+                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800 border border-gray-300" 
                                        style="background-color: #fce8e8;"
                                        target="_blank">
                                         <i class="fab fa-facebook-f mr-2" style="color: #DC2626;"></i>Facebook
                                     </a>
                                     <a href="https://www.instagram.com/" 
-                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800" 
+                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800 border border-gray-300" 
                                        style="background-color: #fce8e8;"
                                        target="_blank">
                                         <i class="fab fa-instagram mr-2" style="color: #DC2626;"></i>Instagram
                                     </a>
                                     <a href="https://www.tiktok.com/" 
-                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800" 
+                                       class="px-4 py-2 rounded font-semibold transition duration-300 text-gray-800 border border-gray-300" 
                                        style="background-color: #fce8e8;"
                                        target="_blank">
                                         <i class="fab fa-tiktok mr-2" style="color: #DC2626;"></i>TikTok
