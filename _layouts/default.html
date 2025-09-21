@@ -170,9 +170,12 @@
       }, { threshold: 0.1 });
       const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
       elementsToAnimate.forEach(el => observer.observe(el));
+      
+      // MODAL FUNCTIONALITY - ENHANCED TO WORK WITH BOTH ID AND ONCLICK
       const supportLink = document.getElementById('support-link');
       const supportModal = document.getElementById('support-modal');
       const modalCloseBtn = document.getElementById('modal-close');
+      
       if(supportLink && supportModal && modalCloseBtn){
         supportLink.addEventListener('click', (e) => { 
           e.preventDefault(); 
@@ -188,6 +191,37 @@
         });
       }
     });
-  </script>
+
+    // GLOBAL MODAL FUNCTIONS - FOR ONCLICK HANDLERS
+    window.openSupportModal = function() {
+      const modal = document.getElementById('support-modal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    };
+
+    window.closeSupportModal = function() {
+      const modal = document.getElementById('support-modal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    };
+
+    // Close modal when clicking outside or ESC
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('support-modal');
+      if (event.target === modal) {
+        closeSupportModal();
+      }
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeSupportModal();
+      }
+    });
+</script>
 </body>
 </html>
