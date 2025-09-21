@@ -1,23 +1,121 @@
-<header class="bg-[var(--bg-primary)] shadow-sm sticky top-0 z-50 transition-colors duration-300">
-  <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <a href="{{ site.baseurl }}/" class="flex items-center space-x-2 text-[var(--text-primary)]">
-      <i class="fa-solid fa-phone-volume text-3xl brand-red"></i>
-      <h1 class="text-2xl font-bold transition-colors duration-300">{{ site.company.name }}</h1>
-    </a>
-    <div class="desktop-nav hidden md:flex items-center space-x-6">
-      {% for item in site.data.navigation.main %}
-        <a href="{{ site.baseurl }}{{ item.url }}" class="text-[var(--text-secondary)] hover:brand-red transition-colors duration-300">{{ item.name }}</a>
-      {% endfor %}
-      <button id="theme-toggle-desktop" class="text-xl text-[var(--text-secondary)] hover:brand-red"><i class="fas fa-moon"></i></button>
+<!-- Header -->
+<header class="bg-white shadow-lg sticky top-0 z-40">
+    <div class="container mx-auto px-6">
+        <div class="flex items-center justify-between h-16">
+            <!-- Logo -->
+            <div class="flex items-center">
+                <a href="{{ site.baseurl }}/" class="flex items-center space-x-3">
+                    <div class="text-2xl font-bold" style="color: #DC2626 !important;">
+                        {{ site.company.name }}
+                    </div>
+                </a>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                {% for item in site.data.navigation.main %}
+                    {% if item.type == "anchor" %}
+                        <a href="{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium" style="color: #374151 !important;">
+                            {{ item.name }}
+                        </a>
+                    {% else %}
+                        <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium" style="color: #374151 !important;">
+                            {{ item.name }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </nav>
+
+            <!-- CTA Buttons -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="tel:{{ site.contact.phone }}" 
+                   class="px-4 py-2 border-2 text-white font-semibold rounded-lg transition duration-200 hover:bg-red-700"
+                   style="background-color: #DC2626 !important; border-color: #DC2626 !important;">
+                    <i class="fas fa-phone mr-2"></i>
+                    Call Now
+                </a>
+                
+                <button onclick="openSupportModal()" 
+                        class="px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg hover:bg-red-600 hover:text-white transition duration-200"
+                        style="border-color: #DC2626 !important; color: #DC2626 !important;">
+                    Get Quote
+                </button>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="md:hidden">
+                <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-red-600 focus:outline-none">
+                    <i class="fas fa-bars text-xl" style="color: #DC2626 !important;"></i>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="flex items-center md:hidden">
-      <button id="theme-toggle-mobile" class="text-xl text-[var(--text-secondary)] hover:brand-red mr-4"><i class="fas fa-moon"></i></button>
-      <button id="mobile-menu-button" aria-label="Toggle mobile menu"><i class="fas fa-bars text-2xl text-[var(--text-primary)]"></i></button>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="md:hidden bg-white border-t border-gray-200 hidden">
+        <div class="px-6 py-4 space-y-4">
+            {% for item in site.data.navigation.main %}
+                {% if item.type == "anchor" %}
+                    <a href="{{ item.url }}" class="block text-gray-700 hover:text-red-600 font-medium" onclick="toggleMobileMenu()">
+                        {{ item.name }}
+                    </a>
+                {% else %}
+                    <a href="{{ site.baseurl }}{{ item.url }}" class="block text-gray-700 hover:text-red-600 font-medium" onclick="toggleMobileMenu()">
+                        {{ item.name }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+            
+            <!-- Mobile CTA Buttons -->
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+                <a href="tel:{{ site.contact.phone }}" 
+                   class="block w-full text-center px-4 py-2 text-white font-semibold rounded-lg"
+                   style="background-color: #DC2626 !important;">
+                    <i class="fas fa-phone mr-2"></i>
+                    Call Now
+                </a>
+                
+                <button onclick="openSupportModal(); toggleMobileMenu();" 
+                        class="block w-full px-4 py-2 border-2 font-semibold rounded-lg"
+                        style="border-color: #DC2626 !important; color: #DC2626 !important;">
+                    Get Quote
+                </button>
+            </div>
+        </div>
     </div>
-  </nav>
-  <div id="mobile-menu" class="mobile-nav flex-col md:hidden absolute bg-[var(--bg-primary)] w-full shadow-lg hidden">
-    {% for item in site.data.navigation.main %}
-      <a href="{{ site.baseurl }}{{ item.url }}" class="block py-3 px-6 text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]">{{ item.name }}</a>
-    {% endfor %}
-  </div>
 </header>
+
+<script>
+// Mobile menu toggle
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu) {
+        menu.classList.toggle('hidden');
+    }
+}
+</script>
+
+<style>
+/* Force red colors in header - override any conflicting CSS */
+header .text-red-600, 
+header .hover\\:text-red-600:hover,
+header .border-red-600 {
+    color: #DC2626 !important;
+    border-color: #DC2626 !important;
+}
+
+header .bg-red-600,
+header .hover\\:bg-red-600:hover {
+    background-color: #DC2626 !important;
+}
+
+/* Ensure hover states work */
+header a:hover {
+    color: #DC2626 !important;
+}
+
+header button:hover {
+    background-color: #DC2626 !important;
+    color: white !important;
+}
+</style>
