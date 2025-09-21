@@ -5,8 +5,8 @@
             <!-- Logo -->
             <div class="flex items-center">
                 <a href="{{ site.baseurl }}/" class="flex items-center space-x-3">
-                    <div class="text-2xl font-bold" style="color: #DC2626 !important;">
-                        {{ site.company.name }}
+                    <div class="text-2xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif !important; color: #DC2626 !important;">
+                        The Loan Phone
                     </div>
                 </a>
             </div>
@@ -15,11 +15,11 @@
             <nav class="hidden md:flex items-center space-x-8">
                 {% for item in site.data.navigation.main %}
                     {% if item.type == "anchor" %}
-                        <a href="{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium" style="color: #374151 !important;">
+                        <a href="{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium">
                             {{ item.name }}
                         </a>
                     {% else %}
-                        <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium" style="color: #374151 !important;">
+                        <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium">
                             {{ item.name }}
                         </a>
                     {% endif %}
@@ -29,23 +29,21 @@
             <!-- CTA Buttons -->
             <div class="hidden md:flex items-center space-x-4">
                 <a href="tel:{{ site.contact.phone }}" 
-                   class="px-4 py-2 border-2 text-white font-semibold rounded-lg transition duration-200 hover:bg-red-700"
-                   style="background-color: #DC2626 !important; border-color: #DC2626 !important;">
+                   class="px-4 py-2 bg-red-600 text-white font-semibold rounded-lg transition duration-200 hover:bg-red-700">
                     <i class="fas fa-phone mr-2"></i>
-                    Call Now
+                    Speak to an Expert
                 </a>
                 
                 <button onclick="openSupportModal()" 
-                        class="px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg hover:bg-red-600 hover:text-white transition duration-200"
-                        style="border-color: #DC2626 !important; color: #DC2626 !important;">
-                    Get Quote
+                        class="px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg hover:bg-red-600 hover:text-white transition duration-200">
+                    Get in Touch
                 </button>
             </div>
 
             <!-- Mobile menu button -->
             <div class="md:hidden">
-                <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-red-600 focus:outline-none">
-                    <i class="fas fa-bars text-xl" style="color: #DC2626 !important;"></i>
+                <button onclick="toggleMobileMenu()" class="text-red-600 hover:text-red-700 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
@@ -69,16 +67,14 @@
             <!-- Mobile CTA Buttons -->
             <div class="pt-4 border-t border-gray-200 space-y-3">
                 <a href="tel:{{ site.contact.phone }}" 
-                   class="block w-full text-center px-4 py-2 text-white font-semibold rounded-lg"
-                   style="background-color: #DC2626 !important;">
+                   class="block w-full text-center px-4 py-2 bg-red-600 text-white font-semibold rounded-lg">
                     <i class="fas fa-phone mr-2"></i>
-                    Call Now
+                    Speak to an Expert
                 </a>
                 
                 <button onclick="openSupportModal(); toggleMobileMenu();" 
-                        class="block w-full px-4 py-2 border-2 font-semibold rounded-lg"
-                        style="border-color: #DC2626 !important; color: #DC2626 !important;">
-                    Get Quote
+                        class="block w-full px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg">
+                    Get in Touch
                 </button>
             </div>
         </div>
@@ -94,28 +90,3 @@ function toggleMobileMenu() {
     }
 }
 </script>
-
-<style>
-/* Force red colors in header - override any conflicting CSS */
-header .text-red-600, 
-header .hover\\:text-red-600:hover,
-header .border-red-600 {
-    color: #DC2626 !important;
-    border-color: #DC2626 !important;
-}
-
-header .bg-red-600,
-header .hover\\:bg-red-600:hover {
-    background-color: #DC2626 !important;
-}
-
-/* Ensure hover states work */
-header a:hover {
-    color: #DC2626 !important;
-}
-
-header button:hover {
-    background-color: #DC2626 !important;
-    color: white !important;
-}
-</style>
