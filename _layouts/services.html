@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- FIXED: Dark Mode CSS - Copied from working default.html -->
+    <!-- FIXED: Complete Dark Mode CSS - Based on Working default.html Pattern -->
     <style>
         :root { 
             --bg-primary: #ffffff; 
@@ -49,6 +49,81 @@
             --bg-accent: #374151; 
             --text-primary: #f9fafb; 
             --text-secondary: #d1d5db; 
+        }
+        
+        /* FIXED: Dark mode contrast issues - Complete set from working default.html */
+        html.dark .features-heading, 
+        html.dark .features-benefits-section h3,
+        html.dark .privacy-content h2,
+        html.dark .privacy-content h3,
+        html.dark h1,
+        html.dark h2, 
+        html.dark h3,
+        html.dark h4,
+        html.dark h5,
+        html.dark h6 { 
+            color: #ffffff !important; 
+        }
+        
+        /* FIXED: Dark mode text colors */
+        html.dark .text-gray-800 {
+            color: #f9fafb !important;
+        }
+        
+        html.dark .text-gray-700 {
+            color: #d1d5db !important;
+        }
+        
+        html.dark .text-gray-600 {
+            color: #9ca3af !important;
+        }
+        
+        /* FIXED: Dark mode backgrounds */
+        html.dark .bg-white {
+            background-color: #374151 !important;
+        }
+        
+        html.dark .bg-gray-50 {
+            background-color: #4b5563 !important;
+        }
+        
+        /* Keep brand red visible in dark mode */
+        html.dark .brand-red {
+            color: #ef4444 !important;
+        }
+        
+        /* CRITICAL FIX: Pink sections ALWAYS stay light with dark text */
+        html.dark .service-header,
+        html.dark [style*="background-color: #fce8e8"],
+        html.dark .bg-red-50,
+        html.dark .bg-\\[var\\(--bg-accent\\)\\] {
+            background-color: #fce8e8 !important;
+            color: #374151 !important;
+        }
+        
+        html.dark .service-header *,
+        html.dark [style*="background-color: #fce8e8"] *,
+        html.dark .bg-red-50 *,
+        html.dark .bg-\\[var\\(--bg-accent\\)\\] * {
+            color: #374151 !important;
+        }
+        
+        /* FIXED: Header stays same in both light and dark mode */
+        html.dark header {
+            background-color: white !important;
+        }
+        
+        html.dark header nav a {
+            color: #4b5563 !important;
+        }
+        
+        html.dark header .text-gray-700 {
+            color: #4b5563 !important;
+        }
+        
+        html.dark header button[style*="border-color: #fce8e8"] {
+            border-color: #fce8e8 !important;
+            color: #4b5563 !important;
         }
         
         body { 
@@ -102,102 +177,6 @@
         @media (max-width: 768px) { 
             .desktop-nav { display: none; } 
         }
-
-        /* FIXED: Dark Mode Text Contrast - Same as default.html */
-        html.dark h2.loan-needs-title,
-        html.dark .loan-needs-section h2,
-        html.dark section h2 {
-            color: #ffffff !important;
-        }
-
-        html.dark .text-gray-800 {
-            color: #f9fafb !important;
-        }
-
-        html.dark .text-gray-700 {
-            color: #d1d5db !important;
-        }
-
-        html.dark .text-gray-600 {
-            color: #9ca3af !important;
-        }
-
-        html.dark .loan-categories h2,
-        html.dark .covering-loan-needs h2 {
-            color: #ffffff !important;
-        }
-
-        html.dark footer button {
-            color: #374151 !important;
-            background-color: #fce8e8 !important;
-        }
-
-        html.dark [style*="background-color: #fce8e8"] {
-            color: #374151 !important;
-        }
-
-        /* FIXED: Content headings white in dark mode (only when on dark backgrounds) */
-        html.dark .bg-\\[var\\(--bg-primary\\)\\] h2,
-        html.dark .bg-\\[var\\(--bg-primary\\)\\] h3,
-        html.dark section h2,
-        html.dark section h3,
-        html.dark .features-heading, 
-        html.dark .features-benefits-section h3,
-        html.dark .privacy-content h2,
-        html.dark .privacy-content h3 {
-            color: #ffffff !important;
-        }
-        
-        /* FIXED: Pink sections and their content always stay light with dark text */
-        html.dark .service-header,
-        html.dark [style*="background-color: #fce8e8"],
-        html.dark .bg-red-50,
-        html.dark .bg-\\[var\\(--bg-accent\\)\\] {
-            background-color: #fce8e8 !important;
-            color: #374151 !important;
-        }
-        
-        html.dark .service-header *,
-        html.dark [style*="background-color: #fce8e8"] *,
-        html.dark .bg-red-50 *,
-        html.dark .bg-\\[var\\(--bg-accent\\)\\] * {
-            color: #374151 !important;
-        }
-        
-        /* FIXED: Red button to pink with grey text in dark mode */
-        html.dark .bg-red-600,
-        html.dark [style*="background-color: red"],
-        html.dark .bg-brand-red {
-            background-color: #fce8e8 !important;
-            color: #374151 !important;
-        }
-
-        /* FIXED: Header stays same in both light and dark mode */
-        html.dark header {
-            background-color: white !important;
-        }
-        
-        html.dark header nav a {
-            color: #4b5563 !important;
-        }
-        
-        html.dark header .text-gray-700 {
-            color: #4b5563 !important;
-        }
-        
-        html.dark header button[style*="border-color: #fce8e8"] {
-            border-color: #fce8e8 !important;
-            color: #4b5563 !important;
-        }
-
-        /* FIXED: Backgrounds in dark mode */
-        html.dark .bg-white {
-            background-color: #374151 !important;
-        }
-        
-        html.dark .bg-gray-50 {
-            background-color: #4b5563 !important;
-        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
@@ -207,9 +186,7 @@
     
     <main>
         {% if page.service_type %}
-        <!-- Individual Service Page Layout -->
-        
-        <!-- Hero Section - FIXED: Pink background that stays light in dark mode -->
+        <!-- Hero Section - FIXED: Using bg-[var(--bg-accent)] pattern -->
         <section class="bg-[var(--bg-accent)] transition-colors duration-300 service-header">
             <div class="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-on-scroll">
@@ -231,8 +208,7 @@
                     <p class="text-xl text-[var(--text-secondary)] mb-6">{{ page.excerpt }}</p>
                     {% endif %}
                     
-                    <a href="{{ site.baseurl }}/#loan-selector" class="inline-block px-6 py-3 rounded-lg font-semibold transition duration-300 text-gray-800" style="background-color: #fce8e8;">
-                        <i class="fas fa-chart-bar mr-2"></i>
+                    <a href="{{ site.baseurl }}/#loan-selector" class="inline-block text-gray-800 font-bold text-lg px-8 py-4 rounded-lg shadow-xl hover:opacity-80 transition duration-300" style="background-color: #fce8e8;">
                         Start Your Comparison
                     </a>
                 </div>
@@ -252,7 +228,7 @@
         <section class="py-20 bg-[var(--bg-primary)] transition-colors duration-300 features-benefits-section">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-12 animate-on-scroll">
-                    <h2 class="text-3xl font-bold features-heading">
+                    <h2 class="text-3xl font-bold features-heading text-[var(--text-primary)]">
                         {% if page.features_title %}
                             {{ page.features_title }}
                         {% else %}
@@ -310,11 +286,13 @@
             </div>
         </section>
 
-        <!-- Content Section -->
+        <!-- Service Content Section -->
         <section class="py-16 bg-[var(--bg-primary)] transition-colors duration-300">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto prose prose-lg text-[var(--text-primary)]">
-                    {{ content }}
+                <div class="max-w-4xl mx-auto">
+                    <article class="text-[var(--text-primary)]">
+                        {{ content }}
+                    </article>
                 </div>
             </div>
         </section>
@@ -331,14 +309,14 @@
     {% include footer.html %}
     
     <!-- Back to Top Button -->
-    <button id="back-to-top" class="bg-brand-red text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center">
+    <button id="back-to-top" class="text-gray-800 w-12 h-12 rounded-full shadow-lg flex items-center justify-center" style="background-color: #fce8e8;">
         <i class="fas fa-arrow-up"></i>
     </button>
     
-    <!-- JavaScript - Same as default.html -->
+    <!-- FIXED: Complete JavaScript with dark mode support -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Dark mode functionality
+            // Dark mode functionality (copied from working default.html)
             const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
             const htmlEl = document.documentElement;
             const currentTheme = localStorage.getItem('theme') || 'light';
@@ -365,15 +343,6 @@
                     }
                 });
             });
-            
-            // Mobile menu
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            if(mobileMenuButton && mobileMenu) { 
-                mobileMenuButton.addEventListener('click', () => { 
-                    mobileMenu.classList.toggle('active'); 
-                }); 
-            }
             
             // Back to top functionality
             const backToTopButton = document.getElementById('back-to-top');
