@@ -202,7 +202,7 @@ permalink: /services/
 <h2 class="text-2xl font-bold text-[var(--text-primary)] mb-6">Ready to Get Started?</h2>
 
 <!-- FIXED: All buttons now pink with gray text -->
-<div class="bg-[var(--bg-primary)] rounded-lg shadow p-8 text-center border border-gray-200 transition-colors duration-300">
+<div class="rounded-lg shadow p-8 text-center border border-gray-200 transition-colors duration-300" style="background-color: var(--bg-primary);">
     <h3 class="text-2xl font-bold mb-4 brand-red">Ready to Compare Loans?</h3>
     <p class="text-lg text-[var(--text-secondary)] mb-6">Get personalized loan options in minutes from Australia's trusted loan specialists</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
