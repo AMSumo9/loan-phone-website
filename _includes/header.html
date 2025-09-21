@@ -1,12 +1,12 @@
-<!-- Header -->
+<!-- Header - RESTORED LOGO SIZE -->
 <header class="bg-white shadow-lg sticky top-0 z-40">
     <div class="container mx-auto px-6">
-        <div class="flex items-center justify-between h-16">
-            <!-- Logo with Phone Icon -->
+        <div class="flex items-center justify-between h-20">
+            <!-- Logo with Phone Icon - INCREASED SIZE -->
             <div class="flex items-center">
-                <a href="{{ site.baseurl }}/" class="flex items-center space-x-2">
-                    <i class="fas fa-phone-alt text-2xl text-red-600"></i>
-                    <div class="text-2xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
+                <a href="{{ site.baseurl }}/" class="flex items-center space-x-3">
+                    <i class="fas fa-phone-alt text-3xl text-red-600"></i>
+                    <div class="text-3xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
                         The Loan Phone
                     </div>
                 </a>
@@ -16,11 +16,11 @@
             <nav class="hidden md:flex items-center space-x-8">
                 {% for item in site.data.navigation.main %}
                     {% if item.type == "anchor" %}
-                        <a href="{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium">
+                        <a href="{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium text-lg">
                             {{ item.name }}
                         </a>
                     {% else %}
-                        <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium">
+                        <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium text-lg">
                             {{ item.name }}
                         </a>
                     {% endif %}
@@ -30,13 +30,13 @@
             <!-- CTA Buttons -->
             <div class="hidden md:flex items-center space-x-3">
                 <a href="tel:{{ site.contact.phone }}" 
-                   class="inline-flex items-center px-4 py-2 bg-red-600 text-white font-semibold rounded-lg transition duration-200 hover:bg-red-700">
+                   class="inline-flex items-center px-5 py-3 bg-red-600 text-white font-semibold rounded-lg transition duration-200 hover:bg-red-700 text-lg">
                     <i class="fas fa-phone mr-2"></i>
                     Speak to an Expert
                 </a>
                 
                 <button onclick="openSupportModal()" 
-                        class="inline-flex items-center px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg hover:bg-red-600 hover:text-white transition duration-200">
+                        class="inline-flex items-center px-5 py-3 border-2 border-red-600 text-red-600 font-semibold rounded-lg hover:bg-red-600 hover:text-white transition duration-200 text-lg">
                     <i class="fas fa-edit mr-2"></i>
                     Submit Inquiry
                 </button>
@@ -45,7 +45,7 @@
             <!-- Mobile menu button -->
             <div class="md:hidden">
                 <button onclick="toggleMobileMenu()" class="text-red-600 hover:text-red-700 focus:outline-none">
-                    <i class="fas fa-bars text-xl"></i>
+                    <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
@@ -56,11 +56,11 @@
         <div class="px-6 py-4 space-y-4">
             {% for item in site.data.navigation.main %}
                 {% if item.type == "anchor" %}
-                    <a href="{{ item.url }}" class="block text-gray-700 hover:text-red-600 font-medium" onclick="toggleMobileMenu()">
+                    <a href="{{ item.url }}" class="block text-gray-700 hover:text-red-600 font-medium text-lg" onclick="toggleMobileMenu()">
                         {{ item.name }}
                     </a>
                 {% else %}
-                    <a href="{{ site.baseurl }}{{ item.url }}" class="block text-gray-700 hover:text-red-600 font-medium" onclick="toggleMobileMenu()">
+                    <a href="{{ site.baseurl }}{{ item.url }}" class="block text-gray-700 hover:text-red-600 font-medium text-lg" onclick="toggleMobileMenu()">
                         {{ item.name }}
                     </a>
                 {% endif %}
@@ -69,13 +69,13 @@
             <!-- Mobile CTA Buttons -->
             <div class="pt-4 border-t border-gray-200 space-y-3">
                 <a href="tel:{{ site.contact.phone }}" 
-                   class="block w-full text-center px-4 py-2 bg-red-600 text-white font-semibold rounded-lg">
+                   class="block w-full text-center px-4 py-3 bg-red-600 text-white font-semibold rounded-lg text-lg">
                     <i class="fas fa-phone mr-2"></i>
                     Speak to an Expert
                 </a>
                 
                 <button onclick="openSupportModal(); toggleMobileMenu();" 
-                        class="block w-full px-4 py-2 border-2 border-red-600 text-red-600 font-semibold rounded-lg">
+                        class="block w-full px-4 py-3 border-2 border-red-600 text-red-600 font-semibold rounded-lg text-lg">
                     <i class="fas fa-edit mr-2"></i>
                     Submit Inquiry
                 </button>
