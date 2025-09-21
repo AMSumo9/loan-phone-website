@@ -14,23 +14,23 @@
             
             <!-- Contact Options -->
             <div class="space-y-4 mb-6">
-                <!-- Call Now Button -->
+                <!-- Speak to Expert Button - NO PHONE NUMBER -->
                 <a href="tel:{{ site.contact.phone }}" class="flex items-center justify-center w-full py-3 px-4 font-semibold rounded-lg transition duration-200 text-gray-800" style="background-color: #fce8e8;">
                     <i class="fas fa-phone mr-3 text-red-600"></i>
-                    <span>Call {{ site.contact.phone_display }} Now</span>
+                    <span>Speak to an Expert</span>
                 </a>
                 
-                <!-- Request Callback Button -->
-                <button onclick="toggleCallbackForm()" id="callback-toggle" class="flex items-center justify-center w-full py-3 px-4 font-semibold rounded-lg transition duration-200 text-gray-800" style="background-color: #fce8e8;">
-                    <i class="fas fa-calendar-check mr-3 text-red-600"></i>
-                    <span>Request a Callback</span>
-                    <i class="fas fa-chevron-down ml-2 transition-transform duration-200" id="callback-arrow"></i>
-                </button>
-            </div>
-            
-            <!-- Callback Form - FIXED: No gap when expanded -->
-            <div id="callback-form" class="hidden mb-6">
-                <div class="border border-gray-200 rounded-lg bg-white p-4">
+                <!-- Request Callback Button - EXPANDABLE -->
+                <div class="w-full">
+                    <button onclick="toggleCallbackForm()" id="callback-toggle" class="flex items-center justify-center w-full py-3 px-4 font-semibold rounded-lg transition duration-200 text-gray-800" style="background-color: #fce8e8;">
+                        <i class="fas fa-calendar-check mr-3 text-red-600"></i>
+                        <span>Request a Callback</span>
+                        <i class="fas fa-chevron-down ml-2 transition-transform duration-200" id="callback-arrow"></i>
+                    </button>
+                    
+                    <!-- Callback Form - CONNECTED with no gap -->
+                    <div id="callback-form" class="hidden">
+                        <div class="border-l border-r border-b border-gray-200 rounded-b-lg bg-white p-4 -mt-1">
                         <form action="https://formsubmit.co/loans@loanphone.com.au" method="POST" class="space-y-4">
                             <!-- Hidden Fields for FormSubmit -->
                             <input type="hidden" name="_next" value="{{ site.url }}{{ site.baseurl }}/thank-you/">
@@ -89,6 +89,7 @@
                                 Request Callback
                             </button>
                         </form>
+                        </div>
                     </div>
                 </div>
             </div>
