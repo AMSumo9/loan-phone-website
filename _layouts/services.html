@@ -379,10 +379,38 @@
             const htmlEl = document.documentElement;
             const currentTheme = localStorage.getItem('theme') || 'light';
             
+            // FORCE HEADER WHITE - JavaScript override
+            const forceHeaderWhite = () => {
+                const header = document.querySelector('header');
+                if (header) {
+                    header.style.backgroundColor = 'white';
+                    header.style.background = 'white';
+                    
+                    // Force brand elements red
+                    const brandText = header.querySelector('.text-red-600');
+                    const phoneIcon = header.querySelector('.fa-phone-alt');
+                    if (brandText) brandText.style.color = '#DC2626';
+                    if (phoneIcon) phoneIcon.style.color = '#DC2626';
+                    
+                    // Force nav links gray
+                    const navLinks = header.querySelectorAll('nav a, .text-gray-700');
+                    navLinks.forEach(link => {
+                        if (!link.classList.contains('text-red-600')) {
+                            link.style.color = '#4b5563';
+                        }
+                    });
+                }
+            };
+            
+            // Apply on load and theme change
+            forceHeaderWhite();
+            
             const updateIcon = (theme) => { 
                 themeToggles.forEach(toggle => { 
                     toggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'; 
                 }); 
+                // Force header white after theme change
+                setTimeout(forceHeaderWhite, 50);
             }
             
             htmlEl.classList.add(currentTheme);
