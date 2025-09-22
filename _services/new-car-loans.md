@@ -10,7 +10,7 @@ featured: true
 order: 1
 icon: "fas fa-car"
 excerpt: "Whether you're buying your first car or upgrading to something special, we'll help you find competitive finance with terms that suit your budget."
-hero_highlight: "Car"
+hero_highlight: "Car Loans"
 hero_image: "new-car-hero.png"
 
 # Key benefits for the features section
