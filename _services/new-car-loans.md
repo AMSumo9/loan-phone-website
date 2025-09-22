@@ -1,5 +1,5 @@
 ---
-layout: services
+layout: posts
 title: "New Car Loans | The Loan Phone"
 subtitle: "Drive your dream car home with competitive finance"
 meta_description: "Get competitive new car loan rates and flexible terms. Compare offers from multiple lenders with no impact on your credit score. Fast approval process."
