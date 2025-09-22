@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Asset Finance | Secure Vital Business Assets | The Loan Phone"
+title: "Asset Finance for Your Business | The Loan Phone"
 subtitle: "Flexible Finance to Secure Your Business Assets"
 meta_description: "Secure the vital assets your business needs to operate and grow. We compare flexible asset finance solutions for vehicles, fit-outs, technology, and more."
 meta_keywords: "asset finance, business asset finance, commercial asset loan, fit-out finance, vehicle fleet finance"
@@ -10,7 +10,7 @@ featured: true
 order: 3
 icon: "fas fa-building"
 excerpt: "Power your growth by securing the vital assets your business needs. We compare flexible asset finance solutions for vehicles, fit-outs, technology, and more."
-hero_highlight: "Assets"
+hero_highlight: "Asset Finance"
 hero_image: "asset-finance-hero.png"
 
 key_benefits:
