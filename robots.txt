@@ -14,10 +14,10 @@ Disallow: /vendor/
 Disallow: /node_modules/
 
 # GitHub Pages sitemap location (current)
-Sitemap: https://amsumo9.github.io/loan-phone-website/sitemap.xml
+# Sitemap: https://amsumo9.github.io/loan-phone-website/sitemap.xml
 
 # Custom domain sitemap (uncomment when switching to custom domain):
-# Sitemap: https://www.loanphone.com.au/sitemap.xml
+Sitemap: https://www.loanphone.com.au/sitemap.xml
 
 # Crawl delay (optional - helps prevent server overload)
 Crawl-delay: 1
