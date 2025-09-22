@@ -20,7 +20,7 @@ company:
 features:
   loan_widget_live: true # Set to true when ready to go live (false when testing)
   partner_id: "a996e580-c961-4586-a00c-9c86968f172d"
-  source_url: "https://loanphone.com.au"  # FIXED: No www (was www.loanphone.com.au)
+  source_url: "https://www.loanphone.com.au"  # FIXED: Back to www for widget compatibility
   widget_js: "https://loanoptions-widget.s3.ap-southeast-2.amazonaws.com/v2/main/js/main.js"
   widget_css: "https://loanoptions-widget.s3.ap-southeast-2.amazonaws.com/v2/main/css/main.css"
 
