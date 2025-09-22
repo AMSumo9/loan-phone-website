@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Business Loans | Fuel Your Company's Growth | The Loan Phone"
+title: "Business Loans | The Loan Phone"
 subtitle: "Funding to Power Your Business Ambition"
 meta_description: "Access the capital you need to grow your business. Compare flexible business loans for cash flow, equipment, expansion, and more. Fast, simple applications."
 meta_keywords: "business loan, small business finance, commercial loan, business funding australia"
