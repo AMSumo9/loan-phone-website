@@ -191,14 +191,21 @@
         background-color: white !important;
     }
     
-    /* Keep all header text and elements in light mode colors */
-    html.dark header *:not(.brand-red):not(.fa-phone) {
+    /* Keep navigation text gray but brand elements red */
+    html.dark header nav a,
+    html.dark header .text-gray-700 {
         color: #4b5563 !important;
     }
     
-    html.dark header .brand-red,
-    html.dark header .fa-phone,
-    html.dark header .text-red-600 {
+    html.dark header button {
+        color: #4b5563 !important;
+        border-color: #fce8e8 !important;
+        background-color: transparent !important;
+    }
+    
+    /* FIXED: Keep THE LOAN PHONE and phone icon specifically red */
+    html.dark header .text-red-600,
+    html.dark header .fa-phone-alt {
         color: #DC2626 !important;
     }
 
