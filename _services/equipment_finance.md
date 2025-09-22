@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Equipment Finance | Get the Tools to Grow | The Loan Phone"
+title: "Equipment Finance for Your Business | The Loan Phone"
 subtitle: "Get the Right Equipment to Grow Your Business"
 meta_description: "Get the equipment you need to grow your business without the upfront cost. We compare flexible equipment finance options for any industry."
 meta_keywords: "equipment finance, asset finance, business equipment loan, machinery finance, chattel mortgage"
@@ -10,7 +10,7 @@ featured: true
 order: 2
 icon: "fas fa-cogs"
 excerpt: "Need new tools to get the job done? Compare flexible equipment finance from a panel of specialist lenders to get what you need, without the large upfront cost."
-hero_highlight: "Equipment"
+hero_highlight: "Equipment Finance"
 hero_image: "equipment-loan-hero.png"
 
 key_benefits:
