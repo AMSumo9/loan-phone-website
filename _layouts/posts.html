@@ -175,37 +175,30 @@
         color: #374151 !important;
     }
 
-    /* FIXED: Header stays same in both light and dark mode - FULL WIDTH WHITE */
-    html.dark header,
-    html.dark header nav,
-    html.dark header .container,
-    html.dark body > header {
+    /* FIXED: Header stays white and full-width in both modes - FINAL SOLUTION */
+    header {
+        background-color: white !important;
+        background: white !important;
+    }
+    
+    html.dark header {
+        background-color: white !important;
+        background: white !important;
+    }
+    
+    /* Ensure header extends beyond container */
+    html.dark header.bg-white {
         background-color: white !important;
     }
     
-    /* Ensure header extends full width */
-    html.dark header {
-        width: 100% !important;
-        left: 0 !important;
-        right: 0 !important;
-    }
-    
-    html.dark header nav a,
-    html.dark header .text-gray-700,
-    html.dark header a:not(.brand-red) {
+    /* Keep all header text and elements in light mode colors */
+    html.dark header *:not(.brand-red):not(.fa-phone) {
         color: #4b5563 !important;
     }
     
-    html.dark header button[style*="border-color: #fce8e8"],
-    html.dark header button {
-        border-color: #fce8e8 !important;
-        color: #4b5563 !important;
-        background-color: transparent !important;
-    }
-
-    /* FIXED: Keep "The Loan Phone" brand name and phone icon red in dark mode */
     html.dark header .brand-red,
-    html.dark header .fa-phone {
+    html.dark header .fa-phone,
+    html.dark header .text-red-600 {
         color: #DC2626 !important;
     }
 
