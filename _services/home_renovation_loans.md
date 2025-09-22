@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Home Renovation Loans | Fund Your Dream Reno | The Loan Phone"
+title: "Home Renovation Loans | The Loan Phone"
 subtitle: "Ready to transform your space? Compare flexible home renovation loans for kitchens, bathrooms, extensions, and outdoor areas to add value to your home."
 meta_description: "Bring your renovation dreams to life. We compare flexible home renovation loans for kitchens, bathrooms, extensions, and outdoor areas. Add value to your home."
 meta_keywords: "home renovation loan, reno finance, kitchen renovation loan, bathroom renovation, home improvement loan"
@@ -10,7 +10,7 @@ featured: true
 order: 4
 icon: "fas fa-hammer"
 excerpt: "Transform your space with competitive renovation finance for kitchens, bathrooms, extensions, and outdoor entertaining areas."
-hero_highlight: "Renovation"
+hero_highlight: "Renovation Loans"
 hero_image: "reno-loan-hero.png"
 
 # Key benefits for the features section
