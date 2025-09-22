@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Short-Term Loans | Fast Funding When You Need It | The Loan Phone"
+title: "Fast Funding with Short-Term Loans | The Loan Phone"
 subtitle: "Fast & Simple Short-Term Loans"
 meta_description: "Bridge a cash flow gap or cover an unexpected expense with a fast short-term loan. We compare lenders to find you a quick and simple funding solution."
 meta_keywords: "short term loan, fast cash loan, bridging finance, urgent loan, quick finance"
