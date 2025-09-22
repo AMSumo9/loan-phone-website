@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Personal Loans | Finance Your Goals & Dreams | The Loan Phone"
+title: "Finance Your Goals & Dreams with a Personal Loan | The Loan Phone"
 subtitle: "Whatever you're planning, from a dream holiday to consolidating debt, find a flexible personal loan that works for you. Compare lenders with no impact on your credit score."
 meta_description: "Achieve your personal goals with a flexible personal loan. We compare options for debt consolidation, holidays, weddings, renovations, and more."
 meta_keywords: "personal loan, unsecured loan, debt consolidation, holiday loan, wedding finance"
