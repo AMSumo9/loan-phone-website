@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Green Loans | Finance Your Sustainable Future | The Loan Phone"
+title: "Green Loans to Fund a Sustainable Future | The Loan Phone"
 subtitle: "Finance a Sustainable Future with a Green Loan"
 meta_description: "Invest in a sustainable future with a green loan. We compare finance options for solar panels, electric vehicles (EVs), home batteries, and other eco-friendly upgrades."
 meta_keywords: "green loan, eco finance, solar panel loan, electric vehicle finance, sustainable finance"
@@ -10,7 +10,7 @@ featured: true
 order: 1
 icon: "fas fa-leaf"
 excerpt: "Make a positive impact on the planet and your wallet. We compare specialist green loans for solar panels, EVs, home batteries and more."
-hero_highlight: "Green Loan"
+hero_highlight: "Green Loans"
 hero_image: "green-loan-hero.png"
 
 key_benefits:
