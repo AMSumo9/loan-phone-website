@@ -10,7 +10,7 @@ featured: true
 order: 8
 icon: "fas fa-briefcase"
 excerpt: "Specialist finance solutions for sole traders, contractors, and self-employed professionals who need flexible lending options."
-hero_highlight: "ABN Holders"
+hero_highlight: "Holder Loans"
 hero_image: "abn-loan-hero.png"
 
 # Key benefits for the features section
