@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Home Loans | Find a Better Mortgage Rate | The Loan Phone"
+title: "Home Loans for your New Home or Investment | The Loan Phone"
 subtitle: "Your home is your biggest investment. We ensure you get the right financial foundation. Compare hundreds of home loan products from major banks and specialist lenders."
 meta_description: "Whether you're a first-home buyer or looking to refinance, we can help you find a competitive home loan. Compare mortgage rates without impacting your credit score."
 meta_keywords: "home loan, mortgage, first home buyer, refinance home loan, mortgage broker"
@@ -10,7 +10,7 @@ featured: true
 order: 3
 icon: "fas fa-home"
 excerpt: "Whether you're a first-home buyer or looking to refinance, we can help you find a competitive home loan with the right financial foundation."
-hero_highlight: "Home Loan"
+hero_highlight: "Home Loans"
 hero_image: "home-loan-hero.png"
 
 # Key benefits for the features section
