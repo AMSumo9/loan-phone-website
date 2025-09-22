@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Used Car Loans | Flexible Finance Options | The Loan Phone"
+title: "Flexible Used Car Loans | The Loan Phone"
 subtitle: "The Right Finance for Your Used Car"
 meta_description: "Find a great deal on a used car loan. We compare rates from over 100 lenders to find you flexible finance for your next pre-owned vehicle. Apply online today."
 meta_keywords: "used car loan, second hand car finance, pre-owned auto loan, used car finance australia"
