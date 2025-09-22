@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "ABN Holder Loans | Finance for Self-Employed | The Loan Phone"
+title: "ABN & Self-Employed Loans | The Loan Phone"
 subtitle: "Being self-employed shouldn't hold you back. We connect you with lenders who understand your business and offer flexible finance for ABN holders."
 meta_description: "Specialist finance for ABN holders. We compare low-doc and alternative income verification loans for sole traders, contractors, and the self-employed."
 meta_keywords: "abn holder loans, self employed loans, low doc loan, sole trader finance, contractor loan"
