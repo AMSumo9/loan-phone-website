@@ -32,16 +32,18 @@ permalink: /locations/
         <!-- Australia Map Section - UPDATED LAYOUT -->
         <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
             <!-- Left Column: Image Placeholder -->
-            <div class="animate-on-scroll delay-1">
-                <div class="bg-gray-200 rounded-lg p-8 text-center h-full flex items-center justify-center border-2 border-dashed border-gray-400" style="min-height: 520px;">
-                    <div>
-                        <i class="fas fa-image text-6xl text-gray-500 mb-4"></i>
-                        <h3 class="text-xl font-bold text-gray-600 mb-2">Australia Map Image</h3>
-                        <p class="text-gray-500">Placeholder for Australia map showing service coverage</p>
-                        <p class="text-sm text-gray-400 mt-2">Recommended: 800x600px image</p>
+            <!-- Left Column: Australia Map Image -->
+                <div class="animate-on-scroll delay-1">
+                    <div class="rounded-lg overflow-hidden shadow-lg">
+                        <img src="{{ site.baseurl }}/assets/images/australia-map.png" 
+                             alt="Australia map showing The Loan Phone service coverage across all states and territories" 
+                             class="w-full h-auto rounded-lg"
+                             style="max-height: 520px; object-fit: contain;">
                     </div>
+                    <p class="text-center text-sm text-[var(--text-secondary)] mt-3 italic">
+                        Serving customers across all Australian states and territories
+                    </p>
                 </div>
-            </div>
             
             <!-- Right Column: States List - UPDATED TO TWO COLUMNS -->
             <div class="animate-on-scroll">
