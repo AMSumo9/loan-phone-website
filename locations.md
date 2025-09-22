@@ -29,85 +29,91 @@ permalink: /locations/
             </div>
         </div>
 
-        <!-- Australia Map Section -->
-        <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
-            <!-- Left Column: Map Placeholder -->
+        <!-- Australia Map Section - UPDATED LAYOUT -->
+        <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
+            <!-- Left Column: Image Placeholder -->
             <div class="animate-on-scroll delay-1">
-                <div class="bg-gray-100 rounded-lg p-8 text-center h-96 flex items-center justify-center">
+                <div class="bg-gray-200 rounded-lg p-8 text-center h-96 flex items-center justify-center border-2 border-dashed border-gray-400">
                     <div>
-                        <i class="fas fa-map-marked-alt text-6xl brand-red mb-4"></i>
-                        <h3 class="text-xl font-bold text-[var(--text-primary)] mb-2">Australia Wide Coverage</h3>
-                        <p class="text-[var(--text-secondary)]">Professional loan services in every state and territory</p>
+                        <i class="fas fa-image text-6xl text-gray-500 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-600 mb-2">Australia Map Image</h3>
+                        <p class="text-gray-500">Placeholder for Australia map showing service coverage</p>
+                        <p class="text-sm text-gray-400 mt-2">Recommended: 800x600px image</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Right Column: States List -->
+            <!-- Right Column: States List - UPDATED TO TWO COLUMNS -->
             <div class="animate-on-scroll">
                 <h3 class="text-2xl font-bold text-[var(--text-primary)] mb-6">We Service All States & Territories</h3>
-                <div class="grid grid-cols-1 gap-4">
-                    <!-- Future: These will become links to individual location pages -->
-                    <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
-                        <i class="fas fa-map-marker-alt brand-red mr-4"></i>
-                        <div>
-                            <h4 class="font-semibold text-[var(--text-primary)]">New South Wales (NSW)</h4>
-                            <p class="text-sm text-[var(--text-secondary)]">Sydney, Newcastle, Wollongong & regional areas</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <!-- Column 1 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt brand-red mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-[var(--text-primary)]">New South Wales (NSW)</h4>
+                                <p class="text-sm text-[var(--text-secondary)]">Sydney, Newcastle, Wollongong</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt brand-red mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-[var(--text-primary)]">Victoria (VIC)</h4>
+                                <p class="text-sm text-[var(--text-secondary)]">Melbourne, Geelong, Ballarat</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt brand-red mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-[var(--text-primary)]">Queensland (QLD)</h4>
+                                <p class="text-sm text-[var(--text-secondary)]">Brisbane, Gold Coast, Cairns</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt brand-red mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-[var(--text-primary)]">Western Australia (WA)</h4>
+                                <p class="text-sm text-[var(--text-secondary)]">Perth, Fremantle, Bunbury</p>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
-                        <i class="fas fa-map-marker-alt brand-red mr-4"></i>
-                        <div>
-                            <h4 class="font-semibold text-[var(--text-primary)]">Victoria (VIC)</h4>
-                            <p class="text-sm text-[var(--text-secondary)]">Melbourne, Geelong, Ballarat & regional areas</p>
+                    <!-- Column 2 -->
+                    <div class="space-y-4">
+                        <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt brand-red mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-[var(--text-primary)]">South Australia (SA)</h4>
+                                <p class="text-sm text-[var(--text-secondary)]">Adelaide, Mount Gambier</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
-                        <i class="fas fa-map-marker-alt brand-red mr-4"></i>
-                        <div>
-                            <h4 class="font-semibold text-[var(--text-primary)]">Queensland (QLD)</h4>
-                            <p class="text-sm text-[var(--text-secondary)]">Brisbane, Gold Coast, Cairns & regional areas</p>
+                        
+                        <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt brand-red mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-[var(--text-primary)]">Tasmania (TAS)</h4>
+                                <p class="text-sm text-[var(--text-secondary)]">Hobart, Launceston</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
-                        <i class="fas fa-map-marker-alt brand-red mr-4"></i>
-                        <div>
-                            <h4 class="font-semibold text-[var(--text-primary)]">Western Australia (WA)</h4>
-                            <p class="text-sm text-[var(--text-secondary)]">Perth, Fremantle, Bunbury & regional areas</p>
+                        
+                        <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt brand-red mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-[var(--text-primary)]">Northern Territory (NT)</h4>
+                                <p class="text-sm text-[var(--text-secondary)]">Darwin, Alice Springs</p>
+                            </div>
                         </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
-                        <i class="fas fa-map-marker-alt brand-red mr-4"></i>
-                        <div>
-                            <h4 class="font-semibold text-[var(--text-primary)]">South Australia (SA)</h4>
-                            <p class="text-sm text-[var(--text-secondary)]">Adelaide, Mount Gambier & regional areas</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
-                        <i class="fas fa-map-marker-alt brand-red mr-4"></i>
-                        <div>
-                            <h4 class="font-semibold text-[var(--text-primary)]">Tasmania (TAS)</h4>
-                            <p class="text-sm text-[var(--text-secondary)]">Hobart, Launceston & regional areas</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
-                        <i class="fas fa-map-marker-alt brand-red mr-4"></i>
-                        <div>
-                            <h4 class="font-semibold text-[var(--text-primary)]">Northern Territory (NT)</h4>
-                            <p class="text-sm text-[var(--text-secondary)]">Darwin, Alice Springs & regional areas</p>
-                        </div>
-                    </div>
-                    
-                    <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
-                        <i class="fas fa-map-marker-alt brand-red mr-4"></i>
-                        <div>
-                            <h4 class="font-semibold text-[var(--text-primary)]">Australian Capital Territory (ACT)</h4>
-                            <p class="text-sm text-[var(--text-secondary)]">Canberra & surrounding areas</p>
+                        
+                        <div class="flex items-center p-4 bg-[var(--bg-secondary)] rounded-lg shadow border border-gray-200 transition-colors duration-300">
+                            <i class="fas fa-map-marker-alt brand-red mr-4"></i>
+                            <div>
+                                <h4 class="font-semibold text-[var(--text-primary)]">Australian Capital Territory (ACT)</h4>
+                                <p class="text-sm text-[var(--text-secondary)]">Canberra & surrounding areas</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,22 +150,22 @@ permalink: /locations/
             </div>
         </div>
 
-        <!-- Call to Action -->
+        <!-- Call to Action - UPDATED BUTTON STRUCTURE -->
         <div class="bg-[var(--bg-secondary)] rounded-lg shadow-lg p-8 text-center transition-colors duration-300">
             <h2 class="text-2xl font-bold brand-red mb-4">Ready to Get Started?</h2>
             <p class="text-lg text-[var(--text-secondary)] mb-6">No matter where you are in Australia, we're here to help you find the perfect loan solution.</p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:{{ site.contact.phone }}" class="inline-block px-6 py-3 rounded-lg font-semibold transition duration-300 text-gray-800" style="background-color: #fce8e8;">
+            <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+                <a href="tel:{{ site.contact.phone }}" class="inline-block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition duration-300 border border-red-200">
                     <i class="fas fa-phone mr-2"></i>
-                    Speak to an Expert
+                    Call {{ site.contact.phone_display }}
                 </a>
-                <a href="{{ site.baseurl }}/#loan-selector" class="inline-block border-2 px-6 py-3 rounded-lg font-semibold transition duration-300" style="border-color: #fce8e8; color: #374151;">
+                <a href="{{ site.baseurl }}/#loan-selector" class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition duration-300">
                     <i class="fas fa-chart-bar mr-2"></i>
                     Compare Loans Now
                 </a>
-                <button onclick="openSupportModal()" class="inline-block border-2 px-6 py-3 rounded-lg font-semibold transition duration-300" style="border-color: #fce8e8; color: #374151; background-color: transparent;">
+                <button onclick="openSupportModal()" class="inline-block bg-transparent border-2 border-red-600 text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition duration-300">
                     <i class="fas fa-envelope mr-2"></i>
-                    Get in Touch
+                    Get Free Quote
                 </button>
             </div>
         </div>
