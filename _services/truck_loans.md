@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Truck Loans | Heavy-Duty Finance Options | The Loan Phone"
+title: "Heavy-Duty Finance for Truck Loans | The Loan Phone"
 subtitle: "Heavy-Duty Finance for Your Truck"
 meta_description: "Keep your business moving with the right truck loan. We compare heavy-duty finance options from a huge panel of lenders for prime movers, tippers, and more."
 meta_keywords: "truck loan, truck finance, heavy vehicle finance, commercial truck loan"
@@ -10,7 +10,7 @@ featured: true
 order: 2
 icon: "fas fa-truck"
 excerpt: "Whether you're an owner-operator or managing a fleet, we'll find you a competitive finance deal to get the rig you need on the road. Compare with no credit impact."
-hero_highlight: "Truck"
+hero_highlight: "Truck Loans"
 hero_image: "truck-loan-hero.png"
 
 key_benefits:
