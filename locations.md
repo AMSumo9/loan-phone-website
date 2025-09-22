@@ -33,7 +33,7 @@ permalink: /locations/
         <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
             <!-- Left Column: Image Placeholder -->
             <div class="animate-on-scroll delay-1">
-                <div class="bg-gray-200 rounded-lg p-8 text-center h-96 flex items-center justify-center border-2 border-dashed border-gray-400">
+                <div class="bg-gray-200 rounded-lg p-8 text-center h-full flex items-center justify-center border-2 border-dashed border-gray-400" style="min-height: 520px;">
                     <div>
                         <i class="fas fa-image text-6xl text-gray-500 mb-4"></i>
                         <h3 class="text-xl font-bold text-gray-600 mb-2">Australia Map Image</h3>
@@ -150,22 +150,22 @@ permalink: /locations/
             </div>
         </div>
 
-        <!-- Call to Action - UPDATED BUTTON STRUCTURE -->
+        <!-- Call to Action - MATCHING SERVICES PAGE -->
         <div class="bg-[var(--bg-secondary)] rounded-lg shadow-lg p-8 text-center transition-colors duration-300">
-            <h2 class="text-2xl font-bold brand-red mb-4">Ready to Get Started?</h2>
-            <p class="text-lg text-[var(--text-secondary)] mb-6">No matter where you are in Australia, we're here to help you find the perfect loan solution.</p>
+            <h2 class="text-3xl font-bold brand-red mb-4">Ready to Compare Loans?</h2>
+            <p class="text-lg text-[var(--text-secondary)] mb-6">Get personalized loan options in minutes from Australia's trusted loan specialists</p>
             <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
-                <a href="tel:{{ site.contact.phone }}" class="inline-block bg-white text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-gray-50 transition duration-300 border border-red-200">
+                <a href="tel:{{ site.contact.phone }}" class="inline-block text-gray-800 px-6 py-3 rounded-lg font-semibold transition duration-300" style="background-color: #fce8e8;">
                     <i class="fas fa-phone mr-2"></i>
-                    Call {{ site.contact.phone_display }}
+                    Speak to an Expert
                 </a>
-                <a href="{{ site.baseurl }}/#loan-selector" class="inline-block bg-red-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition duration-300">
+                <a href="{{ site.baseurl }}/#loan-selector" class="inline-block text-gray-800 px-6 py-3 rounded-lg font-semibold transition duration-300" style="background-color: #fce8e8;">
                     <i class="fas fa-chart-bar mr-2"></i>
-                    Compare Loans Now
+                    Compare Now
                 </a>
-                <button onclick="openSupportModal()" class="inline-block bg-transparent border-2 border-red-600 text-red-600 px-6 py-3 rounded-lg font-semibold hover:bg-red-50 transition duration-300">
+                <button onclick="openSupportModal()" class="inline-block text-gray-800 px-6 py-3 rounded-lg font-semibold transition duration-300" style="background-color: #fce8e8;">
                     <i class="fas fa-envelope mr-2"></i>
-                    Get Free Quote
+                    Contact
                 </button>
             </div>
         </div>
