@@ -87,9 +87,18 @@
             background-color: #4b5563 !important;
         }
         
-        /* Keep brand red visible in dark mode */
-        html.dark .brand-red {
-            color: #ef4444 !important;
+        /* FIXED: Red buttons to pink with grey text in dark mode */
+        html.dark .bg-red-600,
+        html.dark [style*="background-color: red"],
+        html.dark .bg-brand-red {
+            background-color: #fce8e8 !important;
+            color: #374151 !important;
+        }
+
+        /* FIXED: Start Your Comparison button pink in dark mode */
+        html.dark .bg-brand-red {
+            background-color: #fce8e8 !important;
+            color: #374151 !important;
         }
         
         /* CRITICAL FIX: Pink sections ALWAYS stay light with dark text */
