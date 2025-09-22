@@ -1,6 +1,6 @@
 ---
 layout: services
-title: "Home Loan Refinance | Find a Better Mortgage Rate | The Loan Phone"
+title: "Refinance Your Home or Investment Loan to Grow or Save | The Loan Phone"
 subtitle: "Your home is your biggest investment. We ensure you get the right financial foundation. Compare hundreds of home loan products from major banks and specialist lenders."
 meta_description: "Whether you're a first-home buyer or looking to refinance, we can help you find a competitive home loan. Compare mortgage rates without impacting your credit score."
 meta_keywords: "home loan, mortgage, first home buyer, refinance home loan, mortgage broker"
@@ -10,7 +10,7 @@ featured: true
 order: 6
 icon: "fas fa-sync-alt"
 excerpt: "Lower your repayments or unlock equity with competitive refinancing options from major banks and specialist lenders."
-hero_highlight: "Home Loan Refinance"
+hero_highlight: "Refinance"
 hero_image: "refinance-hero.png"
 
 # Key benefits for the features section
