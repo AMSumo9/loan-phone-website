@@ -1,8 +1,8 @@
 # Site settings
 title: "The Loan Phone"
 description: "Compare Car Loans, Personal Loans, Home Loans, Investment Loans, or Business Loans with zero impact on your credit score. Australia's trusted loan comparison service."
-baseurl: "/loan-phone-website"
-url: "https://amsumo9.github.io"
+baseurl: ""  # FIXED: Empty for custom domain (was "/loan-phone-website")
+url: "https://www.loanphone.com.au"  # FIXED: Your actual custom domain
 
 # Contact information
 contact:
