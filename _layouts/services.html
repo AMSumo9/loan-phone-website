@@ -232,7 +232,14 @@
         <div class="container mx-auto px-6 py-16 grid md:grid-cols-2 gap-12 items-center">
             <div class="animate-on-scroll">
                 <h1 class="text-5xl font-extrabold text-[var(--text-primary)] mb-4">
-                    {{ page.title | remove: ' | The Loan Phone' }}
+                    {% assign title_clean = page.title | remove: ' | The Loan Phone' %}
+                    {% if page.hero_highlight %}
+                        {% assign highlight_word = page.hero_highlight %}
+                        {% assign highlighted_word = '<span class="brand-red">' | append: highlight_word | append: '</span>' %}
+                        {{ title_clean | replace: highlight_word, highlighted_word }}
+                    {% else %}
+                        {{ title_clean }}
+                    {% endif %}
                 </h1>
                 
                 {% if page.subtitle %}
