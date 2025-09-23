@@ -317,6 +317,11 @@
 
       // FACEBOOK PIXEL CUSTOM EVENTS - Production Only
       {% if jekyll.environment == "production" %}
+      
+      // WIDGET TRACKING VARIABLES
+      let widgetViewed = false;
+      let widgetInteracted = false;
+      
       // Track phone clicks
       const phoneLinks = document.querySelectorAll('a[href^="tel:"]');
       phoneLinks.forEach(link => {
@@ -345,6 +350,96 @@
           }
         }
       };
+
+      // NEW: WIDGET TRACKING FUNCTIONS
+      function trackWidgetView() {
+        if (!widgetViewed && typeof fbq !== 'undefined') {
+          fbq('track', 'ViewContent', {
+            content_name: 'loan_comparison_widget',
+            content_category: 'widget_interaction',
+            content_type: 'loan_tool'
+          });
+          widgetViewed = true;
+          console.log('Widget view tracked');
+        }
+      }
+
+      function trackWidgetInteraction() {
+        if (!widgetInteracted && typeof fbq !== 'undefined') {
+          fbq('track', 'Search', {
+            search_string: 'loan_comparison',
+            content_category: 'widget_start',
+            content_type: 'loan_comparison'
+          });
+          widgetInteracted = true;
+          console.log('Widget interaction tracked');
+        }
+      }
+
+      // NEW: WIDGET VIEW TRACKING (when widget section comes into view)
+      const widgetObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            trackWidgetView();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      // NEW: TRACK WIDGET CONTAINER
+      const widgetContainer = document.querySelector('#loan-selector');
+      if (widgetContainer) {
+        widgetObserver.observe(widgetContainer);
+        
+        // Track clicks on widget container
+        widgetContainer.addEventListener('click', trackWidgetInteraction);
+        
+        // Track "Select a Loan to Start" button clicks
+        const startButton = document.querySelector('a[href="#loan-selector"]');
+        if (startButton) {
+          startButton.addEventListener('click', () => {
+            if (typeof fbq !== 'undefined') {
+              fbq('track', 'InitiateCheckout', {
+                content_name: 'start_loan_comparison',
+                content_category: 'widget_start'
+              });
+            }
+          });
+        }
+      }
+
+      // NEW: TRACK WIDGET IFRAME INTERACTIONS (for external widget)
+      const checkForWidget = setInterval(() => {
+        const widgetIframe = document.querySelector('#repaymentWidget iframe, iframe[src*="loanoptions"]');
+        if (widgetIframe) {
+          widgetIframe.addEventListener('load', () => {
+            // Track when widget is fully loaded
+            if (typeof fbq !== 'undefined') {
+              fbq('track', 'ViewContent', {
+                content_name: 'widget_loaded',
+                content_category: 'widget_ready'
+              });
+            }
+          });
+          
+          // Track mouse enter on widget (user engaging with it)
+          widgetIframe.addEventListener('mouseenter', trackWidgetInteraction);
+          
+          clearInterval(checkForWidget);
+        }
+      }, 1000);
+
+      // NEW: FORM SUBMISSION TRACKING
+      document.addEventListener('submit', (e) => {
+        if (e.target.tagName === 'FORM') {
+          if (typeof fbq !== 'undefined') {
+            fbq('track', 'Lead', {
+              content_name: 'Contact Form Submit',
+              content_category: 'Form Submission'
+            });
+          }
+        }
+      });
+
       {% else %}
       // Development mode - no tracking
       window.openSupportModal = function() {
