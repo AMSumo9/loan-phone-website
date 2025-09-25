@@ -112,69 +112,78 @@
     </div>
 </header>
 
-<!-- CORRECTED RESPONSIVE HEADER FIXES - EXPAND CONTAINER, KEEP BRAND PROMINENT -->
+<!-- SIMPLE RESPONSIVE HEADER FIXES -->
 <style>
-/* Proper Header Container Expansion - Keep Brand Large */
+/* Reset any problematic styles and ensure proper mobile behavior */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* Simple header container - no viewport tricks */
 header {
-    width: 100% !important;
-    min-width: 100vw !important;
-    background-color: white !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    background-color: white;
+    box-sizing: border-box;
 }
 
 header .container {
-    width: 100% !important;
-    max-width: none !important;
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
-    box-sizing: border-box !important;
+    width: 100%;
+    max-width: 1200px; /* Standard max-width for responsiveness */
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    box-sizing: border-box;
 }
 
-/* Keep Company Name Prominent - Only Minimal Adjustments */
+/* Responsive company name - simple and effective */
 .company-name {
-    font-size: 3rem; /* Keep large on desktop */
+    font-size: 2.5rem; /* Good size for desktop */
     line-height: 1.1;
-    white-space: nowrap;
 }
 
-/* Tablet - Still prominent */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Tablet adjustments */
+@media (max-width: 1024px) {
     .company-name {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+    
+    header .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
-/* Mobile - Minimal reduction, keep prominent */
+/* Mobile adjustments */
 @media (max-width: 768px) {
     .company-name {
-        font-size: 2.25rem; /* Still prominent on mobile */
-    }
-    
-    /* Adjust spacing if needed */
-    header .flex.items-center.space-x-4 {
-        gap: 0.75rem;
+        font-size: 1.75rem;
     }
     
     header .container {
-        padding-left: 1rem !important;
-        padding-right: 1rem !important;
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
 }
 
-/* Apple Device Full Width Fix Only */
-@supports (-webkit-touch-callout: none) {
-    header {
-        position: relative;
-        margin-left: calc(-50vw + 50%);
-        margin-right: calc(-50vw + 50%);
-        width: 100vw;
-        background-color: white !important;
-        z-index: 40 !important;
+/* Small mobile */
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.5rem;
     }
     
     header .container {
-        margin-left: auto !important;
-        margin-right: auto !important;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+    
+    /* Adjust icon spacing */
+    header .flex.items-center.space-x-4 {
+        gap: 0.5rem;
+    }
+    
+    .fas.fa-phone-alt {
+        font-size: 1.75rem;
     }
 }
 </style>
