@@ -6,7 +6,7 @@
             <div class="flex items-center">
                 <a href="{{ site.baseurl }}/" class="flex items-center space-x-4">
                     <i class="fas fa-phone-alt text-5xl text-red-600"></i>
-                    <div class="company-name font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
+                    <div class="text-5xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
                         THE LOAN PHONE
                     </div>
                 </a>
@@ -112,19 +112,19 @@
     </div>
 </header>
 
-<!-- MOBILE-ONLY RESPONSIVE FIXES - DESKTOP UNCHANGED -->
+<!-- MOBILE-ONLY FIXES - PRESERVE ORIGINAL DESKTOP -->
 <style>
-/* Only apply mobile fixes - leave desktop completely alone */
+/* Only target mobile devices - leave desktop text-5xl unchanged */
 @media (max-width: 768px) {
+    /* Override text-5xl only on mobile */
+    .text-5xl {
+        font-size: 1.75rem !important;
+    }
+    
     /* Mobile: prevent horizontal scrolling */
     html, body {
         overflow-x: hidden;
         width: 100%;
-    }
-    
-    /* Mobile: adjust company name size */
-    .company-name {
-        font-size: 1.75rem !important;
     }
     
     /* Mobile: adjust container padding */
@@ -136,7 +136,7 @@
 
 /* Small mobile adjustments */
 @media (max-width: 480px) {
-    .company-name {
+    .text-5xl {
         font-size: 1.5rem !important;
     }
     
