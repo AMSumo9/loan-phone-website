@@ -16,6 +16,12 @@ company:
   tagline: "Your trusted partner in finding the perfect loan"
   legal_notice: "It is important for you to know that any information provided to you by Loan Phone (loanphone.com.au) is not Financial or Credit Advice. You must read the Privacy Policy."
 
+# Social Links
+social:
+  facebook: "https://www.facebook.com/loanphone"
+  instagram: "https://www.instagram.com/loanphoneofficial"
+  tiktok: "https://www.tiktok.com/@loan_phone"
+
 # Feature flags
 features:
   loan_widget_live: true # Set to true when ready to go live (false when testing)
