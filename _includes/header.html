@@ -6,7 +6,7 @@
             <div class="flex items-center">
                 <a href="{{ site.baseurl }}/" class="flex items-center space-x-4">
                     <i class="fas fa-phone-alt text-5xl text-red-600"></i>
-                    <div class="text-5xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
+                    <div class="company-name font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
                         THE LOAN PHONE
                     </div>
                 </a>
@@ -111,6 +111,124 @@
         </div>
     </div>
 </header>
+
+<!-- RESPONSIVE HEADER FIXES -->
+<style>
+/* Header Container Full Width Fix */
+header {
+    width: 100% !important;
+    min-width: 100% !important;
+    background-color: white !important;
+    box-sizing: border-box !important;
+}
+
+header .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Responsive Company Name Sizing */
+.company-name {
+    font-size: 3rem; /* Default desktop size */
+    line-height: 1.1;
+    white-space: nowrap;
+}
+
+/* Large Desktop (1200px+) */
+@media (min-width: 1200px) {
+    .company-name {
+        font-size: 3rem;
+    }
+}
+
+/* Desktop/Laptop (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .company-name {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablet Landscape (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .company-name {
+        font-size: 2rem;
+    }
+    
+    header .container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* Mobile Large (481px - 767px) */
+@media (min-width: 481px) and (max-width: 767px) {
+    .company-name {
+        font-size: 1.75rem;
+    }
+}
+
+/* Mobile Small (320px - 480px) */
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.5rem;
+    }
+    
+    header .flex.items-center.space-x-4 {
+        gap: 0.5rem !important;
+    }
+    
+    .fas.fa-phone-alt {
+        font-size: 2rem !important;
+    }
+}
+
+/* Apple Device Specific Fixes */
+@supports (-webkit-touch-callout: none) {
+    /* iOS Safari and iPad specific fixes */
+    header {
+        width: 100vw !important;
+        margin-left: calc(-50vw + 50%) !important;
+        position: relative !important;
+        left: 50% !important;
+        right: 50% !important;
+        margin-right: calc(-50vw + 50%) !important;
+        background-color: white !important;
+        z-index: 40 !important;
+    }
+    
+    header .container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* iPad Specific Adjustments */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    .company-name {
+        font-size: 2.25rem !important;
+    }
+    
+    header .container {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+/* iPhone Specific Adjustments */
+@media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
+    .company-name {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* Prevent horizontal scrolling */
+body {
+    overflow-x: hidden !important;
+}
+</style>
 
 <script>
 // Mobile menu toggle
