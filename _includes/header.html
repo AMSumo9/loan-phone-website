@@ -112,47 +112,47 @@
     </div>
 </header>
 
-<!-- RESPONSIVE HEADER FIXES -->
+<!-- CORRECTED RESPONSIVE HEADER FIXES - EXPAND CONTAINER, KEEP BRAND PROMINENT -->
 <style>
-/* Header Container Full Width Fix */
+/* Proper Header Container Expansion - Keep Brand Large */
 header {
     width: 100% !important;
-    min-width: 100% !important;
+    min-width: 100vw !important;
     background-color: white !important;
     box-sizing: border-box !important;
 }
 
 header .container {
     width: 100% !important;
-    max-width: 100% !important;
+    max-width: none !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
     box-sizing: border-box !important;
 }
 
-/* Responsive Company Name Sizing */
+/* Keep Company Name Prominent - Only Minimal Adjustments */
 .company-name {
-    font-size: 3rem; /* Default desktop size */
+    font-size: 3rem; /* Keep large on desktop */
     line-height: 1.1;
     white-space: nowrap;
 }
 
-/* Large Desktop (1200px+) */
-@media (min-width: 1200px) {
-    .company-name {
-        font-size: 3rem;
-    }
-}
-
-/* Desktop/Laptop (992px - 1199px) */
-@media (min-width: 992px) and (max-width: 1199px) {
+/* Tablet - Still prominent */
+@media (min-width: 769px) and (max-width: 1024px) {
     .company-name {
         font-size: 2.5rem;
     }
 }
 
-/* Tablet Landscape (768px - 991px) */
-@media (min-width: 768px) and (max-width: 991px) {
+/* Mobile - Minimal reduction, keep prominent */
+@media (max-width: 768px) {
     .company-name {
-        font-size: 2rem;
+        font-size: 2.25rem; /* Still prominent on mobile */
+    }
+    
+    /* Adjust spacing if needed */
+    header .flex.items-center.space-x-4 {
+        gap: 0.75rem;
     }
     
     header .container {
@@ -161,38 +161,13 @@ header .container {
     }
 }
 
-/* Mobile Large (481px - 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-    .company-name {
-        font-size: 1.75rem;
-    }
-}
-
-/* Mobile Small (320px - 480px) */
-@media (max-width: 480px) {
-    .company-name {
-        font-size: 1.5rem;
-    }
-    
-    header .flex.items-center.space-x-4 {
-        gap: 0.5rem !important;
-    }
-    
-    .fas.fa-phone-alt {
-        font-size: 2rem !important;
-    }
-}
-
-/* Apple Device Specific Fixes */
+/* Apple Device Full Width Fix Only */
 @supports (-webkit-touch-callout: none) {
-    /* iOS Safari and iPad specific fixes */
     header {
-        width: 100vw !important;
-        margin-left: calc(-50vw + 50%) !important;
-        position: relative !important;
-        left: 50% !important;
-        right: 50% !important;
-        margin-right: calc(-50vw + 50%) !important;
+        position: relative;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        width: 100vw;
         background-color: white !important;
         z-index: 40 !important;
     }
@@ -200,33 +175,7 @@ header .container {
     header .container {
         margin-left: auto !important;
         margin-right: auto !important;
-        width: 100% !important;
-        max-width: 100% !important;
     }
-}
-
-/* iPad Specific Adjustments */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    .company-name {
-        font-size: 2.25rem !important;
-    }
-    
-    header .container {
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
-    }
-}
-
-/* iPhone Specific Adjustments */
-@media only screen and (min-device-width: 320px) and (max-device-width: 667px) {
-    .company-name {
-        font-size: 1.5rem !important;
-    }
-}
-
-/* Prevent horizontal scrolling */
-body {
-    overflow-x: hidden !important;
 }
 </style>
 
