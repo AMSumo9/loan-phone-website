@@ -1,479 +1,130 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+// REPLACE THE SCRIPT SECTION IN YOUR DEFAULT.HTML WITH THIS OPTIMIZED VERSION
 
-  <title>{{ page.title | default: "The Loan Phone" }}</title>
-
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="{{ page.meta_description | default: 'Need a Car Loan? Find the best rates personalized for you.' }}" />
-  <meta name="keywords" content="{{ page.meta_keywords | default: 'Car Loans, Auto Loans, Best Rates' }}" />
-  <meta name="author" content="{{ page.meta_author | default: 'The Loan Phone Team' }}" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="{{ page.og_title | default: page.title | default: 'The Loan Phone' }}" />
-  <meta property="og:description" content="{{ page.og_description | default: page.meta_description | default: '' }}" />
-  <meta property="og:type" content="{{ page.og_type | default: 'website' }}" />
-  <meta property="og:url" content="{{ page.url | absolute_url }}" />
-  <meta property="og:image" content="{{ page.og_image | default: '/assets/images/og-image.jpg' | absolute_url }}" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="{{ page.twitter_title | default: page.title }}" />
-  <meta name="twitter:description" content="{{ page.twitter_description | default: page.meta_description }}" />
-  <meta name="twitter:image" content="{{ page.twitter_image | default: page.og_image | default: '/assets/images/twitter-image.jpg' | absolute_url }}" />
-
-  <!-- OPTIMIZED: Preconnect to external domains -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
-
-  <!-- OPTIMIZED: Load fonts with display=swap and preload -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
-
-  <!-- OPTIMIZED: Defer Font Awesome -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" /></noscript>
-
-  <!-- OPTIMIZED: Critical CSS inline for faster rendering -->
-  <style>
-    /* CRITICAL CSS - Keep in head for immediate render */
-    :root { 
-      --bg-primary: #ffffff; 
-      --bg-secondary: #f9fafb; 
-      --bg-accent: #fce8e8; 
-      --text-primary: #1f2937; 
-      --text-secondary: #4b5563; 
-      --brand-red: #DC2626; 
-      --brand-red-dark: #B91C1C; 
-    }
-    html.dark { 
-      --bg-primary: #1f2937; 
-      --bg-secondary: #374151; 
-      --bg-accent: #374151; 
-      --text-primary: #f9fafb; 
-      --text-secondary: #d1d5db; 
-    }
-    body { 
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Fallback fonts */
-      background-color: var(--bg-primary); 
-      color: var(--text-primary); 
-      transition: background-color 0.3s, color 0.3s; 
-    }
-    /* Prevent layout shift - reserve space for common elements */
-    .font-loading { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    h1, h2, h3, h4, h5, h6 { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    
-    /* Loading spinner for Tailwind */
-    .tailwind-loading { 
-      opacity: 0; 
-      transition: opacity 0.3s ease; 
-    }
-    .tailwind-loaded { 
-      opacity: 1; 
-    }
-  </style>
-
-  <!-- OPTIMIZED: Non-critical CSS moved to bottom -->
-</head>
-
-<body class="font-loading bg-white text-gray-800">
-  <!-- OPTIMIZED: Minimal noscript for essential functionality -->
-  <noscript>
-    <style>
-      body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; }
-    </style>
-  </noscript>
-
-  {% include header.html %}
+<script>
+// OPTIMIZED: Minimal critical JavaScript only
+document.addEventListener('DOMContentLoaded', function() {
+  // CRITICAL: Theme toggle functionality
+  const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
+  const htmlEl = document.documentElement;
+  const currentTheme = localStorage.getItem('theme') || 'light';
   
-  <main class="tailwind-loading" id="main-content">
-    {{ content }}
-  </main>
+  htmlEl.classList.add(currentTheme);
+  themeToggles.forEach(toggle => {
+    toggle.innerHTML = currentTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    toggle.addEventListener('click', () => {
+      htmlEl.classList.toggle('dark');
+      const newTheme = htmlEl.classList.contains('dark') ? 'dark' : 'light';
+      localStorage.setItem('theme', newTheme);
+      toggle.innerHTML = newTheme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    });
+  });
+
+  // CRITICAL: Mobile menu
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+  }
+});
+
+// OPTIMIZED: Load non-critical functionality after user interaction
+let interactionStarted = false;
+
+function loadNonCriticalScripts() {
+  if (interactionStarted) return;
+  interactionStarted = true;
+
+  // Load scroll animations only after interaction
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('is-visible');
+    });
+  }, { threshold: 0.1 });
   
-  {% include footer.html %}
-  
-  <!-- OPTIMIZED: All scripts moved to bottom and deferred -->
-  <script>
-    // OPTIMIZED: Load Tailwind asynchronously after critical content
-    function loadTailwind() {
-      const script = document.createElement('script');
-      script.src = 'https://cdn.tailwindcss.com';
-      script.onload = function() {
-        document.getElementById('main-content').classList.add('tailwind-loaded');
-        document.body.classList.remove('font-loading');
-        // Update font family once Google Fonts are loaded
-        document.body.style.fontFamily = "'Open Sans', sans-serif";
-        document.querySelectorAll('h1,h2,h3,h4,h5,h6').forEach(el => {
-          el.style.fontFamily = "'Poppins', sans-serif";
-        });
-      };
-      document.head.appendChild(script);
-    }
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
 
-    // OPTIMIZED: Load third-party scripts after user interaction
-    let trackingLoaded = false;
-    let tailwindLoaded = false;
-
-    function loadTracking() {
-      if (trackingLoaded) return;
-      trackingLoaded = true;
-
-      // Load Google Tag Manager
-      {% if jekyll.environment == "production" %}
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-MLJ92WJ4');
-
-      // Load Facebook Pixel
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1490822172125687');
-      fbq('track', 'PageView');
-      {% endif %}
-    }
-
-    function loadTailwindIfNeeded() {
-      if (!tailwindLoaded) {
-        tailwindLoaded = true;
-        loadTailwind();
+  // Load back-to-top functionality
+  const backToTopButton = document.getElementById('back-to-top');
+  if (backToTopButton) {
+    let ticking = false;
+    function updateBackToTop() {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('active');
+      } else {
+        backToTopButton.classList.remove('active');
       }
+      ticking = false;
     }
 
-    // OPTIMIZED: Load resources based on user interaction
-    document.addEventListener('DOMContentLoaded', function() {
-      // Load Tailwind immediately for layout
-      loadTailwindIfNeeded();
-      
-      // Load tracking on first user interaction
-      ['mousedown', 'touchstart', 'scroll', 'keydown'].forEach(event => {
-        document.addEventListener(event, loadTracking, { once: true, passive: true });
-      });
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(updateBackToTop);
+        ticking = true;
+      }
+    }, { passive: true });
 
-      // Fallback: Load tracking after 3 seconds if no interaction
-      setTimeout(loadTracking, 3000);
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+  }
 
-    // Core functionality - keep synchronous
-    document.addEventListener('DOMContentLoaded', () => {
-      const themeToggles = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
-      const htmlEl = document.documentElement;
-      const currentTheme = localStorage.getItem('theme') || 'light';
-      const updateIcon = (theme) => { 
-        themeToggles.forEach(toggle => { 
-          toggle.innerHTML = theme === 'dark' ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>'; 
-        }); 
-      }
-      htmlEl.classList.add(currentTheme);
-      updateIcon(currentTheme);
-      themeToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-          if (htmlEl.classList.contains('dark')) {
-            htmlEl.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            updateIcon('light');
-          } else {
-            htmlEl.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            updateIcon('dark');
-          }
-        });
-      });
-
-      const mobileMenuButton = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      if(mobileMenuButton && mobileMenu) { 
-        mobileMenuButton.addEventListener('click', () => { 
-          mobileMenu.classList.toggle('active'); 
-        }); 
-      }
-
-      const backToTopButton = document.getElementById('back-to-top');
-      if(backToTopButton){
-        window.addEventListener('scroll', () => { 
-          if (window.scrollY > 300) { 
-            backToTopButton.classList.add('active'); 
-          } else { 
-            backToTopButton.classList.remove('active'); 
-          } 
-        });
-        backToTopButton.addEventListener('click', () => { 
-          window.scrollTo({ top: 0, behavior: 'smooth' }); 
-        });
-      }
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => { 
-          if (entry.isIntersecting) { 
-            entry.target.classList.add('is-visible'); 
-          } 
-        });
-      }, { threshold: 0.1 });
-      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-      elementsToAnimate.forEach(el => observer.observe(el));
-      
-      // Modal functionality
-      const supportLink = document.getElementById('support-link');
-      const supportModal = document.getElementById('support-modal');
-      const modalCloseBtn = document.getElementById('modal-close');
-      
-      if(supportLink && supportModal && modalCloseBtn){
-        supportLink.addEventListener('click', (e) => { 
-          e.preventDefault(); 
-          supportModal.style.display = 'flex'; 
-        });
-        modalCloseBtn.addEventListener('click', () => { 
-          supportModal.style.display = 'none'; 
-        });
-        supportModal.addEventListener('click', (e) => { 
-          if (e.target === supportModal) { 
-            supportModal.style.display = 'none'; 
-          } 
-        });
-      }
-    });
-
-    // Modal functions
-    window.openSupportModal = function() {
-      const modal = document.getElementById('support-modal');
-      if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        
-        // Track modal open (only if FB pixel is loaded)
-        if (typeof fbq !== 'undefined') {
-          fbq('track', 'Lead', {
-            content_name: 'Support Modal Open',
-            content_category: 'Lead Generation'
-          });
-        }
-      }
-    };
-
-    window.closeSupportModal = function() {
-      const modal = document.getElementById('support-modal');
-      if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-    };
-
-    // Close modal when clicking outside or ESC
-    window.addEventListener('click', function(event) {
-      const modal = document.getElementById('support-modal');
-      if (event.target === modal) {
-        closeSupportModal();
-      }
-    });
-
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        closeSupportModal();
-      }
-    });
-  </script>
-
-  <!-- OPTIMIZED: Non-critical CSS loaded at bottom -->
-  <style>
-    /* Non-critical CSS - loaded after initial render */
-    html.dark .features-heading, 
-    html.dark .features-benefits-section h3,
-    html.dark .privacy-content h2,
-    html.dark .privacy-content h3 { 
-      color: #ffffff; 
-    }
-    .brand-red { 
-      color: var(--brand-red) !important; 
-    }
-    .bg-brand-red { 
-      background-color: var(--brand-red) !important; 
-    }
-    .hover\:bg-brand-red-dark:hover { 
-      background-color: var(--brand-red-dark) !important; 
-    }
-    #back-to-top { 
-      position: fixed; 
-      bottom: 20px; 
-      right: 20px; 
-      opacity: 0; 
-      visibility: hidden; 
-      transform: translateY(20px); 
-      transition: all 0.3s; 
-      z-index: 100; 
-    }
-    #back-to-top.active { 
-      opacity: 1; 
-      visibility: visible; 
-      transform: translateY(0); 
-    }
-    .animate-on-scroll { 
-      opacity: 0; 
-      transform: translateY(20px); 
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
-    }
-    .animate-on-scroll.is-visible { 
-      opacity: 1; 
-      transform: translateY(0); 
-    }
-    .delay-1 { transition-delay: 0.1s; } 
-    .delay-2 { transition-delay: 0.2s; } 
-    .delay-3 { transition-delay: 0.3s; }
-    .mobile-nav { display: none; } 
-    .mobile-nav.active { display: flex; }
-
-    /* Dark Mode Text Contrast Fixes */
-    html.dark h2.loan-needs-title,
-    html.dark .loan-needs-section h2,
-    html.dark section h2 {
-        color: #ffffff !important;
-    }
-
-    html.dark .text-gray-800 {
-        color: #f9fafb !important;
-    }
-
-    html.dark .text-gray-700 {
-        color: #d1d5db !important;
-    }
-
-    html.dark .text-gray-600 {
-        color: #9ca3af !important;
-    }
-
-    html.dark .loan-categories h2,
-    html.dark .covering-loan-needs h2 {
-        color: #ffffff !important;
-    }
-
-    html.dark footer button {
-        color: #374151 !important;
-        background-color: #fce8e8 !important;
-    }
-
-    html.dark [style*="background-color: #fce8e8"] {
-        color: #374151 !important;
-    }
-
-    html.dark .blog-header h1,
-    html.dark .service-header h1 {
-        color: #374151 !important;
-    }
-
-    /* Content headings white in dark mode */
-    html.dark .bg-\\[var\\(--bg-primary\\)\\] h2,
-    html.dark .bg-\\[var\\(--bg-primary\\)\\] h3,
-    html.dark section h2,
-    html.dark section h3 {
-        color: #ffffff !important;
-    }
-    
-    /* Pink sections stay light with dark text */
-    html.dark .blog-header,
-    html.dark .service-header,
-    html.dark [style*="background-color: #fce8e8"],
-    html.dark .bg-red-50 {
-        background-color: #fce8e8 !important;
-        color: #374151 !important;
-    }
-    
-    html.dark .blog-header *,
-    html.dark .service-header *,
-    html.dark [style*="background-color: #fce8e8"] *,
-    html.dark .bg-red-50 * {
-        color: #374151 !important;
-    }
-    
-    /* Red buttons to pink with grey text in dark mode */
-    html.dark .bg-red-600,
-    html.dark [style*="background-color: red"],
-    html.dark .bg-brand-red {
-        background-color: #fce8e8 !important;
-        color: #374151 !important;
-    }
-
-    /* Header stays same in both modes */
-    html.dark header {
-        background-color: white !important;
-    }
-    
-    html.dark header nav a {
-        color: #4b5563 !important;
-    }
-    
-    html.dark header .text-gray-700 {
-        color: #4b5563 !important;
-    }
-    
-    html.dark header button[style*="border-color: #fce8e8"] {
-        border-color: #fce8e8 !important;
-        color: #4b5563 !important;
-    }
-
-    /* iOS Safari Fixes */
-    @supports (-webkit-touch-callout: none) {
-      header {
-        width: 100% !important;
-        min-width: 100vw !important;
-        margin: 0 !important;
-        box-sizing: border-box !important;
-        padding-left: env(safe-area-inset-left, 0) !important;
-        padding-right: env(safe-area-inset-right, 0) !important;
-        background-color: white !important;
-        position: relative !important;
-        z-index: 50 !important;
-      }
-      
-      header .container {
-        max-width: none !important;
-        width: 100% !important;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
-        margin: 0 !important;
-      }
-      
-      body {
-        overflow-x: hidden !important;
-      }
-      
-      html.dark header {
-        background-color: white !important;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.1) !important;
-      }
-      
-      html.dark body {
-        background-color: #1f2937 !important;
-      }
-    }
-
-    @media (max-width: 768px) { 
-      .desktop-nav { display: none; }
-      
-      header {
-        width: 100% !important;
-        margin: 0 !important;
-      }
-    }
-  </style>
-
-  <!-- GTM Noscript - moved to bottom -->
+  // OPTIMIZED: Load tracking scripts after interaction (if production)
   {% if jekyll.environment == "production" %}
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MLJ92WJ4"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=1490822172125687&ev=PageView&noscript=1" /></noscript>
-  {% endif %}
+  if (!window.trackingLoaded) {
+    window.trackingLoaded = true;
+    
+    // Minimal GTM load
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-MLJ92WJ4');
 
-</body>
-</html>
+    // Minimal Facebook Pixel
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1490822172125687');
+    fbq('track', 'PageView');
+  }
+  {% endif %}
+}
+
+// OPTIMIZED: Load on first interaction OR after 2 seconds (whichever comes first)
+['mousedown', 'touchstart', 'keydown', 'scroll'].forEach(event => {
+  document.addEventListener(event, loadNonCriticalScripts, { once: true, passive: true });
+});
+setTimeout(loadNonCriticalScripts, 2000);
+
+// Modal functions (keep these critical)
+window.openSupportModal = function() {
+  const modal = document.getElementById('support-modal');
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+};
+
+window.closeSupportModal = function() {
+  const modal = document.getElementById('support-modal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+};
+
+// Close modal handlers
+document.addEventListener('click', function(event) {
+  const modal = document.getElementById('support-modal');
+  if (event.target === modal) closeSupportModal();
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') closeSupportModal();
+});
+</script>
