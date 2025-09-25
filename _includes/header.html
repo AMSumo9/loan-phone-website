@@ -1,37 +1,203 @@
-<!-- FIND THESE BUTTONS IN YOUR _includes/header.html AND UPDATE THEM -->
+<!-- Header - OPTIMIZED FOR PAGESPEED -->
+<header class="bg-white shadow-lg sticky top-0 z-40">
+    <div class="container mx-auto px-6">
+        <div class="flex items-center justify-between h-24">
+            <!-- Logo with Phone Icon - CAPITALIZED -->
+            <div class="flex items-center">
+                <a href="{{ site.baseurl }}/" class="flex items-center space-x-4" aria-label="The Loan Phone - Home">
+                    <i class="fas fa-phone-alt text-5xl text-red-600" aria-hidden="true"></i>
+                    <div class="text-5xl font-bold text-red-600" style="font-family: 'Poppins', sans-serif;">
+                        THE LOAN PHONE
+                    </div>
+                </a>
+            </div>
 
-<!-- Theme toggle desktop button -->
-<button 
-  id="theme-toggle-desktop" 
-  aria-label="Toggle dark mode"
-  aria-describedby="theme-status"
-  class="p-2 text-gray-600 hover:text-red-600 transition duration-200"
->
-  <i class="fas fa-moon"></i>
-</button>
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Main navigation">
+                {% for item in site.data.navigation.main %}
+                    {% if item.type == "anchor" %}
+                        <!-- FIXED: How It Works link -->
+                        {% if item.name == "How It Works" %}
+                            <a href="{{ site.baseurl }}/#how-it-works" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium text-lg">
+                                {{ item.name }}
+                            </a>
+                        {% else %}
+                            <a href="{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium text-lg">
+                                {{ item.name }}
+                            </a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{{ site.baseurl }}{{ item.url }}" class="text-gray-700 hover:text-red-600 transition duration-200 font-medium text-lg">
+                            {{ item.name }}
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </nav>
 
-<!-- Mobile menu button -->
-<button 
-  id="mobile-menu-button" 
-  onclick="toggleMobileMenu()"
-  aria-label="Open mobile menu"
-  aria-expanded="false"
-  aria-controls="mobile-menu"
-  class="text-red-600 hover:text-red-700 focus:outline-none"
->
-  <i class="fas fa-bars text-2xl"></i>
-</button>
+            <!-- Right Side: Dark Mode + CTA Buttons -->
+            <div class="hidden md:flex items-center space-x-3">
+                <!-- OPTIMIZED: Dark Mode Toggle with accessibility -->
+                <button 
+                    id="theme-toggle-desktop" 
+                    class="p-2 text-gray-600 hover:text-red-600 transition duration-200"
+                    aria-label="Toggle dark mode"
+                    aria-describedby="theme-status"
+                    type="button"
+                >
+                    <i class="fas fa-moon text-xl" aria-hidden="true"></i>
+                </button>
+                
+                <!-- CTA Buttons - LIGHT PINK BACKGROUND COLOR -->
+                <a href="tel:{{ site.contact.phone }}" 
+                   class="inline-flex items-center px-5 py-3 text-gray-800 font-semibold rounded-lg transition duration-200 hover:opacity-80 text-lg"
+                   style="background-color: #fce8e8;"
+                   aria-label="Call {{ site.contact.phone_display }} to speak with a loan expert"
+                >
+                    <i class="fas fa-phone mr-2" aria-hidden="true"></i>
+                    Speak to an Expert
+                </a>
+                
+                <button onclick="openSupportModal()" 
+                        class="inline-flex items-center px-5 py-3 border-2 text-gray-700 font-semibold rounded-lg hover:opacity-80 transition duration-200 text-lg"
+                        style="border-color: #fce8e8; background-color: transparent;"
+                        aria-label="Open contact form to submit inquiry"
+                        type="button"
+                >
+                    <i class="fas fa-edit mr-2" aria-hidden="true"></i>
+                    Submit Inquiry
+                </button>
+            </div>
 
-<!-- Theme toggle mobile button -->
-<button 
-  id="theme-toggle-mobile" 
-  aria-label="Toggle dark mode"
-  class="p-2 text-gray-600 hover:text-red-600 transition duration-200"
->
-  <i class="fas fa-moon"></i>
-</button>
+            <!-- Mobile menu button + dark mode -->
+            <div class="md:hidden flex items-center space-x-2">
+                <!-- Mobile Dark Mode Toggle -->
+                <button 
+                    id="theme-toggle-mobile" 
+                    class="p-2 text-gray-600 hover:text-red-600 transition duration-200"
+                    aria-label="Toggle dark mode"
+                    type="button"
+                >
+                    <i class="fas fa-moon text-xl" aria-hidden="true"></i>
+                </button>
+                
+                <button 
+                    id="mobile-menu-button"
+                    class="text-red-600 hover:text-red-700 focus:outline-none"
+                    aria-label="Open mobile menu"
+                    aria-expanded="false"
+                    aria-controls="mobile-menu"
+                    type="button"
+                >
+                    <i class="fas fa-bars text-2xl" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
-<!-- Add this hidden status element for screen readers -->
-<div id="theme-status" class="sr-only">
-  Current theme: <span id="current-theme">light mode</span>
-</div>
+    <!-- OPTIMIZED: Mobile Navigation Menu with proper ARIA -->
+    <nav id="mobile-menu" 
+         class="md:hidden bg-white border-t border-gray-200 mobile-nav"
+         role="navigation" 
+         aria-label="Mobile navigation"
+         aria-hidden="true"
+    >
+        <div class="px-6 py-4 space-y-4">
+            {% for item in site.data.navigation.main %}
+                {% if item.type == "anchor" %}
+                    {% if item.name == "How It Works" %}
+                        <a href="{{ site.baseurl }}/#how-it-works" class="block text-gray-700 hover:text-red-600 font-medium text-lg">
+                            {{ item.name }}
+                        </a>
+                    {% else %}
+                        <a href="{{ item.url }}" class="block text-gray-700 hover:text-red-600 font-medium text-lg">
+                            {{ item.name }}
+                        </a>
+                    {% endif %}
+                {% else %}
+                    <a href="{{ site.baseurl }}{{ item.url }}" class="block text-gray-700 hover:text-red-600 font-medium text-lg">
+                        {{ item.name }}
+                    </a>
+                {% endif %}
+            {% endfor %}
+            
+            <!-- Mobile CTA Buttons - LIGHT PINK -->
+            <div class="pt-4 border-t border-gray-200 space-y-3">
+                <a href="tel:{{ site.contact.phone }}" 
+                   class="block w-full text-center px-4 py-3 text-gray-800 font-semibold rounded-lg text-lg"
+                   style="background-color: #fce8e8;"
+                   aria-label="Call {{ site.contact.phone_display }} to speak with a loan expert"
+                >
+                    <i class="fas fa-phone mr-2" aria-hidden="true"></i>
+                    Speak to an Expert
+                </a>
+                
+                <button onclick="openSupportModal()" 
+                        class="block w-full px-4 py-3 border-2 text-gray-700 font-semibold rounded-lg text-lg"
+                        style="border-color: #fce8e8;"
+                        aria-label="Open contact form to submit inquiry"
+                        type="button"
+                >
+                    <i class="fas fa-edit mr-2" aria-hidden="true"></i>
+                    Submit Inquiry
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hidden status for screen readers -->
+    <div id="theme-status" class="sr-only">
+        Current theme: <span id="current-theme">light mode</span>
+    </div>
+</header>
+
+<!-- OPTIMIZED: Move CSS to prevent render blocking - add to default.html instead of inline -->
+<script>
+// OPTIMIZED: Efficient mobile menu toggle with accessibility updates
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', function() {
+            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle menu visibility
+            mobileMenu.classList.toggle('active');
+            
+            // Update ARIA attributes for accessibility
+            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.setAttribute('aria-hidden', isExpanded);
+            
+            // Update icon for visual feedback
+            const icon = mobileMenuButton.querySelector('i');
+            icon.className = mobileMenu.classList.contains('active') 
+                ? 'fas fa-times text-2xl' 
+                : 'fas fa-bars text-2xl';
+        });
+        
+        // Close menu when clicking links (prevent need for separate toggleMobileMenu function)
+        const menuLinks = mobileMenu.querySelectorAll('a, button');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (link.tagName === 'A') { // Only close for navigation links, not form buttons
+                    mobileMenu.classList.remove('active');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    mobileMenuButton.querySelector('i').className = 'fas fa-bars text-2xl';
+                }
+            });
+        });
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                mobileMenu.setAttribute('aria-hidden', 'true');
+                mobileMenuButton.querySelector('i').className = 'fas fa-bars text-2xl';
+                mobileMenuButton.focus(); // Return focus to button
+            }
+        });
+    }
+});
+</script>
